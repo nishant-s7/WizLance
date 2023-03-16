@@ -1,0 +1,16 @@
+:root{
+    --color1:  #1D376B;
+    --color2:  #87A9ED; 
+    --color3:  #3F78EB; 
+    --color4:  #3D4C6B;
+    --color5:  #325EB8;;
+}
+
+.header, .footer{
+    background-color: var(--color1);
+    color: white;
+}
+
+li{
+    font-weight: lighter;
+}
