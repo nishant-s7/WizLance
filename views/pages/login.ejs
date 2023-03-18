@@ -1,0 +1,45 @@
+
+
+
+<head>
+  <%- include('../partials/head') %>
+</head>
+
+<body>
+  <header>
+    <%- include('../partials/header_nol') %>
+  </header>
+  <div id="body">
+    <div class="container" id="container">
+      <div class="form-container sign-in-container">
+        <form action="/login" method="post">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/10020/10020260.png"
+            alt="Avatar"
+            height="90vh"
+            alt="Avatar"
+          />
+          <h3>Login</h3>
+          <br />
+          <input type="text" name="email_address"placeholder="Email" />
+          <input type="password" name="login_password" placeholder="Password" />
+          <a href="#">Forgot your password?</a>
+          <button>Log In</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-right">
+            <h1>New here?</h1>
+            <p>
+              Register and discover new opportunities with us. Register now!
+            </p>
+            <!-- <input type="button" class="reg" id="register" value="Register" hre> -->
+            <a href="/register"> <button class="reg" id="register">Register</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+
