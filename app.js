@@ -70,7 +70,7 @@ app.post("/signup", async(req, res) => {
                 console.log(err);
             } else {
               logedIn = true;
-                res.redirect("pages/mainpage");
+                res.redirect("mainpage");
             }
         });
     }
@@ -99,7 +99,7 @@ app.post("/login", async (req, res) => {
             console.log(row.password);
             if (row.password === password) {
                 logedIn = true;
-                res.redirect("/Mainpage")
+                res.redirect("/mainpage")
             }else {
                 res.send("Invalid login details 1");
             }
