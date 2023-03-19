@@ -574,12 +574,24 @@ video {
   z-index: 10;
 }
 
+.-m-1 {
+  margin: -0.25rem;
+}
+
 .-m-4 {
   margin: -1rem;
 }
 
 .m-1 {
   margin: 0.25rem;
+}
+
+.m-10 {
+  margin: 2.5rem;
+}
+
+.m-4 {
+  margin: 1rem;
 }
 
 .mx-2 {
@@ -630,6 +642,10 @@ video {
   margin-left: 0.5rem;
 }
 
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
 .ml-4 {
   margin-left: 1rem;
 }
@@ -656,6 +672,10 @@ video {
 
 .inline-flex {
   display: inline-flex;
+}
+
+.table {
+  display: table;
 }
 
 .hidden {
@@ -770,8 +790,17 @@ video {
   border-width: 2px;
 }
 
+.border-4 {
+  border-width: 4px;
+}
+
 .border-\[var\(--color1\)\] {
   border-color: var(--color1);
+}
+
+.border-cyan-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(103 232 249 / var(--tw-border-opacity));
 }
 
 .bg-\[var\(--color1\)\] {
@@ -795,6 +824,34 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[url\(\'https\:\/\/encrypted-tbn0\.gstatic\.com\/images\?q\=tbn\:ANd9GcQqJ-wJQjUizsusbxpViBEAnVi-aUMoYSpaNA\&usqp\=CAU\'\)\] {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqJ-wJQjUizsusbxpViBEAnVi-aUMoYSpaNA&usqp=CAU');
+}
+
+.bg-\[url\(\'https\:\/\/encrypted-tbn0\.gstatic\.com\/images\?q\=tbn\:ANd9GcRrUszBUIO9WX0WoR971XQX9g_FZk2KdSnGRA\&usqp\=CAU\'\)\] {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrUszBUIO9WX0WoR971XQX9g_FZk2KdSnGRA&usqp=CAU');
+}
+
+.bg-\[url\(\'https\:\/\/images\.unsplash\.com\/photo-1497091071254-cc9b2ba7c48a\?ixlib\=rb-4\.0\.3\&ixid\=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGdyYXBoaWMlMjBkZXNpZ258ZW58MHx8MHx8\&w\=1000\&q\=80\'\)\] {
+  background-image: url('https://images.unsplash.com/photo-1497091071254-cc9b2ba7c48a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGdyYXBoaWMlMjBkZXNpZ258ZW58MHx8MHx8&w=1000&q=80');
+}
+
+.bg-\[url\(\'https\:\/\/media\.istockphoto\.com\/id\/537331500\/photo\/programming-code-abstract-technology-background-of-software-deve\.jpg\?s\=612x612\&w\=0\&k\=20\&c\=jlYes8ZfnCmD0lLn-vKvzQoKXrWaEcVypHnB5MuO-g8\=\'\)\] {
+  background-image: url('https://media.istockphoto.com/id/537331500/photo/programming-code-abstract-technology-background-of-software-deve.jpg?s=612x612&w=0&k=20&c=jlYes8ZfnCmD0lLn-vKvzQoKXrWaEcVypHnB5MuO-g8=');
+}
+
+.bg-\[url\(\'https\:\/\/wallpapers\.com\/images\/featured\/3wxim1i2egqb5my9\.jpg\'\)\] {
+  background-image: url('https://wallpapers.com/images/featured/3wxim1i2egqb5my9.jpg');
+}
+
+.bg-\[url\(\'https\:\/\/www\.translatedright\.com\/wp-content\/uploads\/2020\/02\/quality-legal-translation-service\.jpg\'\)\] {
+  background-image: url('https://www.translatedright.com/wp-content/uploads/2020/02/quality-legal-translation-service.jpg');
+}
+
+.bg-cover {
+  background-size: cover;
 }
 
 .object-cover {
@@ -841,6 +898,11 @@ video {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .py-2 {
@@ -890,6 +952,10 @@ video {
   font-weight: 700;
 }
 
+.font-extrabold {
+  font-weight: 800;
+}
+
 .font-light {
   font-weight: 300;
 }
@@ -924,6 +990,11 @@ video {
 
 .text-\[var\(--color5\)\] {
   color: var(--color5);
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-cyan-400 {
@@ -1034,6 +1105,10 @@ video {
 }
 
 @media (min-width: 1280px) {
+  .xl\:w-1\/4 {
+    width: 25%;
+  }
+
   .xl\:w-1\/5 {
     width: 20%;
   }
