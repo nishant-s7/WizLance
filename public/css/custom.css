@@ -6,11 +6,6 @@
     --color5:  #325EB8;;
 }
 
-.header, .footer{
-    background-color: var(--color1);
-    color: white;
-}
-
 .footer li{
     font-weight: lighter;
 }

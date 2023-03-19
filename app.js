@@ -19,10 +19,10 @@ app.use(express.static(__dirname + "/public"));
 app.set('view engine', 'ejs');
 
 
-let logedIn = false;
+let loggedIn = false;
 
 app.get('/', function(req, res){
-    logedIn = false;
+    loggedIn = false;
     res.render('pages/landing_nol.ejs');
 });
 
@@ -69,7 +69,7 @@ app.post("/signup", async(req, res) => {
             if (err) {
                 console.log(err);
             } else {
-              logedIn = true;
+              loggedIn = true;
                 res.redirect("mainpage");
             }
         });
@@ -98,8 +98,8 @@ app.post("/login", async (req, res) => {
             console.log(password);
             console.log(row.password);
             if (row.password === password) {
-                logedIn = true;
-                res.redirect("/mainpage")
+                loggedIn = true;
+                res.redirect("mainpage")
             }else {
                 res.send("Invalid login details 1");
             }
@@ -110,13 +110,23 @@ app.post("/login", async (req, res) => {
   })
 
 app.get("/mainpage" , (req,res)=>{
-    if(logedIn){
+    if(loggedIn){
       res.render("pages/mainpage")
     }
     else{
-      res.redirect("pages/login")
+      res.redirect("login")
     }
-  })
+  });
+
+app.get('/graphics-design', (req, res) => {
+  if(loggedIn) res.render('pages/graphics-design');
+  else res.redirect('login');
+});
+
+app.get('/logo-design', (req, res) => {
+  if(loggedIn) res.render('pages/logo-design');
+  else res.redirect('login');
+});
 
 
 app.listen(3000, function(){
