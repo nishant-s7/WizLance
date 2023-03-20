@@ -126,13 +126,15 @@ app.get("/graphics-design", (req, res) => {
 });
 
 app.get("/logo-design", (req, res) => {
-  if (loggedIn) res.render("pages/logo-design");
-  else res.redirect("login");
+  console.log(loggedIn);
+  res.render("pages/logo-design", {loggedIn})
 });
 
 app.get("/profile-templates", (req, res) => {
-  if (loggedIn) res.render("pages/profile-templates");
-  else res.redirect("login");
+  // if (loggedIn) res.render("pages/profile-templates");
+  // else res.redirect("login");
+
+  res.render("pages/profile-templates",{loggedIn} )
 });
 
 app.get("/dashboard", (req, res, next) => {
