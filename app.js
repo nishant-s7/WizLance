@@ -128,6 +128,11 @@ app.get('/logo-design', (req, res) => {
   else res.redirect('login');
 });
 
+app.get('/profile-templates', (req, res) => {
+  if(loggedIn) res.render('pages/profile-templates');
+  else res.redirect('login');
+});
+
 
 app.listen(3000, function(){
     console.log("Server listening at 3000");
