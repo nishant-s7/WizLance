@@ -2,6 +2,9 @@ const express = require('express');
 
 const router = express.Router()
 
+// let loggedIn = false;
+
+
 router.get("/graphics-design", (req, res) => {
   res.render("pages/graphics-design", { loggedIn });
 });
@@ -26,12 +29,17 @@ router.get("/writing-translation", (req, res) => {
   res.render("pages/writing-translation", { loggedIn });
 });
 
-router.get("/logo-design", (req, res) => {
-  res.render("pages/logo-design", { loggedIn });
+router.get("/:pages/:categories", (req, res) => {
+  console.log(req.params.pages);
+  console.log( req.params.categories);
+  let mainparameters = req.params.pages
+ let parameters = req.params.categories;
+  res.render("pages/result-template", { loggedIn , parameters , mainparameters});
 });
 
-router.get("/logo-design/profile-templates", (req, res) => {
-  if (loggedIn) res.render("pages/profile-templates");
+router.get("/:pages/:categories/:profilePages", (req, res) => {
+ 
+  if (loggedIn) res.render("pages/profile-templates", );
   else res.redirect("login");
 });
 

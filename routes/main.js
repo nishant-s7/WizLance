@@ -2,6 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
+
 router.get("/", (req, res, next) => {
   loggedIn = false;
   res.render("pages/landing_nol.ejs");
