@@ -7,15 +7,15 @@
 
 <body>
   <header>
-    <% if (loggedIn === true) { %>
+    <% if(loggedIn === true){ %>
       <%- include('../partials/header') %>
-     <% } else { %>
-    <%- include('../partials/header_nol') %>
-    <% } %> 
+    <% } else{ %>  
+      <%- include('../partials/header_nol') %>
+   <% } %>
   </header>
 
   <div class="p-10">
-    <h1 class=" text-4xl">Logo Design</h1>
+    <h1 class=" text-4xl">Lorem, ipsum.</h1>
     <p class=" font-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, ipsa?</p>
 
     <section class="text-gray-600 body-font">
@@ -24,7 +24,7 @@
 
 
           <div class="lg:w-1/4 md:w-1/3 p-4 w-2/3 border-2 m-2 rounded-lg">
-            <a class="block relative h-52 rounded overflow-hidden" href="/profile-templates">
+            <a class="block relative h-52 rounded overflow-hidden" href="/logo-design/profile-templates">
               <img alt="ecommerce" class="object-cover object-center w-full h-full block"
                 src="https://dummyimage.com/420x260">
             </a>

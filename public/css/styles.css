@@ -830,10 +830,6 @@ video {
   height: 2.5rem;
 }
 
-.h-11 {
-  height: 2.75rem;
-}
-
 .h-12 {
   height: 3rem;
 }
@@ -1031,10 +1027,6 @@ video {
   max-width: 700px;
 }
 
-.max-w-lg {
-  max-width: 32rem;
-}
-
 .flex-shrink-0 {
   flex-shrink: 0;
 }
@@ -1045,10 +1037,6 @@ video {
 
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.list-none {
-  list-style-type: none;
 }
 
 .grid-cols-2 {
@@ -1125,17 +1113,6 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
-}
-
-.divide-x > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-x-reverse: 0;
-  border-right-width: calc(1px * var(--tw-divide-x-reverse));
-  border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
-}
-
-.divide-gray-100 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-opacity: 1;
-  border-color: rgb(243 244 246 / var(--tw-divide-opacity));
 }
 
 .justify-self-center {
@@ -1249,11 +1226,6 @@ video {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
-}
-
-.border-green-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(34 197 94 / var(--tw-border-opacity));
 }
 
 .border-indigo-400 {
@@ -1370,16 +1342,16 @@ video {
   background-image: url('https://cdn.pixabay.com/photo/2014/02/02/17/40/photographs-256888_1280.jpg');
 }
 
+.bg-\[url\(\'https\:\/\/d2ub1k1pknil0e\.cloudfront\.net\/media\/images\/camera-photography\.2e16d0ba\.fill-1200x630\.format-jpeg\.jpg\'\)\] {
+  background-image: url('https://d2ub1k1pknil0e.cloudfront.net/media/images/camera-photography.2e16d0ba.fill-1200x630.format-jpeg.jpg');
+}
+
 .bg-\[url\(\'https\:\/\/encrypted-tbn0\.gstatic\.com\/images\?q\=tbn\:ANd9GcQqJ-wJQjUizsusbxpViBEAnVi-aUMoYSpaNA\&usqp\=CAU\'\)\] {
   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqJ-wJQjUizsusbxpViBEAnVi-aUMoYSpaNA&usqp=CAU');
 }
 
 .bg-\[url\(\'https\:\/\/encrypted-tbn0\.gstatic\.com\/images\?q\=tbn\:ANd9GcR_Ic009YLudrjiR7xQ29EcjlOXe_Ro-F97V3-CHh6rzmKn4y2_en8p0zn596Kdo9b9M5k\&usqp\=CAU\'\)\] {
   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Ic009YLudrjiR7xQ29EcjlOXe_Ro-F97V3-CHh6rzmKn4y2_en8p0zn596Kdo9b9M5k&usqp=CAU');
-}
-
-.bg-\[url\(\'https\:\/\/encrypted-tbn0\.gstatic\.com\/images\?q\=tbn\:ANd9GcRrUszBUIO9WX0WoR971XQX9g_FZk2KdSnGRA\&usqp\=CAU\'\)\] {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrUszBUIO9WX0WoR971XQX9g_FZk2KdSnGRA&usqp=CAU');
 }
 
 .bg-\[url\(\'https\:\/\/i\.pinimg\.com\/736x\/7d\/d9\/c2\/7dd9c2ded4abab02c41b261d6b06f3ba\.jpg\'\)\] {
@@ -1394,12 +1366,28 @@ video {
   background-image: url('https://img.freepik.com/free-photo/acoustic-guitar-close-up-beautiful-colored-background_169016-3530.jpg');
 }
 
+.bg-\[url\(\'https\:\/\/img\.freepik\.com\/free-photo\/top-view-kraft-spiral-notebooks-with-pen-dark-background_140725-141658\.jpg\'\)\] {
+  background-image: url('https://img.freepik.com/free-photo/top-view-kraft-spiral-notebooks-with-pen-dark-background_140725-141658.jpg');
+}
+
+.bg-\[url\(\'https\:\/\/img\.freepik\.com\/premium-photo\/programming-code-abstract-technology-background-software-developer-computer-script_34663-31\.jpg\'\)\] {
+  background-image: url('https://img.freepik.com/premium-photo/programming-code-abstract-technology-background-software-developer-computer-script_34663-31.jpg');
+}
+
 .bg-\[url\(\'https\:\/\/leverageedu\.com\/blog\/wp-content\/uploads\/2019\/11\/Masters-in-Game-Development\.jpg\'\)\] {
   background-image: url('https://leverageedu.com/blog/wp-content/uploads/2019/11/Masters-in-Game-Development.jpg');
 }
 
 .bg-\[url\(\'https\:\/\/media\.istockphoto\.com\/id\/537331500\/photo\/programming-code-abstract-technology-background-of-software-deve\.jpg\?s\=612x612\&w\=0\&k\=20\&c\=jlYes8ZfnCmD0lLn-vKvzQoKXrWaEcVypHnB5MuO-g8\=\'\)\] {
   background-image: url('https://media.istockphoto.com/id/537331500/photo/programming-code-abstract-technology-background-of-software-deve.jpg?s=612x612&w=0&k=20&c=jlYes8ZfnCmD0lLn-vKvzQoKXrWaEcVypHnB5MuO-g8=');
+}
+
+.bg-\[url\(\'https\:\/\/media\.uaudio\.com\/assetlibrary\/b\/l\/blog_5_audio_mastering_tips_hero\.jpg\'\)\] {
+  background-image: url('https://media.uaudio.com/assetlibrary/b/l/blog_5_audio_mastering_tips_hero.jpg');
+}
+
+.bg-\[url\(\'https\:\/\/wallpapercave\.com\/wp\/wp1816259\.jpg\'\)\] {
+  background-image: url('https://wallpapercave.com/wp/wp1816259.jpg');
 }
 
 .bg-\[url\(\'https\:\/\/wallpapers\.com\/images\/featured\/3wxim1i2egqb5my9\.jpg\'\)\] {
@@ -1446,6 +1434,14 @@ video {
 
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-20 {
+  padding: 5rem;
+}
+
+.p-32 {
+  padding: 8rem;
 }
 
 .p-4 {
@@ -1539,6 +1535,14 @@ video {
 
 .pb-4 {
   padding-bottom: 1rem;
+}
+
+.pb-40 {
+  padding-bottom: 10rem;
+}
+
+.pb-80 {
+  padding-bottom: 20rem;
 }
 
 .pl-10 {
@@ -1758,12 +1762,6 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.shadow {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -1799,11 +1797,6 @@ video {
 .hover\:bg-blue-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-gray-100:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-gray-200:hover {
