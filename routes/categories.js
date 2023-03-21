@@ -2,7 +2,6 @@ const express = require('express');
 
 const router = express.Router()
 
-// let loggedIn = false;
 
 
 router.get("/graphics-design", (req, res) => {
@@ -39,8 +38,8 @@ router.get("/:pages/:categories", (req, res) => {
 
 router.get("/:pages/:categories/:profilePages", (req, res) => {
  
-  if (loggedIn) res.render("pages/profile-templates", );
-  else res.redirect("login");
+   res.render("pages/profile-templates",{ loggedIn } );
+  
 });
 
 module.exports = router
