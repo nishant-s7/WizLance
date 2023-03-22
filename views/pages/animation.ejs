@@ -22,38 +22,76 @@
 
     <div>
         <div class="sub-categories flex flex-wrap justify-evenly font-light p-4">
-            <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/animation/Character Animation">
+            <% if (loggedIn === true) { %>
+                <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                    <a href="/mainpage/animation/Character Animation">
+                        <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                            src="https://assets-prd.ignimgs.com/2022/03/28/36190303pixar-blogrolledit2-1648234304315-1648499015772.jpg"><br>
+                        <h1 class="text-2xl font-bold">Character Animation</h1>
+                        ehfvng<br>
+                    </a>
+                </div>
+                <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                    <a href="/mainpage/animation/3D Animation">
                     <img class="h-40 rounded-lg w-full object-cover object-center border-2"
-                        src="https://assets-prd.ignimgs.com/2022/03/28/36190303pixar-blogrolledit2-1648234304315-1648499015772.jpg"><br>
-                    <h1 class="text-2xl font-bold">Character Animation</h1>
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwT8Rl4ygmZGvhllxInXQkwFCGoRLZG6ZQVA&usqp=CAU"><br>
+                    <h1 class="text-2xl font-bold">3D Animation</h1>
                     ehfvng<br>
                 </a>
-            </div>
-            <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/animation/3D Animation">
-                <img class="h-40 rounded-lg w-full object-cover object-center border-2"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwT8Rl4ygmZGvhllxInXQkwFCGoRLZG6ZQVA&usqp=CAU"><br>
-                <h1 class="text-2xl font-bold">3D Animation</h1>
-                ehfvng<br>
-            </a>
-            </div>
-            <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/animation/2D Animation">
-                <img class="h-40 rounded-lg w-full object-cover object-center border-2"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpmTk1xTESdENOx5WJHVGECxLSDfCefhTcYw&usqp=CAU"><br>
-                <h1 class="text-2xl font-bold">2D Animation</h1>
-                ehfvng<br>
-            </a>
-            </div>
-            <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/animation/Anime">
-                <img class="h-40 rounded-lg w-full object-cover object-center border-2"
-                    src="https://live-production.wcms.abc-cdn.net.au/80f0b80f9c9ace72921a5ccf30940786?impolicy=wcms_crop_resize&cropH=846&cropW=1269&xPos=118&yPos=0&width=862&height=575"><br>
-                <h1 class="text-2xl font-bold">Anime</h1>
-                ehfvng<br>
-            </a>
-            </div>
+                </div>
+                <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                    <a href="/mainpage/animation/2D Animation">
+                    <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpmTk1xTESdENOx5WJHVGECxLSDfCefhTcYw&usqp=CAU"><br>
+                    <h1 class="text-2xl font-bold">2D Animation</h1>
+                    ehfvng<br>
+                </a>
+                </div>
+                <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                    <a href="/mainpage/animation/Anime">
+                    <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                        src="https://live-production.wcms.abc-cdn.net.au/80f0b80f9c9ace72921a5ccf30940786?impolicy=wcms_crop_resize&cropH=846&cropW=1269&xPos=118&yPos=0&width=862&height=575"><br>
+                    <h1 class="text-2xl font-bold">Anime</h1>
+                    ehfvng<br>
+                </a>
+                </div>
+                <% } else { %>
+
+
+                    <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                        <a href="/landing page/animation/Character Animation">
+                            <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                                src="https://assets-prd.ignimgs.com/2022/03/28/36190303pixar-blogrolledit2-1648234304315-1648499015772.jpg"><br>
+                            <h1 class="text-2xl font-bold">Character Animation</h1>
+                            ehfvng<br>
+                        </a>
+                    </div>
+                    <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                        <a href="/landing page/animation/3D Animation">
+                        <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwT8Rl4ygmZGvhllxInXQkwFCGoRLZG6ZQVA&usqp=CAU"><br>
+                        <h1 class="text-2xl font-bold">3D Animation</h1>
+                        ehfvng<br>
+                    </a>
+                    </div>
+                    <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                        <a href="/landing page/animation/2D Animation">
+                        <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpmTk1xTESdENOx5WJHVGECxLSDfCefhTcYw&usqp=CAU"><br>
+                        <h1 class="text-2xl font-bold">2D Animation</h1>
+                        ehfvng<br>
+                    </a>
+                    </div>
+                    <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                        <a href="/landing page/animation/Anime">
+                        <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                            src="https://live-production.wcms.abc-cdn.net.au/80f0b80f9c9ace72921a5ccf30940786?impolicy=wcms_crop_resize&cropH=846&cropW=1269&xPos=118&yPos=0&width=862&height=575"><br>
+                        <h1 class="text-2xl font-bold">Anime</h1>
+                        ehfvng<br>
+                    </a>
+                    </div>
+                    <% } %>
+           
         </div>
     </div>
 

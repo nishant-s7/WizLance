@@ -2,65 +2,96 @@
 <html lang="en">
 
 <head>
-    <%- include('../partials/head') %>
+  <%- include('../partials/head') %>
 </head>
 
 <body>
-    <div class="bg-[url('https://d2ub1k1pknil0e.cloudfront.net/media/images/camera-photography.2e16d0ba.fill-1200x630.format-jpeg.jpg')] bg-cover">
+  <div class="bg-[url('https://d2ub1k1pknil0e.cloudfront.net/media/images/camera-photography.2e16d0ba.fill-1200x630.format-jpeg.jpg')] bg-cover">
     <header>
-        <% if(loggedIn === true){ %>
-            <%- include('../partials/header_category') %>
-          <% } else{ %>  
-            <%- include('../partials/header_category_nol') %>
-         <% } %>
+      <% if(loggedIn === true){ %>
+      <%- include('../partials/header_category') %>
+      <% } else{ %>
+      <%- include('../partials/header_category_nol') %>
+      <% } %>
     </header>
 
     <div class="text-white font-bold items-center flex justify-center p-40 text-4xl h-40 pb-14">
-        <h1>Photography</h1>
+      <h1>Photography</h1>
     </div>
     <br> <br> <br> <br>
-    </div>
+  </div>
 
-    <div>
-        <div class="sub-categories flex flex-wrap justify-evenly font-light p-4">
-            <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/Photography/product photography">
-                    <img class="h-40 rounded-lg w-full object-cover object-center border-2"
-                        src="https://www.prodoto.com/uploads/images/articles/_w1600/creating-an-ideal-brief-for-product-photography-shoot-perfume-product.jpg"><br>
-                    <h1 class="text-2xl font-bold">Product Photography</h1>
-                    ehfvng<br>
-                </a>
-            </div>
-            <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/Photography/Food Photography">
-                <img class="h-40 rounded-lg w-full object-cover object-center border-2"
-                    src="https://www.adorama.com/alc/wp-content/uploads/2021/11/Food-Photography-RMalayeri-1.jpg"><br>
-                <h1 class="text-2xl font-bold">Food Photography</h1>
-                ehfvng<br>
-            </a>
-            </div>
-            <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/Photography/Fashion Photography">
-                <img class="h-40 rounded-lg w-full object-cover object-center border-2"
-                    src="https://img.freepik.com/premium-vector/fashion-photographer-vector-illustration-professional-people-with-camera-make-photography-woman-character-model-cartoon-studio_109722-4984.jpg?w=2000"><br>
-                <h1 class="text-2xl font-bold">Fashion Photography</h1>
-                ehfvng<br>
-            </a>
-            </div>
-            <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/Photography/Wildlife Photography">
-                <img class="h-40 rounded-lg w-full object-cover object-center border-2"
-                    src="https://thumbs.dreamstime.com/b/wildlife-photographer-sunset-12866168.jpg"><br>
-                <h1 class="text-2xl font-bold">Wildlife Photography</h1>
-                ehfvng<br>
-            </a>
-            </div>
-        </div>
-    </div>
+  <div>
+    <div class="sub-categories flex flex-wrap justify-evenly font-light p-4">
+      <% if (loggedIn === true) { %>
 
-    <footer>
-        <%- include('../partials/footer') %>
-    </footer>
+      <div class="sc xl:w-1/5 md:w-1/2 p-4">
+        <a href="/mainpage/photography/product photography">
+          <img class="h-40 rounded-lg w-full object-cover object-center border-2" src="https://www.prodoto.com/uploads/images/articles/_w1600/creating-an-ideal-brief-for-product-photography-shoot-perfume-product.jpg"><br>
+          <h1 class="text-2xl font-bold">Product Photography</h1>
+          ehfvng<br>
+        </a>
+      </div>
+      <div class="sc xl:w-1/5 md:w-1/2 p-4">
+        <a href="/mainpage/hotography/Food Photography">
+          <img class="h-40 rounded-lg w-full object-cover object-center border-2" src="https://www.adorama.com/alc/wp-content/uploads/2021/11/Food-Photography-RMalayeri-1.jpg"><br>
+          <h1 class="text-2xl font-bold">Food Photography</h1>
+          ehfvng<br>
+        </a>
+      </div>
+      <div class="sc xl:w-1/5 md:w-1/2 p-4">
+        <a href="/mainpage/photography/Fashion Photography">
+          <img class="h-40 rounded-lg w-full object-cover object-center border-2" src="https://img.freepik.com/premium-vector/fashion-photographer-vector-illustration-professional-people-with-camera-make-photography-woman-character-model-cartoon-studio_109722-4984.jpg?w=2000"><br>
+          <h1 class="text-2xl font-bold">Fashion Photography</h1>
+          ehfvng<br>
+        </a>
+      </div>
+      <div class="sc xl:w-1/5 md:w-1/2 p-4">
+        <a href="/mainpage/photography/Wildlife Photography">
+          <img class="h-40 rounded-lg w-full object-cover object-center border-2" src="https://thumbs.dreamstime.com/b/wildlife-photographer-sunset-12866168.jpg"><br>
+          <h1 class="text-2xl font-bold">Wildlife Photography</h1>
+          ehfvng<br>
+        </a>
+      </div>
+
+      <% } else { %>
+
+      <div class="sc xl:w-1/5 md:w-1/2 p-4">
+        <a href="/landing page/photography/product photography">
+          <img class="h-40 rounded-lg w-full object-cover object-center border-2" src="https://www.prodoto.com/uploads/images/articles/_w1600/creating-an-ideal-brief-for-product-photography-shoot-perfume-product.jpg"><br>
+          <h1 class="text-2xl font-bold">Product Photography</h1>
+          ehfvng<br>
+        </a>
+      </div>
+      <div class="sc xl:w-1/5 md:w-1/2 p-4">
+        <a href="/landing page/hotography/Food Photography">
+          <img class="h-40 rounded-lg w-full object-cover object-center border-2" src="https://www.adorama.com/alc/wp-content/uploads/2021/11/Food-Photography-RMalayeri-1.jpg"><br>
+          <h1 class="text-2xl font-bold">Food Photography</h1>
+          ehfvng<br>
+        </a>
+      </div>
+      <div class="sc xl:w-1/5 md:w-1/2 p-4">
+        <a href="/landing page/photography/Fashion Photography">
+          <img class="h-40 rounded-lg w-full object-cover object-center border-2" src="https://img.freepik.com/premium-vector/fashion-photographer-vector-illustration-professional-people-with-camera-make-photography-woman-character-model-cartoon-studio_109722-4984.jpg?w=2000"><br>
+          <h1 class="text-2xl font-bold">Fashion Photography</h1>
+          ehfvng<br>
+        </a>
+      </div>
+      <div class="sc xl:w-1/5 md:w-1/2 p-4">
+        <a href="/landing page/photography/Wildlife Photography">
+          <img class="h-40 rounded-lg w-full object-cover object-center border-2" src="https://thumbs.dreamstime.com/b/wildlife-photographer-sunset-12866168.jpg"><br>
+          <h1 class="text-2xl font-bold">Wildlife Photography</h1>
+          ehfvng<br>
+        </a>
+      </div>
+
+      <% } %>
+    </div>
+  </div>
+
+  <footer>
+    <%- include('../partials/footer') %>
+  </footer>
 </body>
 
 </html>

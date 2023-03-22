@@ -82,7 +82,7 @@ router.post("/login", async (req, res, next) => {
         console.log(row.password);
         if (row.password === password) {
           loggedIn = true;
-          res.redirect("mainpage");
+          res.redirect("/mainpage");
         } else {
           res.send("Invalid login details 1");
         }

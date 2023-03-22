@@ -23,8 +23,48 @@
 
     <div>
         <div class="sub-categories flex flex-wrap justify-evenly font-light p-4">
+            <% if (loggedIn === true) { %>
+
+                <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                    <a href="/mainpage/programming tech/App Development">
+                        <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                            src="https://www.mantralabsglobal.com/wp-content/uploads/2017/05/Android_thumb800.jpg"><br>
+                        <h1 class="text-2xl font-bold">App Development</h1>
+                        ehfvng<br>
+                    </a>
+                </div>
+                <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                    <a href="/mainpage/programming tech/Game Development">
+                    <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                        src="https://leverageedu.com/blog/wp-content/uploads/2019/11/Masters-in-Game-Development.jpg"><br>
+                    <h1 class="text-2xl font-bold">Game Development</h1>
+                    ehfvng<br>
+                </a>
+                </div>
+                <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                    <a href="/mainpage/programming tech/IOT Development">
+                    <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                        src="https://online.stanford.edu/sites/default/files/inline-images/1600X900-How-does-blockchain-work.jpg"><br>
+                    <h1 class="text-2xl font-bold">IOT Development</h1>
+                    ehfvng<br>
+                </a>
+                </div>
+                <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                    <a href="/mainpage/programming tech/Cloud Computing">
+                    <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnQJU8DS3DXwmEDSuBtpqNMkSzb7yiabDvrrC5cmA1d8IWOuA0WCy74wxq3xPV8oVH3DY&usqp=CAU"><br>
+                    <h1 class="text-2xl font-bold">Cloud Computing</h1>
+                    ehfvng<br>
+                </a>
+                </div>
+
+
+                <% } else { %>
+
+
+                    
             <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/programming tech/App Development">
+                <a href="/landing page/programming tech/App Development">
                     <img class="h-40 rounded-lg w-full object-cover object-center border-2"
                         src="https://www.mantralabsglobal.com/wp-content/uploads/2017/05/Android_thumb800.jpg"><br>
                     <h1 class="text-2xl font-bold">App Development</h1>
@@ -32,7 +72,7 @@
                 </a>
             </div>
             <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/programming tech/Game Development">
+                <a href="/landing page/programming tech/Game Development">
                 <img class="h-40 rounded-lg w-full object-cover object-center border-2"
                     src="https://leverageedu.com/blog/wp-content/uploads/2019/11/Masters-in-Game-Development.jpg"><br>
                 <h1 class="text-2xl font-bold">Game Development</h1>
@@ -40,7 +80,7 @@
             </a>
             </div>
             <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/programming tech/IOT Development">
+                <a href="/landing page/programming tech/IOT Development">
                 <img class="h-40 rounded-lg w-full object-cover object-center border-2"
                     src="https://online.stanford.edu/sites/default/files/inline-images/1600X900-How-does-blockchain-work.jpg"><br>
                 <h1 class="text-2xl font-bold">IOT Development</h1>
@@ -48,13 +88,14 @@
             </a>
             </div>
             <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/programming tech/Cloud Computing">
+                <a href="/landing page/programming tech/Cloud Computing">
                 <img class="h-40 rounded-lg w-full object-cover object-center border-2"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnQJU8DS3DXwmEDSuBtpqNMkSzb7yiabDvrrC5cmA1d8IWOuA0WCy74wxq3xPV8oVH3DY&usqp=CAU"><br>
                 <h1 class="text-2xl font-bold">Cloud Computing</h1>
                 ehfvng<br>
             </a>
             </div>
+            <% } %>
         </div>
     </div>
 

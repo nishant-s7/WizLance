@@ -23,8 +23,48 @@
 
     <div>
         <div class="sub-categories flex flex-wrap justify-evenly font-light p-4">
+            <% if (loggedIn === true) { %>
+
+                <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                    <a href="/mainpage/music audio/Voice Over">
+                        <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                            src="https://i.pinimg.com/736x/7d/d9/c2/7dd9c2ded4abab02c41b261d6b06f3ba.jpg"><br>
+                        <h1 class="text-2xl font-bold">Voice Over</h1>
+                        ehfvng<br>
+                    </a>
+                </div>
+                <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                    <a href="/mainpage/music audio/Session Musicians">
+                    <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                        src="https://img.freepik.com/free-photo/acoustic-guitar-close-up-beautiful-colored-background_169016-3530.jpg"><br>
+                    <h1 class="text-2xl font-bold">Session Musicians</h1>
+                    ehfvng<br>
+                </a>
+                </div>
+                <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                    <a href="/mainpage/music audio/Background Music">
+                    <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                        src="https://assets-global.website-files.com/634e7aa49f5b025e1fd9e87b/637290ba8cbbf80d436a6e30_635047b84bc6791961c30825_Musical%20interludes.png"><br>
+                    <h1 class="text-2xl font-bold">Background Music</h1>
+                    ehfvng<br>
+                </a>
+                </div>
+                <div class="sc xl:w-1/5 md:w-1/2 p-4">
+                    <a href="/mainpage/music audio/Audio Engineering">
+                    <img class="h-40 rounded-lg w-full object-cover object-center border-2"
+                        src="https://i2.wp.com/soundgirls.org/wp-content/uploads/2021/07/pasted-image-01.png?fit=1880%2C1253&ssl=1"><br>
+                    <h1 class="text-2xl font-bold">Audio Engineering</h1>
+                    ehfvng<br>
+                </a>
+                </div>
+
+                <% } else { %>
+
+
+                   
+
             <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/music audio/Voice Over">
+                <a href="/landing page/music audio/Voice Over">
                     <img class="h-40 rounded-lg w-full object-cover object-center border-2"
                         src="https://i.pinimg.com/736x/7d/d9/c2/7dd9c2ded4abab02c41b261d6b06f3ba.jpg"><br>
                     <h1 class="text-2xl font-bold">Voice Over</h1>
@@ -32,7 +72,7 @@
                 </a>
             </div>
             <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/music audio/Session Musicians">
+                <a href="/landing page/music audio/Session Musicians">
                 <img class="h-40 rounded-lg w-full object-cover object-center border-2"
                     src="https://img.freepik.com/free-photo/acoustic-guitar-close-up-beautiful-colored-background_169016-3530.jpg"><br>
                 <h1 class="text-2xl font-bold">Session Musicians</h1>
@@ -40,7 +80,7 @@
             </a>
             </div>
             <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/music audio/Background Music">
+                <a href="/landing page/music audio/Background Music">
                 <img class="h-40 rounded-lg w-full object-cover object-center border-2"
                     src="https://assets-global.website-files.com/634e7aa49f5b025e1fd9e87b/637290ba8cbbf80d436a6e30_635047b84bc6791961c30825_Musical%20interludes.png"><br>
                 <h1 class="text-2xl font-bold">Background Music</h1>
@@ -48,13 +88,14 @@
             </a>
             </div>
             <div class="sc xl:w-1/5 md:w-1/2 p-4">
-                <a href="/music audio/Audio Engineering">
+                <a href="/landing page/music audio/Audio Engineering">
                 <img class="h-40 rounded-lg w-full object-cover object-center border-2"
                     src="https://i2.wp.com/soundgirls.org/wp-content/uploads/2021/07/pasted-image-01.png?fit=1880%2C1253&ssl=1"><br>
                 <h1 class="text-2xl font-bold">Audio Engineering</h1>
                 ehfvng<br>
             </a>
             </div>
+            <% } %>
         </div>
     </div>
 

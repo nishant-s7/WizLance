@@ -17,7 +17,8 @@ router.get("/mainpage", (req, res, next) => {
 });
 
 router.get("/dashboard", (req, res, next) => {
-  res.render("pages/dashboard");
+  if(loggedIn) res.render("pages/dashboard");
+  else res.redirect("login");
 });
 
 module.exports = router;
