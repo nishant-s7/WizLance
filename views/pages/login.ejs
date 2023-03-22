@@ -14,12 +14,12 @@
       <form action="/login" method="post" class="flex flex-col items-center text-xs">
 
         <label for="email_address">email</label>
-        <input type="email" name="email_address" placeholder="Email" class="rounded-md p-2 m-1 mb-4 w-4/5 py-3"
-          required />
+        <input type="email" name="email_address" id="email" placeholder="Email"
+          class="rounded-md p-2 m-1 mb-4 w-4/5 py-3" required />
 
         <label for="login_password">password</label>
-        <input type="password" name="login_password" placeholder="Password" class="rounded-md p-2 m-1 mb-4 w-4/5 py-3"
-          required />
+        <input type="password" name="login_password" id="password" placeholder="Password"
+          class="rounded-md p-2 m-1 mb-4 w-4/5 py-3" required />
 
         <button type="submit"
           class="text-gray-200 hover:text-white hover:opacity-90 border-2 rounded-lg bg-[var(--color1)] w-4/5 py-3">Submit</button>
@@ -31,4 +31,24 @@
   <footer>
     <%- include('../partials/footer') %>
   </footer>
+
+  <script>
+
+    const email = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+
+
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+    passwordInput.addEventListener("input", () => {
+      if (!passwordRegex.test(passwordInput.value)) {
+        passwordInput.setCustomValidity("Password should be at least 8 characters long, and contain at least one digit, one lowercase and one uppercase letter.");
+        passwordInput.reportValidity();
+      } else {
+        passwordInput.setCustomValidity("");
+      }
+    });
+
+  </script>
+
 </body>
