@@ -22,7 +22,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
-let loggedIn = false;
+var loggedIn = false;
+var freelancer = false;
 
 app.use(mainRoutes);
 app.use(signInRoutes);

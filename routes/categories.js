@@ -1,8 +1,8 @@
-const express = require('express');
+const express = require("express");
 
-const router = express.Router()
+const router = express.Router();
 
-
+let freelancer = false;
 
 router.get("/:mainpage/graphics-design", (req, res) => {
   res.render("pages/graphics-design", { loggedIn });
@@ -30,27 +30,29 @@ router.get("/:mainpage/writing-translation", (req, res) => {
 
 router.get("/:mainpage/:pages/:categories", (req, res) => {
   console.log(req.params.pages);
-  console.log( req.params.categories);
+  console.log(req.params.categories);
   console.log(req.params.mainpage);
-  let mainparameters = req.params.pages
- let parameters = req.params.categories;
- let mainpage = req.params.mainpage
-  res.render("pages/result-template", { loggedIn , parameters , mainparameters , mainpage});
+  let mainparameters = req.params.pages;
+  let parameters = req.params.categories;
+  let mainpage = req.params.mainpage;
+  res.render("pages/result-template", {
+    loggedIn,
+    parameters,
+    mainparameters,
+    mainpage,
+  });
 });
 
 router.get("/:x/:pages/:categories/:profilePages", (req, res) => {
- 
-   res.render("pages/profile-templates",{ loggedIn } );
-  
+  res.render("pages/profile-templates", { loggedIn });
 });
 
-router.get("/contact", (req,res)=>{
-  res.render("pages/contact-us")
-})
+router.get("/contact", (req, res) => {
+  res.render("pages/contact-us");
+});
 
+router.get("/dashboard22", (req, res) => {
+  res.render("pages/dashboard22", { freelancer });
+});
 
-router.get("/dashboard22", (req,res)=>{
-  res.render("pages/dashboard22")
-})
-
-module.exports = router
+module.exports = router;

@@ -37,8 +37,17 @@
     const email = document.getElementById("email");
     const passwordInput = document.getElementById("password");
 
-
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+    emailInput.addEventListener("input", () => {
+      if (!emailRegex.test(emailInput.value)) {
+        emailInput.setCustomValidity("Please enter a valid email Address !!");
+        emailInput.reportValidity();
+      } else {
+        emailInput.setCustomValidity("");
+      }
+    });
 
     passwordInput.addEventListener("input", () => {
       if (!passwordRegex.test(passwordInput.value)) {

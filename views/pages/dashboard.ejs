@@ -11,25 +11,24 @@
   </header>
   <main class="border-white border-8">
 
-    <div class="bg-white h-full flex rounded-3xl">
+    <div class="h-full flex rounded-3xl">
 
       <!-- SideBar (xl) -->
-      <div class="bg-[var(--color1)] h-full w-1/5 hidden flex-col items-center mr-10 xl:flex space-y-10 rounded-3xl">
+      <div class="bg-[var(--color1)] w-1/5 hidden flex-col items-center mr-10 xl:flex space-y-10 rounded-3xl">
 
         <div class="h-2/6 w-full flex flex-col items-center">
           <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-36 pt-14">
           <h1 class="text-center font-bold text-lg text-white">Username</h1>
-          <div class="text-center bg-[var(--color5)] text-white font-semibold rounded-2xl h-7 w-24">Pro Level</div>
+          <div class="text-center bg-[var(--color4)] text-[var(--color1)] font-semibold rounded-2xl h-7 w-24">Pro Level</div>
         </div>
 
-        <div class="bg-[var(--color5)] h-4/6 w-full rounded-tr-[5rem] rounded-b-3xl flex flex-col items-center space-y-12 pb-4">
+        <div class="bg-[var(--color2)] h-4/6 w-full rounded-tr-[5rem] rounded-b-3xl flex flex-col items-center space-y-12">
           <ul class="text-white space-y-12 text-xl flex flex-col items-center pt-10">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Invoices</a></li>
-            <li><a href="#">Report</a></li>
+            <li><a class="cursor-pointer" id="navDash">Dashboard</a></li>
+            <li><a class="cursor-pointer" id="navProj">Projects</a></li>
+            <li><a class="cursor-pointer" id="navInvoc">Invoices</a></li>
           </ul>
-          <div class="bg-blue-300 h-20 w-48 rounded-2xl p-4">
+          <div class="bg-[var(--color5)] h-20 w-48 rounded-2xl p-4">
             <p>Having Trouble?</p>
             <a href="#" class="font-bold hover:underline">Contact Us</a>
           </div>
@@ -37,49 +36,82 @@
 
       </div>
 
-      <div class="h-full w-full box-border">
+
+      <% if(freelancer === true) { %>
+
+      <!-- DASHBOARD -->
+      <div id="dashboard" class="h-full w-full box-border dashToggle">
 
         <!-- Greeting, earnings, price (sm) and (md)-->
         <div class="w-full flex flex-col xl:hidden box-border">
-          <div class="flex items-center p-4 rounded-3xl border-white border-8">
-            <p class="font-bold text-3xl">Hello, username</p>
+          <div class="flex items-center p-2 rounded-3xl border-white border-8 space-x-4">
+            <button id="open"><img src="https://cdn-icons-png.flaticon.com/512/2099/2099192.png" alt="menu" class="w-8"></button>
+            <p class="font-bold text-3xl text-[var(--color1)]">Hello, username</p>
+          </div>
+
+          <!-- SideBar (sm) and (md) -->
+          <div id="modalOverlay">
+            <div id="modal" class="bg-[var(--color1)] w-1/5 flex-col items-center mr-10 xl:flex space-y-10 rounded-3xl">
+
+              <div class="h-2/6 w-full flex flex-col items-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-36 pt-14">
+                <h1 class="text-center font-bold text-lg text-white">Username</h1>
+                <div class="text-center bg-[var(--color4)] text-[var(--color1)] font-semibold rounded-2xl h-7 w-24">Pro Level</div>
+              </div>
+
+              <button id="close" class="relative left-52">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAAD/CAMAAACdMFkKAAAAYFBMVEUAAADw8PD5+fn39/dLS0vh4eHAwMCEhIR+fn5ycnK7u7uysrJ4eHjExMSKioq3t7eoqKhra2tlZWVeXl6srKxtbW2lpaVzc3NnZ2fKyspFRUVQUFD///8XFxeNjY3q6upCGCFVAAACVUlEQVR4nO2daW7CMBQGcei+UMrSvfT+t6yqRvysKmzLn0YzJ3ijwQmBOFksRETkb97OKnhfPY2e/5fVx3Q6H7ejx585TOV0ppAUi5UWEIv16PFnbEFpoUVLLhEWtijTbvT4M7awRVtskWPBaKGFFm3RQou2XCEsbFGmlN8GbWGLttjCFm3RQou2aKFFW7TIsbhDWNiiTA+jx5+xhS3awmjBONLaQou2aJFj8YywsEWOBaPFdZXFzejxZ2yR04Kxum1hi7ZooUVbGBZ7hIUtcixsUaaL0ePP2CKnBWN1P9oip8XSFikt9ogWkNVd02KZYsFoUXWMimnxYgtIi/vR489Ure6cFlWfKFu0hNGianXHtNjYIsaC0WJjixwLW+RY2EKLpmhRlq+jx59htNgiWmwRR1pb2KItdS1iLBAt6r4NxljYIseC0UKLGIvPGotSRo9/hHHG0CPOA3HesEechz2yPOwRdC1uD3v0gfEbLuXqwx569IHxT6w94jzskeUB6cG4u80evx4pd35S7sOl3BVtj7geiP0blN00lL1NnB6MfX+UXZj2iPNA7Ben7N4H9aCsc0gPxlNfKM/gsQerR46HPbI8KD300KMHFA/G04ntYY8+MJ5qb4+0HpR1bo8sD0oPPfTogR4l6H1/nB6Md2Hawx59sEeWB6WHHnr0QA89eqBHlsdllcdu9PhH7GGPHtjDHj2o65HjQemhhx490EOPHqwgHvb48ViPHv+IPezRA3tkeVB66EHyeBo9/hF7kHrkeBwgHpT1cTiv4OswenwRkf/zDajBWfTgH5jzAAAAAElFTkSuQmCC" alt="close" class="w-5">
+              </button>
+
+              <div class="bg-[var(--color2)] h-4/6 w-full rounded-tr-[5rem] rounded-b-3xl flex flex-col items-center space-y-12 pb-4">
+                <ul class="text-white space-y-12 text-xl flex flex-col items-center pt-10">
+                  <li><a class="cursor-pointer" id="navDash">Dashboard</a></li>
+                  <li><a class="cursor-pointer" id="navProj">Projects</a></li>
+                  <li><a class="cursor-pointer" id="navInvoc">Invoices</a></li>
+                </ul>
+                <div class="bg-[var(--color5)] h-20 w-48 rounded-2xl p-4">
+                  <p>Having Trouble?</p>
+                  <a href="#" class="font-bold hover:underline">Contact Us</a>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- (sm) -->
-          <div class="bg-purple-600 w-full h-full flex flex-col items-center justify-center md:hidden rounded-3xl border-white border-8">
+          <div class="bg-[var(--color2)] w-full h-full flex flex-col items-center justify-center md:hidden rounded-3xl border-white border-8">
             <img src="https://cdn-icons-png.flaticon.com/512/5198/5198491.png" alt="graph" class="w-2/6">
-            <p class="text-lg">Earnings</p>
-            <p class="text-4xl font-bold pb-4">&#8377;1000</p>
+            <p class="text-lg text-white">Earnings</p>
+            <p class="text-4xl font-bold pb-4 text-white">&#8377;1000</p>
           </div>
 
-          <div class="bg-yellow-600 w-full h-full box-border md:hidden rounded-3xl border-white border-8">
-            <div class="bg-indigo-500 w-full h-1/2 border-yellow-600 border-[0.75rem] rounded-[2rem] flex items-center pl-4 space-x-4">
-              <div class="bg-black h-14 w-14 rounded-2xl text-white flex items-center justify-center text-2xl m-2">92</div>
+          <div class="bg-[var(--color2)] w-full h-full box-border md:hidden rounded-3xl border-white border-8">
+            <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[0.75rem] rounded-[2rem] flex items-center pl-4 space-x-4">
+              <div class="bg-[var(--color1)] h-14 w-14 rounded-2xl text-white flex items-center justify-center text-2xl m-2">92</div>
               <p class="font-bold text-l">Rank</p>
             </div>
 
-            <div class="bg-indigo-500 w-full h-1/2 border-yellow-600 border-[0.75rem] rounded-[2rem] flex items-center pl-4 space-x-4">
-              <div class="bg-black h-14 w-14 rounded-2xl text-white flex items-center justify-center text-2xl m-2">92</div>
+            <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[0.75rem] rounded-[2rem] flex items-center pl-4 space-x-4">
+              <div class="bg-[var(--color1)] h-14 w-14 rounded-2xl text-white flex items-center justify-center text-2xl m-2">92</div>
               <p class="font-bold text-l">Projects</p>
             </div>
           </div>
 
           <!-- (md) -->
           <div class="hidden md:flex box-border">
-            <div class="bg-purple-600 w-1/2 flex flex-col items-center rounded-3xl border-white border-8">
+            <div class="bg-[var(--color2)] w-1/2 flex flex-col items-center rounded-3xl border-white border-8">
               <img src="https://cdn-icons-png.flaticon.com/512/5198/5198491.png" alt="graph" class="w-3/6">
-              <p class="text-lg">Earnings</p>
-              <p class="text-5xl font-bold pb-4">&#8377;1000</p>
+              <p class="text-lg text-white">Earnings</p>
+              <p class="text-5xl font-bold pb-4 text-white">&#8377;1000</p>
             </div>
 
-            <div class="bg-yellow-600 w-1/2 box-border rounded-3xl border-white border-8">
-              <div class="bg-indigo-500 w-full h-1/2 border-yellow-600 border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
-                <div class="bg-black h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">92</div>
+            <div class="bg-[var(--color2)] w-1/2 box-border rounded-3xl border-white border-8">
+              <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
+                <div class="bg-[var(--color1)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">92</div>
                 <p class="font-bold text-2xl">Rank</p>
               </div>
 
-              <div class="bg-indigo-500 w-full h-1/2 border-yellow-600 border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
-                <div class="bg-black h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">36</div>
+              <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
+                <div class="bg-[var(--color1)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">36</div>
                 <p class="font-bold text-2xl">Projects</p>
               </div>
             </div>
@@ -87,26 +119,26 @@
         </div>
 
         <!-- Projects (sm) and (md) -->
-        <div class="bg-red-600 flex xl:hidden flex-col space-y-4 justify-center pb-4 rounded-3xl border-white border-8">
-          <h3 class="font-bold text-2xl pl-9 pt-4">Your Projects</h3>
+        <div class="bg-[var(--color1)] flex xl:hidden flex-col space-y-4 justify-center pb-4 rounded-3xl border-white border-8">
+          <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your Projects</h3>
           <div class="w-full flex justify-center">
             <div class="rounded-3xl w-10/12 h-60">
-              <div class="bg-black w-full h-24 flex items-center space-x-4 rounded-t-3xl">
+              <div class="bg-[var(--color2)] w-full h-24 flex items-center space-x-4 rounded-t-3xl">
                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="w-11 pl-2">
                 <div>
                   <p class="font-bold text-white text-l">Website design for wizlance</p>
                   <p class="text-white text-sm">3 days remaining</p>
                 </div>
               </div>
-              <div class="bg-black w-full h-24 flex items-center space-x-4">
+              <div class="bg-[var(--color2)] w-full h-24 flex items-center space-x-4">
                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="w-11 pl-2">
                 <div>
                   <p class="font-bold text-white text-l">Website design for wizlance</p>
                   <p class="text-white text-sm">3 days remaining</p>
                 </div>
               </div>
-              <div class="bg-black w-full h-12 flex items-center justify-end pr-6 rounded-b-3xl">
-                <a href="#" class="text-white hover:font-semibold text-sm">see all projects</a>
+              <div class="bg-[var(--color2)] w-full h-12 flex items-center justify-end pr-6 rounded-b-3xl">
+                <a id="YourMessages" class="text-white hover:font-semibold text-sm">see all projects</a>
               </div>
             </div>
           </div>
@@ -115,56 +147,56 @@
         <!-- Greeting, earnings, price, projects (xl)-->
         <div class="w-full h-2/3 hidden xl:grid grid-cols-2 grid-rows-4 box-border">
           <div class="bg-white col-span-2 flex items-center border-white border-8">
-            <p class="font-bold text-3xl text-blue-900">Hello, username</p>
+            <p class="font-bold text-3xl text-[var(--color1)]">Hello, username</p>
           </div>
           <div class="row-span-3 flex box-border">
-            <div class="bg-blue-700 w-1/2 h-full flex flex-col items-center justify-center rounded-3xl border-white border-8">
+            <div class="bg-[var(--color2)] w-1/2 h-full flex flex-col items-center justify-center rounded-3xl border-white border-8">
               <img src="https://cdn-icons-png.flaticon.com/512/5198/5198491.png" alt="graph" class="w-32">
               <p class="text-lg text-white">Earnings</p>
               <p class="text-5xl font-bold text-white">&#8377;1000</p>
             </div>
 
-            <div class="bg-indigo-400 w-1/2 h-full box-border rounded-3xl border-white border-8">
-              <div class="bg-indigo-500 w-full h-1/2 border-indigo-400 border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
-                <div class="bg-black h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">92</div>
+            <div class="bg-[var(--color2)] w-1/2 h-full box-border rounded-3xl border-white border-8">
+              <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
+                <div class="bg-[var(--color1)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">92</div>
                 <span class="font-bold text-2xl">Rank</span>
               </div>
 
-              <div class="bg-indigo-500 w-full h-1/2 border-indigo-400 border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
-                <div class="bg-black h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">36</div>
+              <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
+                <div class="bg-[var(--color1)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">36</div>
                 <span class="font-bold text-2xl">Projects</span>
               </div>
             </div>
           </div>
 
-          <div class="bg-blue-400 row-span-3 flex flex-col space-y-4 justify-center rounded-3xl border-white border-8 pb-4">
-            <h3 class="font-bold text-2xl pl-9 pt-4">Your Projects</h3>
-            <div class="bg-white rounded-3xl w-10/12 h-60 m-9">
-              <div class="bg-blue-900 w-full h-24 flex items-center justify-center space-x-8 rounded-t-3xl pt-4">
+          <div class="bg-[var(--color1)] row-span-3 flex flex-col space-y-4 justify-center rounded-3xl border-white border-8 pb-4">
+            <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your Projects</h3>
+            <div class="rounded-3xl w-10/12 h-60 m-9">
+              <div class="bg-[var(--color2)] w-full h-24 flex items-center justify-center space-x-8 rounded-t-3xl pt-4">
                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
                 <div>
                   <p class="font-bold text-white text-xl">Website design for wizlance</p>
                   <p class="text-white">3 days remaining</p>
                 </div>
               </div>
-              <div class="bg-blue-900 w-full h-24 flex items-center justify-center space-x-8 pt-4">
+              <div class="bg-[var(--color2)] w-full h-24 flex items-center justify-center space-x-8 pt-4">
                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
                 <div>
                   <p class="font-bold text-white text-xl">Website design for wizlance</p>
                   <p class="text-white">3 days remaining</p>
                 </div>
               </div>
-              <div class="bg-blue-900 w-full h-12 flex items-center justify-end pr-6 rounded-b-3xl">
-                <a href="#" class="text-white hover:font-semibold">see all projects</a>
+              <div class="bg-[var(--color2)] w-full h-12 flex items-center justify-end pr-6 rounded-b-3xl">
+                <a id="NewMessages" class="text-white hover:font-semibold">see all projects</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="w-full bg-blue-300 flex flex-col space-y-6 pb-4 xl:h-1/3 rounded-3xl border-white border-8">
-          <h3 class="font-bold text-2xl pl-10 pt-6">New messages</h3>
+        <div class="w-full bg-[var(--color2)] flex flex-col space-y-6 pb-4 xl:h-1/3 rounded-3xl border-white border-8">
+          <h3 class="font-bold text-2xl pl-10 pt-6 text-white">New messages</h3>
           <div class="w-full flex justify-center">
-            <div class="bg-white rounded-3xl w-10/12 h-32 pt-2">
+            <div class="bg-[var(--color4)] rounded-3xl w-11/12 h-32 pt-2">
               <div class="h-8 flex items-center pl-4">
                 <p class="text-black text-sm">Website design for wizlance</p>
               </div>
@@ -175,17 +207,193 @@
                 <p class="text-black text-sm">Website design for wizlance</p>
               </div>
               <div class="w-full h-6 flex items-center justify-end pr-6 rounded-b-3xl">
-                <a href="#" class="text-black hover:font-semibold text-xs">see all messages</a>
+                <a id="NewMessages2" class="text-black hover:font-semibold text-xs">see all messages</a>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <% } else { %>
+
+      <!-- USER -->
+      <div id="users" class="w-full">
+        <div class="bg-[var(--color1)] flex flex-col lg:flex-row items-center justify-center space-y-12 rounded-3xl min-h-[42.5rem] box-border py-6 lg:py-0">
+          <div class="bg-[var(--color4)] h-[30.5rem] lg:h-[42.5rem] w-5/6 lg:w-1/2 rounded-3xl lg:rounded-r-none p-12 flex items-center justify-center">
+            <div class="h-full w-full lg:h-5/6 lg:w-5/6 bg-[var(--color1)] rounded-3xl flex flex-col items-center py-10 space-y-8">
+              <h1 class="text-white text-2xl font-bold">Profile</h1>
+              <div class="flex flex-col items-center w-4/6">
+                <p class="text-white">First name</p>
+                <p class="font-bold text-lg lg:text-xl text-white bg-[var(--color2)] w-full lg:w-72 rounded-xl text-center py-4"> Random </p>
+              </div>
+              <div class="flex flex-col items-center w-4/6">
+                <p class="text-white">Last name</p>
+                <p class="font-bold text-lg lg:text-xl text-white bg-[var(--color2)] w-full lg:w-72 rounded-xl text-center py-4"> Guy </p>
+              </div>
+              <div class="flex flex-col items-center w-4/6">
+                <p class="text-white">Email</p>
+                <p class="font-bold text-lg lg:text-xl text-white bg-[var(--color2)] w-full lg:w-72 rounded-xl text-center py-4 overflow-scroll"> abc@gmail.com </p>
+              </div>
+            </div>
+          </div>
+          <div class="h-full flex flex-col items-center justify-center space-y-4 w-1/2">
+            <img src="/images/becomeSeller.png" alt="img" class="w-64">
+            <button class="bg-[var(--color4)] py-2 px-3 rounded-lg hover:font-semibold"><a href="/seller-overview">Become a Seller</a></button>
+          </div>
+        </div>
+      </div>
+
+      <% } %>
+
+      <!-- PROJECTS -->
+      <div id="projects" class="w-full hidden">
+        <div class="bg-[var(--color1)] flex flex-col space-y-4 rounded-3xl pb-4 max-h-[42.5rem] overflow-scroll">
+          <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your Projects</h3>
+          <div class="rounded-3xl w-11/12 h-full m-9">
+            <div class="bg-[var(--color2)] w-full flex items-center space-x-8 pl-8 rounded-t-3xl pt-5 pb-5">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
+              <div>
+                <span class="font-bold text-white text-xl">Website design for wizlance</span>
+                <span class="text-white">&nbsp;&nbsp;&nbsp;(3 days remaining)</span>
+                <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos voluptates velit vel dolores ipsam, doloremque suscipit quo corrupti dolor libero reiciendis molestias natus doloribus repudiandae illo illum provident harum quod aliquam dolorem possimus consequuntur ea. Eius impedit inventore saepe autem omnis necessitatibus quis placeat voluptatum. Fugiat eos, velit neque ullam, possimus facere aspernatur, unde eveniet sunt ut corrupti nemo. Enim corporis veritatis nihil error nemo. Totam eos praesentium alias veritatis beatae et odio consectetur fugit, tempora nesciunt suscipit odit neque ad ducimus mollitia facilis vitae, quo esse. Nam fugit ut ad laudantium dignissimos aliquam minus? Dolores praesentium iste nemo rerum quo vero nulla dolorem quam adipisci, ullam laborum officia. Atque modi corrupti eum libero, id voluptatem architecto recusandae? Saepe voluptatem deleniti reprehenderit veritatis ipsa animi incidunt nemo aperiam itaque a? Sit consectetur illo debitis temporibus quae vel distinctio impedit illum vero incidunt, enim ut, eum reprehenderit repudiandae dolor ipsum dolore.</p>
+              </div>
+            </div>
+            <div class="bg-[var(--color2)] w-full flex items-center space-x-8 pl-8 pt-5 pb-5">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
+              <div>
+                <span class="font-bold text-white text-xl">Website design for wizlance</span>
+                <span class="text-white">&nbsp;&nbsp;&nbsp;(3 days remaining)</span>
+                <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos voluptates velit vel dolores ipsam, doloremque suscipit quo corrupti dolor libero reiciendis molestias natus doloribus repudiandae illo illum provident harum quod aliquam dolorem possimus consequuntur ea. Eius impedit inventore saepe autem omnis necessitatibus quis placeat voluptatum. Fugiat eos, velit neque ullam, possimus facere aspernatur, unde eveniet sunt ut corrupti nemo. Enim corporis veritatis nihil error nemo. Totam eos praesentium alias veritatis beatae et odio consectetur fugit, tempora nesciunt suscipit odit neque ad ducimus mollitia facilis vitae, quo esse. Nam fugit ut ad laudantium dignissimos aliquam minus? Dolores praesentium iste nemo rerum quo vero nulla dolorem quam adipisci, ullam laborum officia. Atque modi corrupti eum libero, id voluptatem architecto recusandae? Saepe voluptatem deleniti reprehenderit veritatis ipsa animi incidunt nemo aperiam itaque a? Sit consectetur illo debitis temporibus quae vel distinctio impedit illum vero incidunt, enim ut, eum reprehenderit repudiandae dolor ipsum dolore.</p>
+              </div>
+            </div>
+            <div class="bg-[var(--color2)] w-full flex items-center space-x-8 pl-8 pt-5 pb-5">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
+              <div>
+                <span class="font-bold text-white text-xl">Website design for wizlance</span>
+                <span class="text-white">&nbsp;&nbsp;&nbsp;(3 days remaining)</span>
+                <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos voluptates velit vel dolores ipsam, doloremque suscipit quo corrupti dolor libero reiciendis molestias natus doloribus repudiandae illo illum provident harum quod aliquam dolorem possimus consequuntur ea. Eius impedit inventore saepe autem omnis necessitatibus quis placeat voluptatum. Fugiat eos, velit neque ullam, possimus facere aspernatur, unde eveniet sunt ut corrupti nemo. Enim corporis veritatis nihil error nemo. Totam eos praesentium alias veritatis beatae et odio consectetur fugit, tempora nesciunt suscipit odit neque ad ducimus mollitia facilis vitae, quo esse. Nam fugit ut ad laudantium dignissimos aliquam minus? Dolores praesentium iste nemo rerum quo vero nulla dolorem quam adipisci, ullam laborum officia. Atque modi corrupti eum libero, id voluptatem architecto recusandae? Saepe voluptatem deleniti reprehenderit veritatis ipsa animi incidunt nemo aperiam itaque a? Sit consectetur illo debitis temporibus quae vel distinctio impedit illum vero incidunt, enim ut, eum reprehenderit repudiandae dolor ipsum dolore.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- INVOICES -->
+      <div id="invoices" class="w-full hidden">
+        <div class="bg-[var(--color1)] flex flex-col space-y-4 rounded-3xl pb-4 max-h-[42.5rem] overflow-scroll">
+          <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Invoices</h3>
+          <div class="rounded-3xl w-11/12 h-full ml-9">
+            <table class="table-auto w-full">
+              <thead class="bg-[var(--color2)]">
+                <tr>
+                  <th class="text-white py-2">Invoice ID</th>
+                  <th class="text-white py-2">Start Date</th>
+                  <th class="text-white py-2">End Date</th>
+                  <th class="text-white py-2">Total shifts</th>
+                  <th class="text-white py-2">Amount</th>
+                  <th class="text-white py-2">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-white py-2 text-center">#11111</td>
+                  <td class="text-white py-2 text-center">01/03/23</td>
+                  <td class="text-white py-2 text-center">21/03/23</td>
+                  <td class="text-white py-2 text-center">2 shifts</td>
+                  <td class="text-white py-2 text-center">&#8377;500.00</td>
+                  <td class="text-white py-2 text-center">Paid</td>
+                </tr>
+                <tr>
+                  <td class="text-white py-2 text-center">#11111</td>
+                  <td class="text-white py-2 text-center">01/03/23</td>
+                  <td class="text-white py-2 text-center">21/03/23</td>
+                  <td class="text-white py-2 text-center">2 shifts</td>
+                  <td class="text-white py-2 text-center">&#8377;500.00</td>
+                  <td class="text-white py-2 text-center">Paid</td>
+                </tr>
+                <tr>
+                  <td class="text-white py-2 text-center">#11111</td>
+                  <td class="text-white py-2 text-center">01/03/23</td>
+                  <td class="text-white py-2 text-center">21/03/23</td>
+                  <td class="text-white py-2 text-center">2 shifts</td>
+                  <td class="text-white py-2 text-center">&#8377;500.00</td>
+                  <td class="text-white py-2 text-center">Paid</td>
+                </tr>
+                <tr>
+                  <td class="text-white py-2 text-center">#11111</td>
+                  <td class="text-white py-2 text-center">01/03/23</td>
+                  <td class="text-white py-2 text-center">21/03/23</td>
+                  <td class="text-white py-2 text-center">2 shifts</td>
+                  <td class="text-white py-2 text-center">&#8377;500.00</td>
+                  <td class="text-white py-2 text-center">Paid</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
   </main>
 
   <footer>
     <%- include('../partials/footer') %>
   </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script>
+    $('#open').click(function() {
+      $('#modalOverlay').show().addClass('modal-open');
+    });
+
+
+
+    // Messages toggle
+    $("#dashboard").on('click', '#YourMessages , #NewMessages, #NewMessages2', () => {
+      $("#dashboard").closest(".dashToggle").addClass("hidden");
+      $("#projects").removeClass('hidden')
+    })
+
+    $("#navDash").on('click', () => {
+
+      $("#projects").hide();
+      $('#invoices').hide();
+      $("#users").show();
+    })
+
+
+
+
+    $("#navDash").on('click', () => {
+
+      $("#projects").hide();
+      $('#invoices').hide();
+      $("#dashboard").show();
+    })
+    $("#navProj").on('click', () => {
+      $("#users").hide();
+      $("#projects").show();
+      $('#invoices').hide();
+
+    })
+    $("#navInvoc").on('click', () => {
+      $('#invoices').show();
+      $("#users").hide();
+      $("#projects").hide();
+    })
+
+    $("#navInvoc").on('click', () => {
+      $('#invoices').show();
+      $("#dashboard").hide();
+      $("#projects").hide();
+    })
+
+    $("#navProj").on('click', () => {
+      $("#dashboard").hide();
+      $("#projects").show();
+      $('#invoices').hide();
+
+    })
+  </script>
 </body>
 
 </html>
