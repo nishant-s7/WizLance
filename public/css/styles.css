@@ -650,6 +650,10 @@ video {
   margin: auto;
 }
 
+.m-6 {
+  margin: 1.5rem;
+}
+
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -688,6 +692,16 @@ video {
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
+}
+
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
 }
 
 .-mt-2 {
@@ -808,6 +822,10 @@ video {
 
 .mt-9 {
   margin-top: 2.25rem;
+}
+
+.ml-40 {
+  margin-left: 10rem;
 }
 
 .box-border {
@@ -936,6 +954,14 @@ video {
 
 .h-full {
   height: 100%;
+}
+
+.h-\[60vh\] {
+  height: 60vh;
+}
+
+.h-\[90vh\] {
+  height: 90vh;
 }
 
 .max-h-\[42\.5rem\] {
@@ -1069,6 +1095,10 @@ video {
 .w-max {
   width: -moz-max-content;
   width: max-content;
+}
+
+.w-3\/4 {
+  width: 75%;
 }
 
 .max-w-2xl {
@@ -1335,6 +1365,14 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.border-\[var\(--color5\)\] {
+  border-color: var(--color5);
+}
+
+.border-\[\] {
+  border-color: ;
+}
+
 .bg-\[var\(--color1\)\] {
   background-color: var(--color1);
 }
@@ -1393,6 +1431,19 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-cyan-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 254 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[\] {
+  background-color: ;
+}
+
+.bg-\[var\(--color\)\] {
+  background-color: var(--color);
 }
 
 .bg-\[url\(\'https\:\/\/assets-prd\.ignimgs\.com\/2022\/03\/28\/36190303pixar-blogrolledit2-1648234304315-1648499015772\.jpg\'\)\] {
@@ -1467,6 +1518,42 @@ video {
   background-image: url('https://www.translatedright.com/wp-content/uploads/2020/02/quality-legal-translation-service.jpg');
 }
 
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.bg-\[url\(\'https\:\/\/e0\.pxfuel\.com\/wallpapers\/159\/425\/desktop-wallpaper-simple-black-cyan-background-by-mixboxmixing-on-newgrounds\.jpg\'\)\] {
+  background-image: url('https://e0.pxfuel.com/wallpapers/159/425/desktop-wallpaper-simple-black-cyan-background-by-mixboxmixing-on-newgrounds.jpg');
+}
+
+.bg-\[url\(\'https\:\/\/assets\.entrepreneur\.com\/content\/3x2\/2000\/20190612193425-GettyImages-1066987316-crop\.jpeg\?crop\=16\:9\'\)\] {
+  background-image: url('https://assets.entrepreneur.com/content/3x2/2000/20190612193425-GettyImages-1066987316-crop.jpeg?crop=16:9');
+}
+
+.bg-\[url\(\'https\:\/\/images\.unsplash\.com\/photo-1516414447565-b14be0adf13e\?ixlib\=rb-4\.0\.3\&ixid\=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8\&auto\=format\&fit\=crop\&w\=1546\&q\=80\'\)\] {
+  background-image: url('https://images.unsplash.com/photo-1516414447565-b14be0adf13e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1546&q=80');
+}
+
+.bg-\[url\(\'https\:\/\/itchronicles\.com\/wp-content\/uploads\/2021\/04\/Optimized-Illustration-from-Adobe-Stock-for-ITC-Post-on-AI-in-Game-Development-scaled\.jpeg\'\)\] {
+  background-image: url('https://itchronicles.com/wp-content/uploads/2021/04/Optimized-Illustration-from-Adobe-Stock-for-ITC-Post-on-AI-in-Game-Development-scaled.jpeg');
+}
+
+.from-\[var\(--color1\)\] {
+  --tw-gradient-from: var(--color1);
+  --tw-gradient-to: rgb(255 255 255 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-\[var\(--color2\)\] {
+  --tw-gradient-from: var(--color2);
+  --tw-gradient-to: rgb(255 255 255 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-\[var\(--color5\)\] {
+  --tw-gradient-to: var(--color5);
+}
+
 .bg-cover {
   background-size: cover;
 }
@@ -1527,6 +1614,10 @@ video {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-10 {
@@ -1684,6 +1775,18 @@ video {
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
+.pb-16 {
+  padding-bottom: 4rem;
+}
+
+.pt-\[-50px\] {
+  padding-top: -50px;
 }
 
 .text-center {
@@ -1870,6 +1973,22 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-\[var\(--color3\)\] {
+  color: var(--color3);
+}
+
+.text-\[\] {
+  color: ;
+}
+
+.text-\[var\(--color\)\] {
+  color: var(--color);
+}
+
+.underline {
+  text-decoration-line: underline;
+}
+
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -1886,6 +2005,11 @@ video {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-black {
+  --tw-shadow-color: #000;
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .transition {
@@ -1928,6 +2052,11 @@ video {
   background-color: rgb(79 70 229 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .hover\:font-semibold:hover {
   font-weight: 600;
 }
@@ -1935,6 +2064,10 @@ video {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:text-\[var\(--color1\)\]:hover {
+  color: var(--color1);
 }
 
 .hover\:underline:hover {

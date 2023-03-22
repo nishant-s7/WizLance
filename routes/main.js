@@ -8,7 +8,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/mainpage", (req, res, next) => {
-  if (loggedIn) {
+  if (loggedIn === true) {
     res.render("pages/mainpage");
   } else {
     res.redirect("login");
