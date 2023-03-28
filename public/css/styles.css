@@ -567,10 +567,6 @@ video {
   position: relative;
 }
 
-.sticky {
-  position: sticky;
-}
-
 .inset-0 {
   top: 0px;
   right: 0px;
@@ -634,8 +630,8 @@ video {
   margin: 1rem;
 }
 
-.m-5 {
-  margin: 1.25rem;
+.m-6 {
+  margin: 1.5rem;
 }
 
 .m-7 {
@@ -650,18 +646,14 @@ video {
   margin: auto;
 }
 
-.m-6 {
-  margin: 1.5rem;
-}
-
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
 }
 
 .mx-auto {
@@ -697,11 +689,6 @@ video {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
-
-.mx-5 {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
 }
 
 .-mt-2 {
@@ -752,16 +739,16 @@ video {
   margin-left: 1rem;
 }
 
+.ml-40 {
+  margin-left: 10rem;
+}
+
 .ml-9 {
   margin-left: 2.25rem;
 }
 
 .mr-10 {
   margin-right: 2.5rem;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
 }
 
 .mr-4 {
@@ -822,10 +809,6 @@ video {
 
 .mt-9 {
   margin-top: 2.25rem;
-}
-
-.ml-40 {
-  margin-left: 10rem;
 }
 
 .box-border {
@@ -944,8 +927,12 @@ video {
   height: 30.5rem;
 }
 
-.h-\[66vh\] {
-  height: 66vh;
+.h-\[60vh\] {
+  height: 60vh;
+}
+
+.h-\[90vh\] {
+  height: 90vh;
 }
 
 .h-auto {
@@ -954,14 +941,6 @@ video {
 
 .h-full {
   height: 100%;
-}
-
-.h-\[60vh\] {
-  height: 60vh;
-}
-
-.h-\[90vh\] {
-  height: 90vh;
 }
 
 .max-h-\[42\.5rem\] {
@@ -1024,6 +1003,10 @@ video {
   width: 6rem;
 }
 
+.w-3\/4 {
+  width: 75%;
+}
+
 .w-3\/6 {
   width: 50%;
 }
@@ -1076,10 +1059,6 @@ video {
   width: 100%;
 }
 
-.w-\[66\%\] {
-  width: 66%;
-}
-
 .w-\[90vw\] {
   width: 90vw;
 }
@@ -1095,10 +1074,6 @@ video {
 .w-max {
   width: -moz-max-content;
   width: max-content;
-}
-
-.w-3\/4 {
-  width: 75%;
 }
 
 .max-w-2xl {
@@ -1340,6 +1315,10 @@ video {
   border-color: var(--color2);
 }
 
+.border-\[var\(--color5\)\] {
+  border-color: var(--color5);
+}
+
 .border-blue-500 {
   --tw-border-opacity: 1;
   border-color: rgb(59 130 246 / var(--tw-border-opacity));
@@ -1365,14 +1344,6 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
-.border-\[var\(--color5\)\] {
-  border-color: var(--color5);
-}
-
-.border-\[\] {
-  border-color: ;
-}
-
 .bg-\[var\(--color1\)\] {
   background-color: var(--color1);
 }
@@ -1389,29 +1360,24 @@ video {
   background-color: var(--color5);
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-blue-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
-.bg-cyan-500 {
+.bg-cyan-50 {
   --tw-bg-opacity: 1;
-  background-color: rgb(6 182 212 / var(--tw-bg-opacity));
-}
-
-.bg-gray-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  background-color: rgb(236 254 255 / var(--tw-bg-opacity));
 }
 
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-
-.bg-indigo-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(67 56 202 / var(--tw-bg-opacity));
 }
 
 .bg-slate-200 {
@@ -1433,21 +1399,12 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-cyan-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(236 254 255 / var(--tw-bg-opacity));
-}
-
-.bg-\[\] {
-  background-color: ;
-}
-
-.bg-\[var\(--color\)\] {
-  background-color: var(--color);
-}
-
 .bg-\[url\(\'https\:\/\/assets-prd\.ignimgs\.com\/2022\/03\/28\/36190303pixar-blogrolledit2-1648234304315-1648499015772\.jpg\'\)\] {
   background-image: url('https://assets-prd.ignimgs.com/2022/03/28/36190303pixar-blogrolledit2-1648234304315-1648499015772.jpg');
+}
+
+.bg-\[url\(\'https\:\/\/assets\.entrepreneur\.com\/content\/3x2\/2000\/20190612193425-GettyImages-1066987316-crop\.jpeg\?crop\=16\:9\'\)\] {
+  background-image: url('https://assets.entrepreneur.com/content/3x2/2000/20190612193425-GettyImages-1066987316-crop.jpeg?crop=16:9');
 }
 
 .bg-\[url\(\'https\:\/\/blog\.placeit\.net\/wp-content\/uploads\/2022\/05\/Famous-Logos-and-What-You-Can-Learn-from-Them\.png\'\)\] {
@@ -1460,6 +1417,10 @@ video {
 
 .bg-\[url\(\'https\:\/\/d2ub1k1pknil0e\.cloudfront\.net\/media\/images\/camera-photography\.2e16d0ba\.fill-1200x630\.format-jpeg\.jpg\'\)\] {
   background-image: url('https://d2ub1k1pknil0e.cloudfront.net/media/images/camera-photography.2e16d0ba.fill-1200x630.format-jpeg.jpg');
+}
+
+.bg-\[url\(\'https\:\/\/e0\.pxfuel\.com\/wallpapers\/159\/425\/desktop-wallpaper-simple-black-cyan-background-by-mixboxmixing-on-newgrounds\.jpg\'\)\] {
+  background-image: url('https://e0.pxfuel.com/wallpapers/159/425/desktop-wallpaper-simple-black-cyan-background-by-mixboxmixing-on-newgrounds.jpg');
 }
 
 .bg-\[url\(\'https\:\/\/encrypted-tbn0\.gstatic\.com\/images\?q\=tbn\:ANd9GcQqJ-wJQjUizsusbxpViBEAnVi-aUMoYSpaNA\&usqp\=CAU\'\)\] {
@@ -1478,6 +1439,10 @@ video {
   background-image: url('https://images.unsplash.com/photo-1497091071254-cc9b2ba7c48a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGdyYXBoaWMlMjBkZXNpZ258ZW58MHx8MHx8&w=1000&q=80');
 }
 
+.bg-\[url\(\'https\:\/\/images\.unsplash\.com\/photo-1516414447565-b14be0adf13e\?ixlib\=rb-4\.0\.3\&ixid\=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8\&auto\=format\&fit\=crop\&w\=1546\&q\=80\'\)\] {
+  background-image: url('https://images.unsplash.com/photo-1516414447565-b14be0adf13e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1546&q=80');
+}
+
 .bg-\[url\(\'https\:\/\/img\.freepik\.com\/free-photo\/acoustic-guitar-close-up-beautiful-colored-background_169016-3530\.jpg\'\)\] {
   background-image: url('https://img.freepik.com/free-photo/acoustic-guitar-close-up-beautiful-colored-background_169016-3530.jpg');
 }
@@ -1488,6 +1453,10 @@ video {
 
 .bg-\[url\(\'https\:\/\/img\.freepik\.com\/premium-photo\/programming-code-abstract-technology-background-software-developer-computer-script_34663-31\.jpg\'\)\] {
   background-image: url('https://img.freepik.com/premium-photo/programming-code-abstract-technology-background-software-developer-computer-script_34663-31.jpg');
+}
+
+.bg-\[url\(\'https\:\/\/itchronicles\.com\/wp-content\/uploads\/2021\/04\/Optimized-Illustration-from-Adobe-Stock-for-ITC-Post-on-AI-in-Game-Development-scaled\.jpeg\'\)\] {
+  background-image: url('https://itchronicles.com/wp-content/uploads/2021/04/Optimized-Illustration-from-Adobe-Stock-for-ITC-Post-on-AI-in-Game-Development-scaled.jpeg');
 }
 
 .bg-\[url\(\'https\:\/\/leverageedu\.com\/blog\/wp-content\/uploads\/2019\/11\/Masters-in-Game-Development\.jpg\'\)\] {
@@ -1520,22 +1489,6 @@ video {
 
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
-}
-
-.bg-\[url\(\'https\:\/\/e0\.pxfuel\.com\/wallpapers\/159\/425\/desktop-wallpaper-simple-black-cyan-background-by-mixboxmixing-on-newgrounds\.jpg\'\)\] {
-  background-image: url('https://e0.pxfuel.com/wallpapers/159/425/desktop-wallpaper-simple-black-cyan-background-by-mixboxmixing-on-newgrounds.jpg');
-}
-
-.bg-\[url\(\'https\:\/\/assets\.entrepreneur\.com\/content\/3x2\/2000\/20190612193425-GettyImages-1066987316-crop\.jpeg\?crop\=16\:9\'\)\] {
-  background-image: url('https://assets.entrepreneur.com/content/3x2/2000/20190612193425-GettyImages-1066987316-crop.jpeg?crop=16:9');
-}
-
-.bg-\[url\(\'https\:\/\/images\.unsplash\.com\/photo-1516414447565-b14be0adf13e\?ixlib\=rb-4\.0\.3\&ixid\=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8\&auto\=format\&fit\=crop\&w\=1546\&q\=80\'\)\] {
-  background-image: url('https://images.unsplash.com/photo-1516414447565-b14be0adf13e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1546&q=80');
-}
-
-.bg-\[url\(\'https\:\/\/itchronicles\.com\/wp-content\/uploads\/2021\/04\/Optimized-Illustration-from-Adobe-Stock-for-ITC-Post-on-AI-in-Game-Development-scaled\.jpeg\'\)\] {
-  background-image: url('https://itchronicles.com/wp-content/uploads/2021/04/Optimized-Illustration-from-Adobe-Stock-for-ITC-Post-on-AI-in-Game-Development-scaled.jpeg');
 }
 
 .from-\[var\(--color1\)\] {
@@ -1608,16 +1561,16 @@ video {
   padding: 10rem;
 }
 
+.p-5 {
+  padding: 1.25rem;
+}
+
 .p-6 {
   padding: 1.5rem;
 }
 
 .p-8 {
   padding: 2rem;
-}
-
-.p-5 {
-  padding: 1.25rem;
 }
 
 .px-10 {
@@ -1705,12 +1658,20 @@ video {
   padding-bottom: 1.5rem;
 }
 
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
 .pb-12 {
   padding-bottom: 3rem;
 }
 
 .pb-14 {
   padding-bottom: 3.5rem;
+}
+
+.pb-16 {
+  padding-bottom: 4rem;
 }
 
 .pb-4 {
@@ -1777,14 +1738,6 @@ video {
   padding-top: 1.5rem;
 }
 
-.pb-10 {
-  padding-bottom: 2.5rem;
-}
-
-.pb-16 {
-  padding-bottom: 4rem;
-}
-
 .pt-\[-50px\] {
   padding-top: -50px;
 }
@@ -1795,6 +1748,10 @@ video {
 
 .align-middle {
   vertical-align: middle;
+}
+
+.font-raleway {
+  font-family: raleway, sans-serif;
 }
 
 .text-2xl {
@@ -1850,10 +1807,6 @@ video {
   font-weight: 800;
 }
 
-.font-extralight {
-  font-weight: 200;
-}
-
 .font-light {
   font-weight: 300;
 }
@@ -1882,14 +1835,6 @@ video {
   text-transform: lowercase;
 }
 
-.leading-7 {
-  line-height: 1.75rem;
-}
-
-.leading-none {
-  line-height: 1;
-}
-
 .leading-relaxed {
   line-height: 1.625;
 }
@@ -1910,6 +1855,10 @@ video {
   color: var(--color2);
 }
 
+.text-\[var\(--color3\)\] {
+  color: var(--color3);
+}
+
 .text-\[var\(--color4\)\] {
   color: var(--color4);
 }
@@ -1926,11 +1875,6 @@ video {
 .text-blue-700 {
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity));
-}
-
-.text-cyan-400 {
-  --tw-text-opacity: 1;
-  color: rgb(34 211 238 / var(--tw-text-opacity));
 }
 
 .text-gray-100 {
@@ -1971,18 +1915,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-\[var\(--color3\)\] {
-  color: var(--color3);
-}
-
-.text-\[\] {
-  color: ;
-}
-
-.text-\[var\(--color\)\] {
-  color: var(--color);
 }
 
 .underline {
@@ -2047,27 +1979,22 @@ video {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-indigo-600:hover {
+.hover\:bg-gray-800:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-white:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
 .hover\:font-semibold:hover {
   font-weight: 600;
 }
 
+.hover\:text-\[var\(--color1\)\]:hover {
+  color: var(--color1);
+}
+
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.hover\:text-\[var\(--color1\)\]:hover {
-  color: var(--color1);
 }
 
 .hover\:underline:hover {
@@ -2126,17 +2053,8 @@ video {
   --tw-ring-color: rgb(0 0 0 / var(--tw-ring-opacity));
 }
 
-.focus\:ring-indigo-700:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(67 56 202 / var(--tw-ring-opacity));
-}
-
 .focus\:ring-offset-0:focus {
   --tw-ring-offset-width: 0px;
-}
-
-.focus\:ring-offset-2:focus {
-  --tw-ring-offset-width: 2px;
 }
 
 .active\:bg-blue-800:active {

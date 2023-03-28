@@ -4,7 +4,7 @@
 
 <body>
   <header>
-    <%- include('../partials/header_temp') %>
+    <%- include('../partials/header_nol') %>
   </header>
 
   <main>
@@ -48,12 +48,13 @@
 
     const firstNameInput = document.getElementById("fName");
     const lastNameInput = document.getElementById("lName");
+    const emailInput = document.getElementById("email");
     const passwordInput = document.getElementById("password");
 
     const firstNameRegex = /^[a-zA-Z]+$/;
     const lastNameRegex = /^[a-zA-Z]+$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$ /;
 
     firstNameInput.addEventListener("input", () => {
       if (!firstNameRegex.test(firstNameInput.value)) {

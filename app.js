@@ -1,12 +1,6 @@
-const { rejects } = require("assert");
 const express = require("express");
-const { resolve } = require("path");
-const bodyParser = require("body-parser");
-const path = require("path");
-const { exit } = require("process");
 const app = express();
 const relation = require("./sqlite3");
-const async = require("async");
 const port = process.env.PORT || 3000;
 
 const mainRoutes = require("./routes/main")
