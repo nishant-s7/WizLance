@@ -50,7 +50,7 @@
           </div>
 
           <!-- SideBar (sm) and (md) -->
-          <div id="modalOverlay">
+          <div id="modalOverlay" class="hidden">
             <div id="modal" class="bg-[var(--color1)] w-1/5 flex-col items-center mr-10 xl:flex space-y-10 rounded-3xl">
 
               <div class="h-2/6 w-full flex flex-col items-center">
@@ -345,8 +345,6 @@
       $('#modalOverlay').show().addClass('modal-open');
     });
 
-
-
     // Messages toggle
     $("#dashboard").on('click', '#YourMessages , #NewMessages, #NewMessages2', () => {
       $("#dashboard").closest(".dashToggle").addClass("hidden");
@@ -359,9 +357,6 @@
       $('#invoices').hide();
       $("#users").show();
     })
-
-
-
 
     $("#navDash").on('click', () => {
 

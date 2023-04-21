@@ -14,14 +14,11 @@
 
       <form action="/login" method="post" class="flex flex-col items-center text-black text-xs">
 
-        <input type="email" name="email_address" id="email" placeholder="Email"
-          class="rounded-md p-2 m-1 mb-4 w-4/5 py-3" required />
+        <input type="email" name="email" id="email" placeholder="Email" class="rounded-md p-2 m-1 mb-4 w-4/5 py-3" required />
 
-        <input type="password" name="login_password" id="password" placeholder="Password"
-          class="rounded-md p-2 m-1 mb-4 w-4/5 py-3" required />
+        <input type="password" name="password" id="password" placeholder="Password" class="rounded-md p-2 m-1 mb-4 w-4/5 py-3" required />
 
-        <button type="submit"
-          class="text-gray-200 hover:text-white hover:opacity-90 border-2 rounded-lg bg-[var(--color1)] w-4/5 py-3">Submit</button>
+        <button type="submit" class="text-gray-200 hover:text-white hover:opacity-90 border-2 rounded-lg bg-[var(--color1)] w-4/5 py-3">Submit</button>
       </form>
     </div>
 
@@ -33,7 +30,6 @@
   </footer>
 
   <script>
-
     const email = document.getElementById("email");
     const passwordInput = document.getElementById("password");
 
@@ -48,7 +44,6 @@
         passwordInput.setCustomValidity("");
       }
     });
-
   </script>
 
 </body>

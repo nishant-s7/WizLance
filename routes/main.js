@@ -3,12 +3,11 @@ const express = require("express");
 const router = express.Router();
 var freelancer = false;
 router.get("/", (req, res, next) => {
-  loggedIn = false;
   res.render("pages/landing_nol.ejs");
 });
 
 router.get("/mainpage", (req, res, next) => {
-  if (loggedIn === true) {
+  if (req.session.isLoggedIn === true) {
     res.render("pages/mainpage");
   } else {
     res.redirect("login");
