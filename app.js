@@ -1,4 +1,5 @@
 const express = require("express");
+<<<<<<< HEAD
 const mongoose = require("mongoose");
 const session = require("express-session");
 const mongoStore = require("connect-mongodb-session")(session);
@@ -8,6 +9,11 @@ const signInRoutes = require("./routes/auth");
 const categoriesRoutes = require("./routes/categories");
 
 const app = express();
+=======
+const app = express();
+const relation = require("./sqlite3");
+const port = process.env.PORT || 3000;
+>>>>>>> 884ec2482140e2c2d5357a54ebcc4d35dbdad0ef
 
 const MONGODB_URI =
   "mongodb+srv://node-course:node-course@cluster0.qm3rjga.mongodb.net/wizlance?retryWrites=true&w=majority";
