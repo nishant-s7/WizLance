@@ -3,7 +3,11 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 
 exports.getLogin = (req, res, next) => {
-  res.render("pages/login");
+  let message = req.flash("error");
+  message = message.length > 0 ? message[0] : null;
+  res.render("pages/login", {
+    errorMessage: message,
+  });
 };
 
 exports.postLogin = (req, res, next) => {
@@ -14,7 +18,8 @@ exports.postLogin = (req, res, next) => {
     .then((user) => {
       console.log(user);
       if (!user) {
-        return res.redirect("/signup");
+        req.flash("error", "Invalid email or password");
+        return res.redirect("/login");
       }
       bcrypt.compare(password, user.password).then((doMatch) => {
         if (doMatch) {
@@ -25,6 +30,7 @@ exports.postLogin = (req, res, next) => {
             res.redirect("/mainpage");
           });
         }
+        req.flash("error", "Invalid email or password");
         return res.redirect("/login");
       });
     })
@@ -34,7 +40,11 @@ exports.postLogin = (req, res, next) => {
 };
 
 exports.getSignup = (req, res, next) => {
-  res.render("pages/signup");
+  let message = req.flash("error");
+  message = message.length > 0 ? message[0] : null;
+  res.render("pages/signup", {
+    errorMessage: message,
+  });
 };
 
 exports.postSignup = (req, res, next) => {
@@ -46,20 +56,23 @@ exports.postSignup = (req, res, next) => {
   User.findOne({ email })
     .then((user) => {
       if (user) {
+        req.flash("error", "Account already exists");
         return res.redirect("/signup");
       }
-      bcrypt.hash(password, 12).then((hashedPassword) => {
-        const user = new User({
-          firstName,
-          lastName,
-          email,
-          password: hashedPassword,
+      bcrypt
+        .hash(password, 12)
+        .then((hashedPassword) => {
+          const user = new User({
+            firstName,
+            lastName,
+            email,
+            password: hashedPassword,
+          });
+          return user.save();
+        })
+        .then(() => {
+          res.redirect("/login");
         });
-        return user.save();
-      });
-    })
-    .then(() => {
-      res.redirect("/login");
     })
     .catch((err) => {
       console.log(err);

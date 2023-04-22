@@ -2,10 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const mongoStore = require("connect-mongodb-session")(session);
+const flash = require("connect-flash");
 
 const mainRoutes = require("./routes/main");
 const signInRoutes = require("./routes/auth");
-const categoriesRoutes = require("./routes/categories");
+const categoryRoutes = require("./routes/categories");
 
 const app = express();
 
@@ -17,6 +18,10 @@ const store = new mongoStore({
   collection: "sessions",
 });
 
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(__dirname + "/public"));
+app.set("view engine", "ejs");
+
 app.use(
   session({
     secret: "wizlance",
@@ -26,19 +31,19 @@ app.use(
   })
 );
 
-app.use(express.urlencoded({ extended: false }));
-
-app.use(express.static(__dirname + "/public"));
-app.set("view engine", "ejs");
+app.use(flash());
 
 app.use((req, res, next) => {
+  const fname = req.session.user.firstName;
+  const letter = fname.slice(0, 1);
+  res.locals.profileLogo = letter;
   res.locals.loggedIn = req.session.isLoggedIn;
   next();
 });
 
 app.use(mainRoutes);
 app.use(signInRoutes);
-app.use(categoriesRoutes);
+app.use(categoryRoutes);
 
 mongoose
   .connect(MONGODB_URI)
