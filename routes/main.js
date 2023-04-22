@@ -1,5 +1,7 @@
 const express = require("express");
 
+const Categories = require("../models/category")
+
 const router = express.Router();
 var freelancer = false;
 router.get("/", (req, res, next) => {
@@ -8,7 +10,9 @@ router.get("/", (req, res, next) => {
 
 router.get("/mainpage", (req, res, next) => {
   if (req.session.isLoggedIn === true) {
-    res.render("pages/mainpage");
+  Categories.find({}).then((categories) => {
+    res.render("pages/mainpage", {categories});
+  })
   } else {
     res.redirect("login");
   }

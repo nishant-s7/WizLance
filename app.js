@@ -11,7 +11,7 @@ const categoryRoutes = require("./routes/categories");
 const app = express();
 
 const MONGODB_URI =
-  "mongodb+srv://wizproject13:Room%40112@wizlance.5ecwge7.mongodb.net/test";
+  "mongodb+srv://wizproject13:Room%40112@wizlance.5ecwge7.mongodb.net/wizlance";
 
 const store = new mongoStore({
   uri: MONGODB_URI,

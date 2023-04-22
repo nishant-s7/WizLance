@@ -1413,6 +1413,10 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-\[url\(\'\<\%\=category\.imageUrl\%\>\'\)\] {
+  background-image: url('<%=category.imageUrl%>');
+}
+
 .bg-\[url\(\'https\:\/\/assets-prd\.ignimgs\.com\/2022\/03\/28\/36190303pixar-blogrolledit2-1648234304315-1648499015772\.jpg\'\)\] {
   background-image: url('https://assets-prd.ignimgs.com/2022/03/28/36190303pixar-blogrolledit2-1648234304315-1648499015772.jpg');
 }
@@ -1437,20 +1441,12 @@ video {
   background-image: url('https://e0.pxfuel.com/wallpapers/159/425/desktop-wallpaper-simple-black-cyan-background-by-mixboxmixing-on-newgrounds.jpg');
 }
 
-.bg-\[url\(\'https\:\/\/encrypted-tbn0\.gstatic\.com\/images\?q\=tbn\:ANd9GcQqJ-wJQjUizsusbxpViBEAnVi-aUMoYSpaNA\&usqp\=CAU\'\)\] {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqJ-wJQjUizsusbxpViBEAnVi-aUMoYSpaNA&usqp=CAU');
-}
-
 .bg-\[url\(\'https\:\/\/encrypted-tbn0\.gstatic\.com\/images\?q\=tbn\:ANd9GcR_Ic009YLudrjiR7xQ29EcjlOXe_Ro-F97V3-CHh6rzmKn4y2_en8p0zn596Kdo9b9M5k\&usqp\=CAU\'\)\] {
   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Ic009YLudrjiR7xQ29EcjlOXe_Ro-F97V3-CHh6rzmKn4y2_en8p0zn596Kdo9b9M5k&usqp=CAU');
 }
 
 .bg-\[url\(\'https\:\/\/i\.pinimg\.com\/736x\/7d\/d9\/c2\/7dd9c2ded4abab02c41b261d6b06f3ba\.jpg\'\)\] {
   background-image: url('https://i.pinimg.com/736x/7d/d9/c2/7dd9c2ded4abab02c41b261d6b06f3ba.jpg');
-}
-
-.bg-\[url\(\'https\:\/\/images\.unsplash\.com\/photo-1497091071254-cc9b2ba7c48a\?ixlib\=rb-4\.0\.3\&ixid\=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGdyYXBoaWMlMjBkZXNpZ258ZW58MHx8MHx8\&w\=1000\&q\=80\'\)\] {
-  background-image: url('https://images.unsplash.com/photo-1497091071254-cc9b2ba7c48a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGdyYXBoaWMlMjBkZXNpZ258ZW58MHx8MHx8&w=1000&q=80');
 }
 
 .bg-\[url\(\'https\:\/\/images\.unsplash\.com\/photo-1516414447565-b14be0adf13e\?ixlib\=rb-4\.0\.3\&ixid\=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8\&auto\=format\&fit\=crop\&w\=1546\&q\=80\'\)\] {
@@ -1477,10 +1473,6 @@ video {
   background-image: url('https://leverageedu.com/blog/wp-content/uploads/2019/11/Masters-in-Game-Development.jpg');
 }
 
-.bg-\[url\(\'https\:\/\/media\.istockphoto\.com\/id\/537331500\/photo\/programming-code-abstract-technology-background-of-software-deve\.jpg\?s\=612x612\&w\=0\&k\=20\&c\=jlYes8ZfnCmD0lLn-vKvzQoKXrWaEcVypHnB5MuO-g8\=\'\)\] {
-  background-image: url('https://media.istockphoto.com/id/537331500/photo/programming-code-abstract-technology-background-of-software-deve.jpg?s=612x612&w=0&k=20&c=jlYes8ZfnCmD0lLn-vKvzQoKXrWaEcVypHnB5MuO-g8=');
-}
-
 .bg-\[url\(\'https\:\/\/media\.uaudio\.com\/assetlibrary\/b\/l\/blog_5_audio_mastering_tips_hero\.jpg\'\)\] {
   background-image: url('https://media.uaudio.com/assetlibrary/b/l/blog_5_audio_mastering_tips_hero.jpg');
 }
@@ -1489,20 +1481,16 @@ video {
   background-image: url('https://wallpapercave.com/wp/wp1816259.jpg');
 }
 
-.bg-\[url\(\'https\:\/\/wallpapers\.com\/images\/featured\/3wxim1i2egqb5my9\.jpg\'\)\] {
-  background-image: url('https://wallpapers.com/images/featured/3wxim1i2egqb5my9.jpg');
-}
-
 .bg-\[url\(\'https\:\/\/www\.mantralabsglobal\.com\/wp-content\/uploads\/2017\/05\/Android_thumb800\.jpg\'\)\] {
   background-image: url('https://www.mantralabsglobal.com/wp-content/uploads/2017/05/Android_thumb800.jpg');
 }
 
-.bg-\[url\(\'https\:\/\/www\.translatedright\.com\/wp-content\/uploads\/2020\/02\/quality-legal-translation-service\.jpg\'\)\] {
-  background-image: url('https://www.translatedright.com/wp-content/uploads/2020/02/quality-legal-translation-service.jpg');
-}
-
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.bg-\[url\(\'\<\%\=category\.imageUr\%\>\'\)\] {
+  background-image: url('<%=category.imageUr%>');
 }
 
 .from-\[var\(--color1\)\] {
