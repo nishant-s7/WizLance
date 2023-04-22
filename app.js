@@ -11,7 +11,7 @@ const categoryRoutes = require("./routes/categories");
 const app = express();
 
 const MONGODB_URI =
-  "mongodb+srv://node-course:node-course@cluster0.qm3rjga.mongodb.net/wizlance?retryWrites=true&w=majority";
+  "mongodb+srv://wizproject13:Room%40112@wizlance.5ecwge7.mongodb.net/test";
 
 const store = new mongoStore({
   uri: MONGODB_URI,
@@ -34,9 +34,11 @@ app.use(
 app.use(flash());
 
 app.use((req, res, next) => {
-  const fname = req.session.user.firstName;
-  const letter = fname.slice(0, 1);
-  res.locals.profileLogo = letter;
+  if (req.session.user) {
+    const fname = req.session.user.firstName;
+    const letter = fname.slice(0, 1);
+    res.locals.profileLogo = letter;
+  }
   res.locals.loggedIn = req.session.isLoggedIn;
   next();
 });
