@@ -7,6 +7,7 @@ const flash = require("connect-flash");
 const mainRoutes = require("./routes/main");
 const signInRoutes = require("./routes/auth");
 const categoryRoutes = require("./routes/categories");
+const adminRoutes = require("./routes/admin");
 
 const app = express();
 
@@ -46,6 +47,7 @@ app.use((req, res, next) => {
 app.use(mainRoutes);
 app.use(signInRoutes);
 app.use(categoryRoutes);
+app.use(adminRoutes);
 
 mongoose
   .connect(MONGODB_URI)

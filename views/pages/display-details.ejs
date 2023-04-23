@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body>
+    <div>
+        <table class="table-auto w-full">
+            <thead class="bg-[var(--color2)]">
+              <tr>
+                <th class="text-white py-2">First Name</th>
+                <th class="text-white py-2">Last Name</th>
+                <th class="text-white py-2">Email</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(user => {%> 
+                    <tr>
+                        <td class="text-black py-2 text-center"><%= user.firstName %></td>
+                        <td class="text-black py-2 text-center"><%= user.lastName %></td>
+                        <td class="text-black py-2 text-center"><%= user.email %></td>
+                    </tr>
+                <%}) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
