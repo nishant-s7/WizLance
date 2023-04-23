@@ -26,5 +26,17 @@
             </tbody>
         </table>
     </div>
+
+    <div>
+        <form action="/admin-delete" method="post">
+            <select name="deleteFromEmail">
+                <% users.forEach(user => {%> 
+                        <option value="<%= user.email %>"><%= user.email %></td>
+                <%}) %>
+
+            </select>
+            <button type="submit">Delete</button>
+          </form>
+    </div>
 </body>
 </html>
