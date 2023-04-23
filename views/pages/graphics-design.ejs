@@ -6,7 +6,8 @@
 </head>
 
 <body>
-  <div class="bg-[url('<%=category.imageUrl%>')] bg-cover">
+  <div class="bg-[url(<%= category.imageUrl %>)] bg-cover" style="background-image: url('<%= category.imageUrl %>')" >
+
     <header>
       <% if(loggedIn === true){ %>
       <%- include('../partials/header_category') %>

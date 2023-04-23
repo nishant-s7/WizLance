@@ -13,15 +13,15 @@ router.get("/:category", (req, res) => {
   })
 });
 
-router.get("/mainpage", (req, res, next) => {
-  if (req.session.isLoggedIn === true) {
-  Categories.find({}).then((categories) => {
-    res.render("pages/mainpage", {categories});
-  })
-  } else {
-    res.redirect("login");
-  }
-});
+// router.get("/mainpage", (req, res, next) => {
+//   if (req.session.isLoggedIn === true) {
+//   Categories.find({}).then((categories) => {
+//     res.render("pages/mainpage", {categories});
+//   })
+//   } else {
+//     res.redirect("login");
+//   }
+// });
 // router.get("/music-audio", (req, res) => {
 //   res.render("pages/music-audio");
 // });

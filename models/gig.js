@@ -13,6 +13,7 @@ const gigSchema = new Schema({
   },
   imageUrl: String,
   description: String,
+  subCategory: String
 });
 
 module.exports = mongoose.model("Gig", gigSchema);
