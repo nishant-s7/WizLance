@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const gigSchema = new Schema({
-  category: {
+  name: {
     type: String,
     required: true,
   },
@@ -11,9 +11,13 @@ const gigSchema = new Schema({
     type: Number,
     required: true,
   },
+  freelancerEmail: {
+    type: String,
+    required: true,
+  },
   imageUrl: String,
   description: String,
-  subCategory: String
+  subCategory: String,
 });
 
 module.exports = mongoose.model("Gig", gigSchema);

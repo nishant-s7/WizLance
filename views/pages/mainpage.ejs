@@ -50,7 +50,9 @@
       </div>
     </section>
 
-
+    <!-- <form action="/add" method="post">
+      <button type="submit">ADD</button>
+    </form> -->
 
     <section class="explore text-gray-600 m-10">
       <h1 class="sm:text-3xl font-bold tex[var(--color5)] text-[var(--color5)]">Explore our categories:</h1>
@@ -59,7 +61,7 @@
 
         <%categories.forEach(category => {%>
         <div class="xl:w-1/4 md:w-1/2 p-4">
-          <a href="/<%= category.name %>">
+          <a href="/mainpage/<%= category.name %>">
             <div class="bg-[url('<%=category.imageUrl%>')] bg-cover p-2 rounded-lg" style="background-image: url('<%= category.imageUrl %>')">
               <h2 class="text-2xl text-white font-medium mb-4 p-6"><%=category.name%><br>&nbsp;</h2>
             </div>

@@ -6,7 +6,7 @@
 </head>
 
 <body>
-  <div class="bg-[url(<%= category.imageUrl %>)] bg-cover" style="background-image: url('<%= category.imageUrl %>')" >
+  <div class="bg-[url(<%= category.imageUrl %>)] bg-cover" style="background-image: url('<%= category.imageUrl %>')">
 
     <header>
       <% if(loggedIn === true){ %>
@@ -27,10 +27,10 @@
 
       <%category.subCategories.forEach(i => {%>
       <div class="sc xl:w-1/5 md:w-1/2 p-4">
-        <a href="/graphics-design/logo-design">
+        <a href="/<%= category.name %>/<%= i.name %>">
           <img class="h-40 rounded-lg w-full object-cover object-center border-2" src="<%= i.imageUrl %>"><br>
           <h1 class="text-2xl font-bold"><%= i.name %></h1>
-        <br>
+          <br>
         </a>
       </div>
       <%})%>

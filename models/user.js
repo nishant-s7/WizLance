@@ -19,6 +19,9 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  isFreelancer: Boolean,
+  freelancerSkills: [String],
+  freelancerRating: Number,
 });
 
 module.exports = mongoose.model("User", userSchema);
