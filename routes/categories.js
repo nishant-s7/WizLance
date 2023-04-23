@@ -35,9 +35,9 @@ router.get("/:pages/:categories/:gig", (req, res) => {
   res.render("pages/profile-templates");
 });
 
-// router.get("/payment", (req, res) => {
-//   res.render("pages/Payment");
-// });
+router.get("/payment", (req, res) => {
+  res.render("pages/Payment");
+});
 
 router.get("/contact", (req, res) => {
   res.render("pages/contact-us");

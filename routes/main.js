@@ -20,7 +20,6 @@ router.get("/mainpage", (req, res, next) => {
 });
 
 router.get("/dashboard", (req, res, next) => {
-  console.log(freelancer);
   res.render("pages/dashboard", { freelancer });
 });
 
