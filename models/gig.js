@@ -15,9 +15,16 @@ const gigSchema = new Schema({
     type: String,
     required: true,
   },
+  category: {
+    type: String,
+    required: true,
+  },
+  subCategory: {
+    type: String,
+    required: true,
+  },
   imageUrl: String,
   description: String,
-  subCategory: String,
 });
 
 module.exports = mongoose.model("Gig", gigSchema);

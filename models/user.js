@@ -20,6 +20,7 @@ const userSchema = new Schema({
     required: true,
   },
   isFreelancer: Boolean,
+  isAdmin: Boolean,
   freelancerSkills: [String],
   freelancerRating: Number,
 });

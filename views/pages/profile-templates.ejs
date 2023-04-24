@@ -37,7 +37,7 @@
 <body>
   <header>
     <% if(loggedIn === true){ %>
-    <%- include('../partials/header') %>
+    <%- include('../partials/header_nos') %>
     <% } else{ %>
     <%- include('../partials/header_nol') %>
     <% } %>
@@ -48,15 +48,14 @@
     <div class="w-[99%] h-auto p-10  bg-slate-200 rounded-3xl m-auto mt-7">
       <div class="flex">
 
-
         <div>
           <img src="https://www.kindpng.com/picc/m/80-800188_random-user-random-icon-png-transparent-png.png" class="w-32 sm:mt-6 rounded-full" alt="">
           <h1></h1>
         </div>
         <div class="ml-12 h-40 mt-12">
-          <h1 class="text-xl justify-self-center">Name : Lorem ipsum dolor sit.</h1>
-          <p class="text-lg mt-2">Skills : Lorem, ipsum.</p>
-          <p class="mt-2">Ratings: 5 star Lorem, ipsum.</p>
+          <h1 class="text-xl justify-self-center">Name : <%= freelancer.firstName + " " + freelancer.lastName %></h1>
+          <p class="text-lg mt-2">Skills : <%= freelancer.freelancerSkills.join(", ") %></p>
+          <p class="mt-2">Ratings: <%= freelancer.freelancerRating %></p>
         </div>
       </div>
     </div>
@@ -64,32 +63,26 @@
 
   <div class="content flex align-middle">
     <div>
-      <h1 class="text-2xl ml-20  mt-11">Lorem, ipsum.</h1>
-      <p class="text-base ml-20 mt-10 w-2/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consequuntur
-        officia asperiores, fugiat aspernatur hic quisquam sapiente cum sed similique? Est suscipit, sint facilis
-        voluptate, amet possimus ea nulla ipsum a, tempora dolorum? Vero dolor esse mollitia repellendus nisi debitis
-        possimus, sit aliquam? Incidunt perferendis, eius fuga aperiam mollitia dolorum?</p>
+      <h1 class="text-2xl ml-20  mt-11"><%= gig.name %></h1>
+      <p class="text-base ml-20 mt-10 w-2/4"><%= gig.description %></p>
     </div>
 
     <div class="mr-40">
       <div class="w-max  h-auto mt-16 rounded overflow-hidden shadow-lg">
-        <div class="font-bold text-xl mb-2 m-7">Price : $15-$35 <span class="text-sm">/hr</span></div>
+        <div class="font-bold text-xl mb-2 m-7">Price : $<%= gig.price %> <span class="text-sm">/hr</span></div>
         <div class="px-10 py-10 pt-4">
 
           <p class="text-gray-700 text-base ">
-            Lorem ipsum dolor sit amet, </p>
-          <hr class="my-2" size="2">
-          <p class="text-gray-700 text-base">
-            Lorem ipsum dolor sit amet </p>
+            <%= gig.subCategory %> </p>
         </div>
         <div class="m-10 ">
           <% if (loggedIn === true) { %>
           <button type="button" id="open" class="w-52 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
             Contact Me
           </button>
-          <a href="/payment"><button type="button" id="open" class="w-52  bg-blue-500 font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-            Hire
-          </button></a>
+          <a href="/<%= category %>/<%= subCategory %>/<%= gig.name %>/payment"><button type="button" id="open" class="w-52  bg-blue-500 font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+              Hire
+            </button></a>
           <% } else { %>
           <a href="/login">
             <button class="w-52 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
