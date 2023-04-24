@@ -7,6 +7,7 @@ router.get("/admin-dashboard", adminController.getDashboard);
 router.get("/admin-users", adminController.displayUsers);
 router.get("/admin-categories", adminController.displayCategories);
 router.get("/admin-gigs", adminController.displayGigs);
+router.get("/admin-messages", adminController.displayMessages);
 
 router.post("/admin-delete", adminController.deleteFromUser);
 router.post("/admin-add-category", adminController.addCategory);

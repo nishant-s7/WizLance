@@ -32,32 +32,35 @@
     </div>
 
     <br><br>
+    
     <div>
-        <form action="/admin-add-category" method="post">
+        <div class="my-4 text-center text-3xl font-extrabold">Add Category</div>
+        <form action="/admin-add-category" method="post" class="flex flex-col text-center items-center">
 
-            <input placeholder="category" type="text" name="addCategory"/>
-            <input placeholder="image-url" type="text" name="addCategoryImage">
+            <input class="text-center" placeholder="category" type="text" name="addCategory"/>
+            <input class="text-center" placeholder="image-url" type="text" name="addCategoryImage">
             <button type="submit">Add Category</button>
         </form>
 
         <br><br>
+        <div class="my-4 text-center text-3xl font-extrabold">Add Sub-Category</div>
+        <form action="/admin-add-subcategory" method="post" class="flex flex-col text-center items-center">
 
-        <form action="/admin-add-subcategory" method="post">
-
-            <select name="selectCategory">
+            <select name="selectCategory" class="text-center">
                 <% categories.forEach(category => {%> 
                         <option value="<%= category.name %>"><%= category.name %></td>
                 <%}) %>
             </select>
 
-            <input type="text" placeholder="subcategory" name="addSubCategory">
+            <input class="text-center" type="text" placeholder="subcategory" name="addSubCategory">
 
-            <input placeholder="image-url" type="text" name="addSubCategoryImage">
+            <input class="text-center" placeholder="image-url" type="text" name="addSubCategoryImage">
 
             <button type="submit">Add SubCategory</button>
         </form>
         <br><br>
-        <form action="/admin-delete-category" method="post">
+        <div class="my-4 text-center text-3xl font-extrabold">Delete Category</div>
+        <form action="/admin-delete-category" method="post" class="flex flex-col text-center items-center">
 
             <select name="selectedCategory">
                 <% categories.forEach(category => {%> 
@@ -69,13 +72,14 @@
 
         <br><br>
 
-        <form action="/admin-delete-subcategory" method="post">
+        <div class="my-4 text-center text-3xl font-extrabold">Delete Sub-Category</div>
+        <form action="/admin-delete-subcategory" method="post" class="flex flex-col text-center items-center">
             <select name="selectedCategory">
                 <% categories.forEach(category => {%> 
                     <option value="<%= category.name %>"><%= category.name %></option>
                 <%}) %>
             </select>
-            <input type="text" placeholder="subcategory" name="deleteSubCategory">
+            <input class="text-center" type="text" placeholder="subcategory" name="deleteSubCategory">
             <button type="submit">Delete SubCategory</button>
         </form>
         
