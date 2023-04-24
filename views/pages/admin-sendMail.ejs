@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head') %>
+</head>
+
+<body class="box-border">
+  <header>
+    <%- include('../partials/header_temp') %>
+  </header>
+
+  <div class="p-10">
+    <form action="/sendMail" method="post" class="flex flex-col items-center text-xs">
+      <input type="text" name="mailSubject" class="rounded-md p-2 m-1 mb-4 w-4/5 border-2 border-black" placeholder="Enter subject">
+      <textarea name="mailMessage" id="mailMessage" placeholder="Enter message" rows="10" class="rounded-md p-2 m-1 mb-4 w-4/5  border-2 border-black focus:border-none" required></textarea>
+
+      <button type="submit" class="text-gray-200 hover:text-white hover:opacity-90  rounded-lg bg-[var(--color1)] w-4/5 py-3 focus:border-none">Send</button>
+    </form>
+  </div>
+
+</body>

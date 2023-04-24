@@ -21,6 +21,9 @@ exports.postSearchSubCategories = (req, res, next) => {
       const subCategory = category.subCategories.find((sc) =>
         regex.test(sc.name)
       );
+      if (!subCategory) {
+        res.redirect(`/mainpage/${category.name}`);
+      }
       res.redirect(`/${category.name}/${subCategory.name}`);
     })
     .catch((err) => {

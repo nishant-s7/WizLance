@@ -9,7 +9,7 @@ exports.getLandingPage = (req, res, next) => {
 exports.getMainPage = (req, res, next) => {
   if (req.session.isLoggedIn === true) {
     Categories.find({}).then((categories) => {
-      res.render("pages/mainpage", { categories });
+      res.render("pages/mainpage", { categories, user: req.session.user });
     });
   } else {
     res.redirect("login");

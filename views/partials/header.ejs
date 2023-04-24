@@ -3,9 +3,12 @@
 
   <span class='font-extrabold ml-3'><a href="/mainpage"><img src="/images/WizlanceLogo.png" width="180px"></a></span>
   <nav class="flex items-center text-base">
+    <% if (user.isAdmin) { %>
+    <a href="/admin-dashboard" class="pr-6 text-cyan-300">Admin</a>
+    <% } %>
     <p class="m-1 hidden sm:block">Search</p>
     <form action="/search" method="post">
-      <input type="text" class="hidden sm:block text-black search-inp rounded-lg m-4 p-1" name="gigName" placeholder="search here">
+      <input type="text" class="hidden sm:block text-black search-inp rounded-lg m-4 p-1" name="query" placeholder="search here">
     </form>
     <div class="max-w-lg mx-auto">
 
