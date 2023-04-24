@@ -61,35 +61,33 @@
     </div>
   </div>
 
-  <div class="content flex align-middle">
+  <div class="content flex">
     <div>
       <h1 class="text-2xl ml-20  mt-11"><%= gig.name %></h1>
       <p class="text-base ml-20 mt-10 w-2/4"><%= gig.description %></p>
     </div>
 
-    <div class="mr-40">
-      <div class="w-max  h-auto mt-16 rounded overflow-hidden shadow-lg">
+    <div class="" >
+      <div class="w-max  h-auto mt-16 rounded overflow-hidden shadow-lg  border-blue-400 border-2 flex-col">
         <div class="font-bold text-xl mb-2 m-7">Price : $<%= gig.price %> <span class="text-sm">/hr</span></div>
-        <div class="px-10 py-10 pt-4">
+        <div class="px-5 py-10 pt-4">
 
-          <p class="text-gray-700 text-base ">
+          <p class="text-gray-700 text-base">
             <%= gig.subCategory %> </p>
         </div>
         <div class="m-10 ">
           <% if (loggedIn === true) { %>
-          <button type="button" id="open" class="w-52 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-            Contact Me
-          </button>
-          <a href="/<%= category %>/<%= subCategory %>/<%= gig.name %>/payment"><button type="button" id="open" class="w-52  bg-blue-500 font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+        
+          <% if (checkFreelancer ) { %>
+            
+          <% } else { %>
+            <a href="/<%= category %>/<%= subCategory %>/<%= gig.name %>/payment"><button type="button" id="open" class="w-52  bg-blue-500 font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
               Hire
             </button></a>
+         <% } %>
           <% } else { %>
-          <a href="/login">
-            <button class="w-52 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-              Contact Me
-            </button>
-          </a>
           <% } %>
+
 
           <div id="modalOverlay" style="display:none;">
             <div id="modal" class="rounded-2xl max-w-2xl">

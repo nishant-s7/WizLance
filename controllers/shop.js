@@ -68,3 +68,25 @@ exports.getGigs = (req, res, next) => {
 exports.getPayment = (req, res, next) => {
   res.render("pages/Payment");
 };
+
+exports.orderplaced = (req,res)=>{
+
+  const findGig = req.body.gigs
+  const projectRequirements = req.body.projectRequest;
+
+  Gig.findOne({name:findGig}).then((OrderGig)=>{
+
+    const orderSaved = new Orders({
+      userEmail:req.session.user.email,
+      gigId:OrderGig._id,
+      projectRequest: projectRequirements,
+    })
+
+    orderSaved.save()
+    res.redirect("/dashboard");
+
+}).catch((err)=>{
+  console.log(err);
+
+})
+}
