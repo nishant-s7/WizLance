@@ -48,17 +48,19 @@
         <img src="/images/signup.svg" class=" h-60">
       </div>
       <section class="max-w-lg max-h-[550px] p-6 mx-auto bg-indigo-600 rounded-md shadow-md my-10 dark:bg-gray-800 ">
-        <form action="/signupFreelancer" method="post">
+        <form action="/addGigs" method="post">
           <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             <div>
               <label class="text-white dark:text-gray-200" for="username">Gig</label>
               <input id="username" type="text"
-                class="block w-[200%] px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                class="block w-[200%] px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                name="GigName">
             </div><br>
             <div>
               <label class="text-white dark:text-gray-200" for="main-dropdown">Select Category</label>
               <select id="main-dropdown" onchange="updateSecondaryDropdown()"
-                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                name="Category">
                 <option value="">Select an option</option>
                 <option value="Graphic Design">Graphic & Design</option>
                 <option value="Music Audio">Music & Audio</option>
@@ -74,53 +76,43 @@
               <label class="text-white dark:text-gray-200" for="secondary-dropdown">Select Sub-Category</label>
 
               <select id="secondary-dropdown" required
-                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                name="subCategory">
                 <option value="">Select an option</option>
               </select>
             </div>
             <div>
               <label class="text-white dark:text-gray-200">Description</label>
-              <textarea id="textarea" type="textarea"
+              <textarea name="description" id="textarea" type="textarea"
                 class="block  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
             </div>
             <div>
               <label class="text-white dark:text-gray-200" for="username">Price</label>
               <span class="input-symbol-euro">
-                <input id="username" type="number"
+                <input name="price" id="username" type="number"
                   class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   autocomplete="off">
-
               </span>
             </div>
-            <div>
-              <label class="block text-sm -m-4  ml-1  text-white">
-                Upload Image
+            <div class="">
+              <label for="" class="text-white">Image Url
+                <input type="text" class="text-black" name="imageValue">
               </label>
-              <div><br>
-                <canvas id="canv1" class="dark:text-gray-300 border rounded-xl p-1border-gray-600"></canvas>
-              </div>
-              <div class="mt-3">
-                <label for="finput"
-                  class="relative cursor-pointer text-black   bg-blue-600 hover:bg-blue-200 p-1.5 rounded-md">
-                  <span>Upload</span>
-
-                  <input type="file" class="sr-only" name="myImage" multiple="false" accept="image/*" id=finput
-                    onchange={upload()} required>
-                </label>
-              </div>
-
             </div>
-            <div>
-              <div class="flex  flex-col justify-center mt-28">
-                <button
-                  class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600">Save</button>
-              </div>
+
+          </div>
+          <div>
+            <div class="flex  flex-col justify-center mt-20">
+              <button
+                class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600"
+                type="submit">Save</button>
             </div>
           </div>
+    </div>
 
 
-        </form>
-      </section>
+    </form>
+    </section>
     </div>
   </main>
 

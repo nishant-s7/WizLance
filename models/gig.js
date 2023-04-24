@@ -23,6 +23,7 @@ const gigSchema = new Schema({
     type: String,
     required: true,
   },
+
   imageUrl: String,
   description: String,
 });

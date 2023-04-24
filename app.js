@@ -8,6 +8,7 @@ const mainRoutes = require("./routes/main");
 const signInRoutes = require("./routes/auth");
 const categoryRoutes = require("./routes/categories");
 const adminRoutes = require("./routes/admin");
+const freelancerRoutes = require("./routes/freelancer");
 
 const app = express();
 
@@ -48,6 +49,7 @@ app.use(mainRoutes);
 app.use(signInRoutes);
 app.use(categoryRoutes);
 app.use(adminRoutes);
+app.use(freelancerRoutes);
 
 mongoose
   .connect(MONGODB_URI)

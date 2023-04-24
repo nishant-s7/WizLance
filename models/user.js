@@ -19,6 +19,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+
   isFreelancer: Boolean,
   isAdmin: Boolean,
   freelancerSkills: [String],
