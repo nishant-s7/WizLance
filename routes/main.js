@@ -2,6 +2,9 @@ const express = require("express");
 
 const Categories = require("../models/category");
 const Gig = require("../models/gig");
+const orders = require("../models/orders");
+const Orders = require("../models/orders");
+const User = require("../models/user");
 
 const router = express.Router();
 var freelancer = false;
@@ -20,64 +23,70 @@ router.get("/mainpage", (req, res, next) => {
 });
 
 router.get("/dashboard", (req, res, next) => {
-  res.render("pages/dashboard", { freelancer });
+  let gigs = []
+  let fgigs = []
+  let sales = []
+  let sale_gig = []
+
+  Gig.find({freelancerEmail: req.session.user.email}).then((gig) => {
+    fgigs = gig.map(orr=>orr);  
+  })
+
+  
+  setTimeout(() => {
+    
+    for(i=0; i<fgigs.length; i++){
+    Orders.find({gigId: fgigs[i]._id}).then((sale) => {
+      sale.forEach((s)=>{
+      sales.push(s);
+    })
+
+      sale.forEach((i) => {
+        Gig.findOne({_id: i.gigId}).then((gig) => {
+          sale_gig.push(gig)
+        })
+      })
+      
+    })
+
+  }
+  }, 500);
+  
+  Orders.find({userEmail: req.session.user.email}).then((orders) => {
+
+    orders.forEach((order) => {
+      Gig.findOne({_id: order.gigId}).then((gig) => {
+        gigs.push(gig)
+      })
+    })
+
+    setTimeout(() => {
+      res.render("pages/dashboard", { user: req.session.user, orders, gigs, fgigs, sales, sale_gig});
+    }, 1000);
+  })
+  
 });
 
 router.get("/seller-overview", (req, res, next) => {
-  res.render("pages/seller-form");
+  res.render("pages/freelancer-form");
 });
 
 router.post("/signupFreelancer", (req, res, next) => {
-  freelancer = true;
-  res.redirect("/dashboard");
+  const skills = req.body.skills;
+  const arr = skills.split(",");
+  req.session.user.isFreelancer = true;
+  req.session.user.freelancerSkills = arr;
+  req.session.save();
+  
+    User.findOne({email: req.session.user.email}).then((user) => {
+      user.isFreelancer = true;
+      user.freelancerSkills = arr;
+      user.save().then(() => {
+        res.redirect("/dashboard");
+      })
+    }).catch((err) => {console.log(err)})
+  
 });
 
-router.post("/search", (req, res, next) => {
-  const gigName = req.body.gigName;
-  Gig.find({ subCategory })
-    .then((gigs) => {})
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-// router.post("/add", (req, res, next) => {
-//   const name = "Shooting Stars";
-//   const imageUrl = "https://dummyimage.com/421x261";
-//   const price = 19.99;
-//   const subCategory = "Logo Design";
-//   const description = "Hello there, I am an experienced logo designer.";
-
-//   const gig = new Gig({
-//     name,
-//     imageUrl,
-//     price,
-//     description,
-//     subCategory,
-//   });
-
-//   gig.save().then(() => {
-//     console.log("Saved");
-//     res.redirect("/mainpage");
-//   });
-//   // const subCategories = [
-//   //   {
-//   //     name: "Voice Over",
-//   //     imageUrl:
-//   //       "https://i.pinimg.com/736x/7d/d9/c2/7dd9c2ded4abab02c41b261d6b06f3ba.jpg",
-//   //   },
-//   // ];
-
-//   // const category = new Categories({
-//   //   name,
-//   //   imageUrl,
-//   //   subCategories,
-//   // });
-
-//   // category.save().then(() => {
-//   //   console.log("Saved");
-//   //   res.redirect("/mainpage");
-//   // });
-// });
 
 module.exports = router;
