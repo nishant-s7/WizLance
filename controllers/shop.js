@@ -43,6 +43,7 @@ exports.getSubCategories = (req, res, next) => {
 };
 
 exports.getGigs = (req, res, next) => {
+  const checkFreelancer = req.session.user.isFreelancer;
   const category = req.params.pages;
   const subCategory = req.params.categories;
   const gig = req.params.gig;
