@@ -7,45 +7,47 @@ exports.getDashboard = (req, res, next) => {
   let fgigs = [];
   let sales = [];
   let sale_gig = [];
+  let ords = [];
 
-  Gig.find({ freelancerEmail: req.session.user.email }).then((gig) => {
-    fgigs = gig.map((orr) => orr);
-  });
+  Gig.find({ freelancerEmail: req.session.user.email })
+    .then((gig) => {
+      return (fgigs = gig.map((orr) => orr));
+    })
+    .then(() => {
+      for (i = 0; i < fgigs.length; i++) {
+        Orders.find({ gigId: fgigs[i]._id }).then((sale) => {
+          sale.forEach((s) => {
+            sales.push(s);
+          });
 
-  setTimeout(() => {
-    for (i = 0; i < fgigs.length; i++) {
-      Orders.find({ gigId: fgigs[i]._id }).then((sale) => {
-        sale.forEach((s) => {
-          sales.push(s);
+          sale.forEach((i) => {
+            Gig.findOne({ _id: i.gigId }).then((gig) => {
+              sale_gig.push(gig);
+            });
+          });
         });
-
-        sale.forEach((i) => {
-          Gig.findOne({ _id: i.gigId }).then((gig) => {
-            sale_gig.push(gig);
+      }
+    })
+    .then(() => {
+      Orders.find({ userEmail: req.session.user.email }).then((orders) => {
+        ords = orders;
+        orders.forEach((order) => {
+          Gig.findOne({ _id: order.gigId }).then((gig) => {
+            gigs.push(gig);
           });
         });
       });
-    }
-  }, 500);
-
-  Orders.find({ userEmail: req.session.user.email }).then((orders) => {
-    orders.forEach((order) => {
-      Gig.findOne({ _id: order.gigId }).then((gig) => {
-        gigs.push(gig);
-      });
-    });
-
-    setTimeout(() => {
+    })
+    .then(() => {
       res.render("pages/dashboard", {
         user: req.session.user,
-        orders,
+        orders: ords,
         gigs,
         fgigs,
         sales,
         sale_gig,
       });
-    }, 1000);
-  });
+    });
 };
 
 exports.getSellerForm = (req, res, next) => {
