@@ -1,6 +1,7 @@
 const Categories = require("../models/category");
 const Gig = require("../models/gig");
 const User = require("../models/user");
+const Orders = require("../models/orders")
 
 exports.getLandingPage = (req, res, next) => {
   res.render("pages/landing_nol.ejs");
@@ -28,6 +29,7 @@ exports.getCategories = (req, res, next) => {
 exports.getSubCategories = (req, res, next) => {
   const category = req.params.pages;
   const subCategory = req.params.categories;
+  
 
   Gig.find({ subCategory })
     .then((gigs) => {
@@ -35,6 +37,7 @@ exports.getSubCategories = (req, res, next) => {
         category,
         subCategory,
         gigs,
+     
       });
     })
     .catch((err) => {
@@ -47,6 +50,7 @@ exports.getGigs = (req, res, next) => {
   const category = req.params.pages;
   const subCategory = req.params.categories;
   const gig = req.params.gig;
+ 
   Gig.findOne({ name: gig })
     .then((gig) => {
       const freelancerEmail = gig.freelancerEmail;
@@ -57,6 +61,7 @@ exports.getGigs = (req, res, next) => {
             freelancer,
             category,
             subCategory,
+            checkFreelancer,
           });
         }
       );
@@ -67,7 +72,8 @@ exports.getGigs = (req, res, next) => {
 };
 
 exports.getPayment = (req, res, next) => {
-  res.render("pages/Payment");
+  const gigName = req.params.gig;
+  res.render("pages/Payment", {gigName});
 };
 
 exports.orderplaced = (req,res)=>{
