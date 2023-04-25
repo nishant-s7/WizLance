@@ -2,53 +2,37 @@ const User = require("../models/user");
 const Gig = require("../models/gig");
 const Orders = require("../models/orders");
 
-exports.getDashboard = (req, res, next) => {
-  let gigs = [];
-  let fgigs = [];
-  let sales = [];
-  let sale_gig = [];
-  let ords = [];
+exports.getDashboard = async (req, res, next) => {
+  try {
+    const fgigs = await Gig.find({ freelancerEmail: req.session.user.email });
+    const sales = [];
+    const sale_gig = [];
 
-  Gig.find({ freelancerEmail: req.session.user.email })
-    .then((gig) => {
-      return (fgigs = gig.map((orr) => orr));
-    })
-    .then(() => {
-      for (i = 0; i < fgigs.length; i++) {
-        Orders.find({ gigId: fgigs[i]._id }).then((sale) => {
-          sale.forEach((s) => {
-            sales.push(s);
-          });
-
-          sale.forEach((i) => {
-            Gig.findOne({ _id: i.gigId }).then((gig) => {
-              sale_gig.push(gig);
-            });
-          });
-        });
+    for (let i = 0; i < fgigs.length; i++) {
+      const sale = await Orders.find({ gigId: fgigs[i]._id });
+      sales.push(...sale);
+      for (let j = 0; j < sale.length; j++) {
+        const gig = await Gig.findOne({ _id: sale[j].gigId });
+        sale_gig.push(gig);
       }
-    })
-    .then(() => {
-      Orders.find({ userEmail: req.session.user.email }).then((orders) => {
-        ords = orders;
-        orders.forEach((order) => {
-          Gig.findOne({ _id: order.gigId }).then((gig) => {
-            gigs.push(gig);
-          });
-        });
-      });
-    })
-    .then(() => {
-      res.render("pages/dashboard", {
-        user: req.session.user,
-        orders: ords,
-        gigs,
-        fgigs,
-        sales,
-        sale_gig,
-      });
+    }
+
+    const orders = await Orders.find({ userEmail: req.session.user.email });
+    const gigs = await Gig.find({ _id: { $in: orders.map((o) => o.gigId) } });
+
+    res.render("pages/dashboard", {
+      user: req.session.user,
+      orders,
+      gigs,
+      fgigs,
+      sales,
+      sale_gig,
     });
+  } catch (err) {
+    next(err);
+  }
 };
+
 
 exports.getSellerForm = (req, res, next) => {
   res.render("pages/freelancer-form");
