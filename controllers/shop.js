@@ -90,7 +90,7 @@ exports.orderplaced = (req,res)=>{
     })
 
     orderSaved.save()
-    res.redirect("/dashboard");
+    res.redirect("/mainpage");
 
 }).catch((err)=>{
   console.log(err);
