@@ -1,36 +1,51 @@
 <head>
-    <%- include('../partials/head') %>
-  </head>
-  
-  <body>
-    <header>
-      <%- include('../partials/header_temp') %>
-    </header>
-  
-    <main>
-      <div class="container mx-auto mt-4 p-1 flex flex-col items-center lg:flex-row lg:justify-between">
-  
-        <div class=" mx-auto p-5">
-          <h1 class="text-3xl text-[var(--color5)] font-bold md:text-5xl">Freelancing is the future.</h1>
-          <p class="font- my-3">Join the community</p><hr><br>
-          <img src="/images/signup.svg" class=" h-60">
-        </div>
-  
-        <div class="w-3/4 lg:w-1/3  container p-8 mx-auto my-3 shadow-black shadow-lg bg-gradient-to-r from-[var(--color2)] to-[var(--color5)] rounded-lg text-gray-600">
-          <h3 class="font-bold text-white  mb-4">
+  <%- include('../partials/head') %>
+</head>
+
+<body>
+  <header>
+    <%- include('../partials/header_temp') %>
+  </header>
+
+  <main>
+    <div class="container mx-auto mt-4 p-1 flex flex-col items-center lg:flex-row lg:justify-between">
+
+      <div class=" mx-auto p-5">
+        <h1 class="text-3xl text-[var(--color5)] font-bold md:text-5xl">Freelancing is the future.</h1>
+        <p class="font- my-3">Join the community</p>
+        <hr><br>
+        <img src="/images/signup.svg" class=" h-60">
+      </div>
+
+      <div class="w-3/4 lg:w-1/3  container p-8 mx-auto my-3 shadow-black shadow-lg bg-gradient-to-r from-[var(--color2)] to-[var(--color5)] rounded-lg text-gray-600">
+        <h3 class="font-bold text-white  mb-4">
           <h3 class="font-bold text-white mb-4">Become a Freelancer</h3>
-  
+
           <form action="/signupFreelancer" method="post" class="flex flex-col items-center text-xs">
-            <textarea name="skills" id="skills" placeholder="Mention your skills" rows="10" class="rounded-md p-2 m-1 mb-4 w-4/5" required ></textarea>
-    
+            <textarea name="skills" id="skills" placeholder="Mention your skills" rows="10" class="rounded-md p-2 m-1 mb-4 w-4/5" required></textarea>
+
             <button type="submit" class="text-gray-200 hover:text-white hover:opacity-90 rounded-lg bg-[var(--color1)] w-4/5 py-3">Submit</button>
           </form>
-        </div>
       </div>
-    </main>
-  
-    <footer>
-      <%- include('../partials/footer') %>
-    </footer>
-  
-  </body>
+    </div>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer') %>
+  </footer>
+
+  <script>
+    const skillsInput = document.getElementById('skills');
+    const skillsRegex = /^[a-zA-Z\-,]+$/
+
+    skillsInput.addEventListener("input", () => {
+      if (!skillsRegex.test(skillsInput.value)) {
+        skillsInput.setCustomValidity("Please enter only alphabets!");
+        skillsInput.reportValidity();
+      } else {
+        skillsInput.setCustomValidity("");
+      }
+    });
+  </script>
+
+</body>

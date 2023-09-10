@@ -67,7 +67,7 @@
       <p class="text-base ml-20 mt-10 w-2/4"><%= gig.description %></p>
     </div>
 
-    <div class="" >
+    <div class="">
       <div class="w-max  h-auto mt-16 rounded overflow-hidden shadow-lg  border-blue-400 border-2 flex-col">
         <div class="font-bold text-xl mb-2 m-7">Price : $<%= gig.price %> <span class="text-sm">/hr</span></div>
         <div class="px-5 py-10 pt-4">
@@ -77,14 +77,14 @@
         </div>
         <div class="m-10 ">
           <% if (loggedIn === true) { %>
-        
-          <% if (checkFreelancer ) { %>
-            
+
+          <% if (userIsFreelancer ) { %>
+
           <% } else { %>
-            <a href="/<%= category %>/<%= subCategory %>/<%= gig.name %>/payment"><button type="button" id="open" class="w-52  bg-blue-500 font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+          <a href="/<%= category %>/<%= subCategory %>/<%= gig.name %>/payment"><button type="button" id="open" class="w-52  bg-blue-500 font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
               Hire
             </button></a>
-         <% } %>
+          <% } %>
           <% } else { %>
           <% } %>
         </div>

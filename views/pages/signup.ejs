@@ -54,44 +54,44 @@
 
     const firstNameRegex = /^[a-zA-Z]+$/;
     const lastNameRegex = /^[a-zA-Z]+$/;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z\-\.])+\.([A-Za-z]{2,4})$/;
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$ /;
 
-    firstNameInput.addEventListener("input", () => {
+    firstNameInput.addEventListener("blur", () => {
       if (!firstNameRegex.test(firstNameInput.value)) {
-        firstNameInput.setCustomValidity("Please enter a valid first name !!");
+        firstNameInput.setCustomValidity("Please enter only alphabets!");
         firstNameInput.reportValidity();
       } else {
         firstNameInput.setCustomValidity("");
       }
     });
 
-    lastNameInput.addEventListener("input", () => {
+    lastNameInput.addEventListener("blur", () => {
       if (!lastNameRegex.test(lastNameInput.value)) {
-        lastNameInput.setCustomValidity("Please enter a valid last name !!");
+        lastNameInput.setCustomValidity("Please enter only alphabets!");
         lastNameInput.reportValidity();
       } else {
         lastNameInput.setCustomValidity("");
       }
     });
 
-    emailInput.addEventListener("input", () => {
+    emailInput.addEventListener("blur", () => {
       if (!emailRegex.test(emailInput.value)) {
-        emailInput.setCustomValidity("Please enter a valid email Address !!");
+        emailInput.setCustomValidity("Please enter a valid email address!");
         emailInput.reportValidity();
       } else {
         emailInput.setCustomValidity("");
       }
     });
 
-    // passwordInput.addEventListener("input", () => {
-    //   if (!passwordRegex.test(passwordInput.value)) {
-    //     passwordInput.setCustomValidity("Password should be at least 8 characters long, and contain at least one digit, one lowercase and one uppercase letter.");
-    //     passwordInput.reportValidity();
-    //   } else {
-    //     passwordInput.setCustomValidity("");
-    //   }
-    // });
+    passwordInput.addEventListener("blur", () => {
+      if (!passwordRegex.test(passwordInput.value)) {
+        passwordInput.setCustomValidity("Password should be at least 8 characters long, and contain at least one digit, one lowercase and one uppercase letter.");
+        passwordInput.reportValidity();
+      } else {
+        passwordInput.setCustomValidity("");
+      }
+    });
   </script>
 
 </body>

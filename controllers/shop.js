@@ -1,7 +1,7 @@
 const Categories = require("../models/category");
 const Gig = require("../models/gig");
 const User = require("../models/user");
-const Orders = require("../models/orders")
+const Orders = require("../models/orders");
 
 exports.getLandingPage = (req, res, next) => {
   res.render("pages/landing_nol.ejs");
@@ -29,7 +29,6 @@ exports.getCategories = (req, res, next) => {
 exports.getSubCategories = (req, res, next) => {
   const category = req.params.pages;
   const subCategory = req.params.categories;
-  
 
   Gig.find({ subCategory })
     .then((gigs) => {
@@ -37,7 +36,6 @@ exports.getSubCategories = (req, res, next) => {
         category,
         subCategory,
         gigs,
-     
       });
     })
     .catch((err) => {
@@ -46,13 +44,13 @@ exports.getSubCategories = (req, res, next) => {
 };
 
 exports.getGigs = (req, res, next) => {
-  const checkFreelancer = req.session.user.isFreelancer;
   const category = req.params.pages;
   const subCategory = req.params.categories;
   const gig = req.params.gig;
- 
+
   Gig.findOne({ name: gig })
     .then((gig) => {
+      const userIsFreelancer = req.session.user.email === gig.freelancerEmail;
       const freelancerEmail = gig.freelancerEmail;
       User.findOne({ isFreelancer: true, email: freelancerEmail }).then(
         (freelancer) => {
@@ -61,7 +59,7 @@ exports.getGigs = (req, res, next) => {
             freelancer,
             category,
             subCategory,
-            checkFreelancer,
+            userIsFreelancer,
           });
         }
       );
@@ -73,27 +71,25 @@ exports.getGigs = (req, res, next) => {
 
 exports.getPayment = (req, res, next) => {
   const gigName = req.params.gig;
-  res.render("pages/Payment", {gigName});
+  res.render("pages/Payment", { gigName });
 };
 
-exports.orderplaced = (req,res)=>{
-
-  const findGig = req.body.gigs
+exports.orderplaced = (req, res) => {
+  const findGig = req.body.gigs;
   const projectRequirements = req.body.projectRequest;
 
-  Gig.findOne({name:findGig}).then((OrderGig)=>{
+  Gig.findOne({ name: findGig })
+    .then((OrderGig) => {
+      const orderSaved = new Orders({
+        userEmail: req.session.user.email,
+        gigId: OrderGig._id,
+        projectRequest: projectRequirements,
+      });
 
-    const orderSaved = new Orders({
-      userEmail:req.session.user.email,
-      gigId:OrderGig._id,
-      projectRequest: projectRequirements,
+      orderSaved.save();
+      res.redirect("/mainpage");
     })
-
-    orderSaved.save()
-    res.redirect("/mainpage");
-
-}).catch((err)=>{
-  console.log(err);
-
-})
-}
+    .catch((err) => {
+      console.log(err);
+    });
+};
