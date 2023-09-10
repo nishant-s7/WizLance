@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const mongoStore = require("connect-mongodb-session")(session);
 const flash = require("connect-flash");
+require("dotenv").config();
 
 const mainRoutes = require("./routes/main");
 const signInRoutes = require("./routes/auth");
@@ -12,8 +13,10 @@ const freelancerRoutes = require("./routes/freelancer");
 
 const app = express();
 
-const MONGODB_URI =
-  "mongodb+srv://wizproject13:Room%40112@wizlance.5ecwge7.mongodb.net/wizlance";
+// const MONGODB_URI =
+//   "mongodb+srv://wizproject13:Room%40112@wizlance.5ecwge7.mongodb.net/wizlance";
+
+const MONGODB_URI = process.env.MONGODB_URI;
 
 const store = new mongoStore({
   uri: MONGODB_URI,
