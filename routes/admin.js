@@ -1,5 +1,6 @@
-const express = require('express');
+const express = require("express");
 const adminController = require("../controllers/admin");
+const ajaxController = require("../controllers/ajax");
 
 const router = express.Router();
 
@@ -18,4 +19,6 @@ router.post("/contact-admin", adminController.contactAdmin);
 
 router.post("/sendMail", adminController.postMail);
 router.get("/admin-sendMail", adminController.getMailPage);
+
+router.get("/search-categories", ajaxController.searchCategories);
 module.exports = router;

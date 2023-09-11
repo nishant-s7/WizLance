@@ -2,90 +2,136 @@
 <html lang="en">
 
 <head>
-    <%- include('../partials/head') %>
+  <%- include('../partials/head') %>
 </head>
-<body>
-    <header>
-        <%- include('../partials/header-admin') %>
-      </header>
-    <div>
-        
-        <table class="table-auto w-full">
-            <thead class="bg-[var(--color2)]">
-              <tr>
-                <th class="text-white py-2">Category</th>
-                <th class="text-white py-2">Sub-Categories</th>
-              </tr>
-            </thead>
-            <tbody>
 
-                <% categories.forEach(category => {%> 
-                    <tr class="border-2">
-                        <td class="text-black py-2 text-center"><%= category.name %></td>
-                        <td class="text-black py-2 text-center">
-                            <% category.subCategories.forEach(subcategory => {%> 
-                                <%= subcategory.name %>
-                                <br>
-                            <%}) %>
-                        </td>
-                    </tr>
-                <%}) %>
-            </tbody>
-        </table>
+<body>
+  <header>
+    <%- include('../partials/header-admin') %>
+  </header>
+  <div>
+    <div>
+      <input type="text" name="search" id="search" placeholder="search">
     </div>
+    <table class="table-auto w-full">
+      <thead class="bg-[var(--color2)]">
+        <tr>
+          <th class="text-white py-2">Category</th>
+          <th class="text-white py-2">Sub-Categories</th>
+        </tr>
+      </thead>
+      <tbody id="tabBody">
+        <% categories.forEach(category => {%>
+        <tr class="border-2">
+          <td class="text-black py-2 text-center" id="catName"><%= category.name %></td>
+          <td class="text-black py-2 text-center" id="catSubs">
+            <% category.subCategories.forEach(subcategory => {%>
+            <%= subcategory.name %>
+            <br>
+            <%}) %>
+          </td>
+        </tr>
+        <%}) %>
+      </tbody>
+    </table>
+  </div>
+
+  <br><br>
+
+  <div>
+    <div class="my-4 text-center text-3xl font-extrabold">Add Category</div>
+    <form action="/admin-add-category" method="post" class="flex flex-col text-center items-center">
+
+      <input class="text-center" placeholder="category" type="text" name="addCategory" />
+      <input class="text-center" placeholder="image-url" type="text" name="addCategoryImage">
+      <button type="submit">Add Category</button>
+    </form>
 
     <br><br>
-    
-    <div>
-        <div class="my-4 text-center text-3xl font-extrabold">Add Category</div>
-        <form action="/admin-add-category" method="post" class="flex flex-col text-center items-center">
+    <div class="my-4 text-center text-3xl font-extrabold">Add Sub-Category</div>
+    <form action="/admin-add-subcategory" method="post" class="flex flex-col text-center items-center">
 
-            <input class="text-center" placeholder="category" type="text" name="addCategory"/>
-            <input class="text-center" placeholder="image-url" type="text" name="addCategoryImage">
-            <button type="submit">Add Category</button>
-        </form>
+      <select name="selectCategory" class="text-center">
+        <% categories.forEach(category => {%>
+        <option value="<%= category.name %>"><%= category.name %></td>
+          <%}) %>
+      </select>
 
-        <br><br>
-        <div class="my-4 text-center text-3xl font-extrabold">Add Sub-Category</div>
-        <form action="/admin-add-subcategory" method="post" class="flex flex-col text-center items-center">
+      <input class="text-center" type="text" placeholder="subcategory" name="addSubCategory">
 
-            <select name="selectCategory" class="text-center">
-                <% categories.forEach(category => {%> 
-                        <option value="<%= category.name %>"><%= category.name %></td>
-                <%}) %>
-            </select>
+      <input class="text-center" placeholder="image-url" type="text" name="addSubCategoryImage">
 
-            <input class="text-center" type="text" placeholder="subcategory" name="addSubCategory">
+      <button type="submit">Add SubCategory</button>
+    </form>
+    <br><br>
+    <div class="my-4 text-center text-3xl font-extrabold">Delete Category</div>
+    <form action="/admin-delete-category" method="post" class="flex flex-col text-center items-center">
 
-            <input class="text-center" placeholder="image-url" type="text" name="addSubCategoryImage">
+      <select name="selectedCategory">
+        <% categories.forEach(category => {%>
+        <option value="<%= category.name %>"><%= category.name %></option>
+        <%}) %>
+      </select>
+      <button type="submit">Delete Category</button>
+    </form>
 
-            <button type="submit">Add SubCategory</button>
-        </form>
-        <br><br>
-        <div class="my-4 text-center text-3xl font-extrabold">Delete Category</div>
-        <form action="/admin-delete-category" method="post" class="flex flex-col text-center items-center">
+    <br><br>
 
-            <select name="selectedCategory">
-                <% categories.forEach(category => {%> 
-                    <option value="<%= category.name %>"><%= category.name %></option>
-                <%}) %>
-            </select>
-            <button type="submit">Delete Category</button>
-        </form>
+    <div class="my-4 text-center text-3xl font-extrabold">Delete Sub-Category</div>
+    <form action="/admin-delete-subcategory" method="post" class="flex flex-col text-center items-center">
+      <select name="selectedCategory">
+        <% categories.forEach(category => {%>
+        <option value="<%= category.name %>"><%= category.name %></option>
+        <%}) %>
+      </select>
+      <input class="text-center" type="text" placeholder="subcategory" name="deleteSubCategory">
+      <button type="submit">Delete SubCategory</button>
+    </form>
 
-        <br><br>
+  </div>
 
-        <div class="my-4 text-center text-3xl font-extrabold">Delete Sub-Category</div>
-        <form action="/admin-delete-subcategory" method="post" class="flex flex-col text-center items-center">
-            <select name="selectedCategory">
-                <% categories.forEach(category => {%> 
-                    <option value="<%= category.name %>"><%= category.name %></option>
-                <%}) %>
-            </select>
-            <input class="text-center" type="text" placeholder="subcategory" name="deleteSubCategory">
-            <button type="submit">Delete SubCategory</button>
-        </form>
-        
-    </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#search').on('input', function() {
+        const query = $(this).val();
+        $.ajax({
+          url: '/search-categories',
+          type: 'GET',
+          data: {
+            query: query
+          },
+          dataType: 'JSON',
+          success: function(data) {
+            categories = data;
+            console.log(categories);
+
+            const tabBody = document.getElementById('tabBody');
+            let html = '';
+
+            data.categories.forEach(category => {
+              html += `
+            <tr class="border-2">
+              <td class="text-black py-2 text-center" id="catName">${category.name}</td>
+              <td class="text-black py-2 text-center" id="catSubs">
+                ${category.subCategories.map(subcategory => `
+                ${subcategory.name}<br>
+                `).join('')}
+              </td>
+            </tr>
+            `;
+            });
+
+            tabBody.innerHTML = html;
+          },
+          error: function(err) {
+            console.log("ERRRRRR");
+            console.log(err);
+          }
+        });
+      });
+    });
+  </script>
 </body>
+
 </html>
