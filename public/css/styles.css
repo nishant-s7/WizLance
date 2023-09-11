@@ -644,6 +644,10 @@ video {
   margin: 0.5rem;
 }
 
+.m-3 {
+  margin: 0.75rem;
+}
+
 .m-4 {
   margin: 1rem;
 }
@@ -702,6 +706,16 @@ video {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.mx-7 {
+  margin-left: 1.75rem;
+  margin-right: 1.75rem;
+}
+
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .-mb-2 {
@@ -818,6 +832,26 @@ video {
 
 .mt-9 {
   margin-top: 2.25rem;
+}
+
+.ml-\[\] {
+  margin-left: ;
+}
+
+.ml-\[20px\] {
+  margin-left: 20px;
+}
+
+.mt-\[20px\] {
+  margin-top: 20px;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
+.ml-8 {
+  margin-left: 2rem;
 }
 
 .box-border {
@@ -984,6 +1018,10 @@ video {
   width: 66.666667%;
 }
 
+.w-2\/5 {
+  width: 40%;
+}
+
 .w-20 {
   width: 5rem;
 }
@@ -1046,6 +1084,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-3\/5 {
+  width: 60%;
 }
 
 .max-w-lg {
@@ -1128,6 +1170,10 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
 }
 
 .justify-evenly {
@@ -1324,6 +1370,30 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.border-\[var\] {
+  border-color: var;
+}
+
+.border-\[var\(\)\] {
+  border-color: var();
+}
+
+.border-\[var\(--\)\] {
+  border-color: var(--);
+}
+
+.border-\[var\(--color\)\] {
+  border-color: var(--color);
+}
+
+.border-\[var\(--color5\)\] {
+  border-color: var(--color5);
+}
+
+.border-\[\] {
+  border-color: ;
+}
+
 .bg-\[var\(--color1\)\] {
   background-color: var(--color1);
 }
@@ -1390,11 +1460,6 @@ video {
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
-.bg-slate-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
-}
-
 .bg-transparent {
   background-color: transparent;
 }
@@ -1402,6 +1467,78 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[var\(--color\)\] {
+  background-color: var(--color);
+}
+
+.bg-\[ar\(\)\] {
+  background-color: ar();
+}
+
+.bg-\[var\(\)\] {
+  background-color: var();
+}
+
+.bg-\[var\(--color8\)\] {
+  background-color: var(--color8);
+}
+
+.bg-purple-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(233 213 255 / var(--tw-bg-opacity));
+}
+
+.bg-purple-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 232 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[\] {
+  background-color: ;
+}
+
+.bg-\[va\] {
+  background-color: va;
+}
+
+.bg-\[var\] {
+  background-color: var;
+}
+
+.bg-\[var\(--\)\] {
+  background-color: var(--);
+}
+
+.bg-\[var\(--color3\)\] {
+  background-color: var(--color3);
+}
+
+.bg-\[var\(--color5\=2\)\] {
+  background-color: var(--color5=2);
+}
+
+.bg-\[var\(--colro\)\] {
+  background-color: var(--colro);
+}
+
+.bg-purple-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(126 34 206 / var(--tw-bg-opacity));
+}
+
+.bg-purple-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(88 28 135 / var(--tw-bg-opacity));
+}
+
+.bg-\[var\(--color7\)\] {
+  background-color: var(--color7);
+}
+
+.bg-\[var\(--color6\)\] {
+  background-color: var(--color6);
 }
 
 .bg-\[url\(\'\<\%\=category\.imageUrl\%\>\'\)\] {
@@ -1813,6 +1950,10 @@ video {
   color: var(--color5);
 }
 
+.text-\[var\(--color8\)\] {
+  color: var(--color8);
+}
+
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -1871,6 +2012,43 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\] {
+  color: ;
+}
+
+.text-\[var\] {
+  color: var;
+}
+
+.text-\[var\(--colro\)\] {
+  color: var(--colro);
+}
+
+.text-\[var\(--color\)\] {
+  color: var(--color);
+}
+
+.text-purple-700 {
+  --tw-text-opacity: 1;
+  color: rgb(126 34 206 / var(--tw-text-opacity));
+}
+
+.text-\[var\(\)\] {
+  color: var();
+}
+
+.text-\[var\(\=\=\)\] {
+  color: var(==);
+}
+
+.text-\[var\(--\)\] {
+  color: var(--);
+}
+
+.text-\[var\(--co\)\] {
+  color: var(--co);
 }
 
 .underline {
@@ -2050,6 +2228,10 @@ video {
 
   .sm\:w-auto {
     width: auto;
+  }
+
+  .sm\:w-2\/5 {
+    width: 40%;
   }
 
   .sm\:grid-cols-2 {

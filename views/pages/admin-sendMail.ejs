@@ -5,7 +5,7 @@
   <%- include('../partials/head') %>
 </head>
 
-<body class="box-border">
+<body class="box-border text-xl">
 
   <header>
     <%- include('../partials/header-admin') %>
@@ -54,12 +54,12 @@
     
      -->
 
-     <div class="p-10">
-      <form id="emailForm" class="flex flex-col items-center text-xs">
-        <input type="text" name="mailSubject" class="rounded-md p-2 m-1 mb-4 w-4/5 border-2 border-black" placeholder="Enter subject">
-        <textarea name="mailMessage" id="mailMessage" placeholder="Enter message" rows="10" class="rounded-md p-2 m-1 mb-4 w-4/5  border-2 border-black focus:border-none" required></textarea>
+     <div class="p-10 flex justify-center">
+      <form id="emailForm" class="w-3/5 flex flex-col items-center text-xs">
+        <input type="text" name="mailSubject" class="rounded-md p-2 m-1 mb-4 w-4/5 border-2 border-[var(--color2)]" placeholder="Enter subject">
+        <textarea name="mailMessage" id="mailMessage" placeholder="Enter message" rows="10" class="rounded-md p-2 m-1 mb-4 w-4/5  border-2 border-[var(--color2)] focus:border-none" required></textarea>
     
-        <button type="submit" id="form-submit-button" class="text-gray-200 hover:text-white hover:opacity-90  rounded-lg bg-[var(--color1)] w-4/5 py-3 focus:border-none">Send</button>
+        <button type="submit" id="form-submit-button" class="text-gray-200 hover:text-white hover:opacity-90  rounded-lg bg-[var(--color8)] w-4/5 py-3 focus:border-none">Send</button>
       </form>
     </div>
     
