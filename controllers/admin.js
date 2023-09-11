@@ -88,10 +88,9 @@ exports.displayMessages = (req, res) => {
   Messages.find({}).then((messages) => {
     return res.render("pages/display-messages", { messages });
   });
-};
-
 exports.getDashboard = (req, res, next) => {
   res.render("pages/admin-dashboard", { admin: req.session.user });
+
 };
 
 exports.contactAdmin = (req, res) => {
@@ -143,9 +142,6 @@ exports.postMail = (req, res, next) => {
     .catch((err) => {
       console.log(err);
     });
-
-  
-};
 
 exports.getMailPage = (req, res, next) => {
   res.render("pages/admin-sendMail");
