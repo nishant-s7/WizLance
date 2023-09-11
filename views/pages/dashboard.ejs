@@ -26,16 +26,16 @@
           </div>
         </div>
 
-        <div
-          class="bg-[var(--color2)] h-4/6 w-full rounded-tr-[5rem] rounded-b-3xl flex flex-col items-center space-y-12">
+        <div class="bg-[var(--color2)] h-4/6 w-full rounded-tr-[5rem] rounded-b-3xl flex flex-col items-center space-y-12">
           <ul class="text-white space-y-12 text-xl flex flex-col items-center pt-10">
             <li><a class="cursor-pointer" id="navDash">Dashboard</a></li>
             <% if (user.isFreelancer) { %>
-              <li><a class="cursor-pointer" id="navProj">Projects</a></li>
-              <li><a class="cursor-pointer" id="navInvoc">Order requests</a></li>
-              <% } else { %>
-                <li><a class="cursor-pointer" id="navOrd">Orders</a></li>
-                <% } %>
+            <li><a class="cursor-pointer" id="navProj">Projects</a></li>
+            <li><a class="cursor-pointer" id="navInvoc">Order requests</a></li>
+            <li><a class="cursor-pointer" id="navOrd">Orders</a></li>
+            <% } else { %>
+            <li><a class="cursor-pointer" id="navOrd">Orders</a></li>
+            <% } %>
 
 
           </ul>
@@ -52,288 +52,296 @@
 
       <% if(user.isFreelancer) { %>
 
-        <!-- DASHBOARD -->
-        <div id="dashboard" class="h-full w-full box-border dashToggle">
+      <!-- DASHBOARD -->
+      <div id="dashboard" class="h-full w-full box-border dashToggle">
 
-          <!-- Greeting, earnings, price (sm) and (md)-->
-          <div class="w-full flex flex-col xl:hidden box-border">
-            <div class="flex items-center p-2 rounded-3xl border-white border-8 space-x-4">
-              <p class="font-bold text-3xl text-[var(--color1)]">Hello, <%= user.firstName %>
+        <!-- Greeting, earnings, price (sm) and (md)-->
+        <div class="w-full flex flex-col xl:hidden box-border">
+          <div class="flex items-center p-2 rounded-3xl border-white border-8 space-x-4">
+            <p class="font-bold text-3xl text-[var(--color1)]">Hello, <%= user.firstName %>
+            </p>
+          </div>
+
+          <!-- (md) -->
+          <div class="hidden md:flex box-border">
+            <div class="bg-[var(--color2)] w-1/2 flex flex-col items-center rounded-3xl border-white border-8">
+              <img src="https://cdn-icons-png.flaticon.com/512/5198/5198491.png" alt="graph" class="w-3/6">
+              <p class="text-lg text-white">Earnings</p>
+              <p class="text-5xl font-bold pb-4 text-white">$
+                <% let price=[] %>
+                <% for(i=0;i<sale_gig.length;i++){ price.push(sale_gig[i].price); }%>
+                <%= price.reduce((sum, a)=> sum+a, 0); %>
               </p>
             </div>
 
-            <!-- (md) -->
-            <div class="hidden md:flex box-border">
-              <div class="bg-[var(--color2)] w-1/2 flex flex-col items-center rounded-3xl border-white border-8">
-                <img src="https://cdn-icons-png.flaticon.com/512/5198/5198491.png" alt="graph" class="w-3/6">
-                <p class="text-lg text-white">Earnings</p>
-                <p class="text-5xl font-bold pb-4 text-white">$
-                  <% let price=[] %>
-                    <% for(i=0;i<sale_gig.length;i++){ price.push(sale_gig[i].price); }%>
-                      <%= price.reduce((sum, a)=> sum+a, 0); %>
-                </p>
-              </div>
-
-              <div class="bg-[var(--color2)] w-1/2 box-border rounded-3xl border-white border-8">
-                <div
-                  class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
-                  <div
-                    class="bg-[var(--color1)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
-                    <%= user.freelancerRating %>
-                  </div>
-                  <p class="font-bold text-2xl">Rating</p>
+            <div class="bg-[var(--color2)] w-1/2 box-border rounded-3xl border-white border-8">
+              <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
+                <div class="bg-[var(--color1)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
+                  <%= user.freelancerRating %>
                 </div>
+                <p class="font-bold text-2xl">Rating</p>
+              </div>
 
-                <div
-                  class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
-                  <div
-                    class="bg-[var(--color1)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
-                    <%= fgigs.length %>
-                  </div>
-                  <p class="font-bold text-2xl">Projects</p>
+              <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
+                <div class="bg-[var(--color1)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
+                  <%= fgigs.length %>
                 </div>
+                <p class="font-bold text-2xl">Projects</p>
               </div>
             </div>
-          </div>
-
-          <!-- Projects (sm) and (md) -->
-          <div
-            class="bg-[var(--color1)] flex xl:hidden flex-col space-y-4 justify-center pb-4 rounded-3xl border-white border-8">
-            <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your Projects</h3>
-            <div class="w-full flex justify-center">
-              <div class="rounded-3xl w-10/12 h-60">
-                <% for(i=0;i<orders.length;i++) {%>
-                  <div
-                    class="bg-[var(--color2)] w-full h-24 flex items-center justify-center space-x-8 rounded-t-3xl pt-4">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
-                    <div>
-                      <p class="font-bold text-white text-xl">
-                        <%= fgigs[i].name %>
-                      </p>
-                      <p class="text-white">
-                        <%= fgigs[i].subCategory %>
-                      </p>
-                      <p class="text-white">
-                        <%= fgigs[i].description %>
-                      </p>
-
-                    </div>
-                  </div>
-                  <% if(i=2){break;} %>
-                    <% } %>
-
-                      <div class="bg-[var(--color2)] w-full h-12 flex items-center justify-end pr-6 rounded-b-3xl">
-                        <a id="YourMessages" class="text-white hover:font-semibold text-sm">see all projects</a>
-                      </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Greeting, earnings, price, projects (xl)-->
-          <div class="w-full h-2/3 hidden xl:grid grid-cols-2 grid-rows-4 box-border">
-            <div class="bg-white col-span-2 flex items-center border-white border-8">
-              <p class="font-bold text-3xl text-[var(--color1)]">Hello, <%= user.firstName %>
-              </p>
-            </div>
-            <div class="row-span-3 flex box-border">
-              <div
-                class="bg-[var(--color2)] w-1/2 h-full flex flex-col items-center justify-center rounded-3xl border-white border-8">
-                <img src="https://cdn-icons-png.flaticon.com/512/5198/5198491.png" alt="graph" class="w-32">
-                <p class="text-lg text-white">Earnings</p>
-                <p class="text-5xl font-bold pb-4 text-white">$
-
-                  <%= price.reduce((sum, a)=> sum+a, 0); %>
-                </p>
-              </div>
-
-              <div class="bg-[var(--color2)] w-1/2 h-full box-border rounded-3xl border-white border-8">
-                <div
-                  class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
-                  <div
-                    class="bg-[var(--color1)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
-                    <%= user.freelancerRating %>
-                  </div>
-                  <span class="font-bold text-2xl">Rating</span>
-                </div>
-
-                <div
-                  class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
-                  <div
-                    class="bg-[var(--color1)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
-                    <%= fgigs.length %>
-                  </div>
-                  <span class="font-bold text-2xl">Projects</span>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="bg-[var(--color1)] row-span-3 flex flex-col space-y-4 justify-center rounded-3xl border-white border-8 pb-4">
-              <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your Projects</h3>
-              <div class="rounded-3xl w-10/12 h-60 m-9">
-                <% for(i=0;i<orders.length;i++) {%>
-                  <div
-                    class="bg-[var(--color2)] w-full h-24 flex items-center justify-center space-x-8 rounded-3xl pt-4">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
-                    <div>
-                      <p class="font-bold text-white text-xl">
-                        <%= fgigs[i].name %>
-                      </p>
-                      <p class="text-white">
-                        <%= fgigs[i].subCategory %>
-                      </p>
-                      <p class="text-white">
-                        <%= fgigs[i].description %>
-                      </p>
-
-                    </div>
-                  </div>
-                  <% if(i=2){break;} %>
-                    <% } %>
-
-                      <div class="bg-[var(--color2)] w-full h-12 flex items-center justify-end pr-6 rounded-3xl">
-                        <a id="NewMessages" class="text-white hover:font-semibold">see all projects</a>
-                      </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="w-full bg-[var(--color2)] flex flex-col space-y-6 pb-4 xl:h-1/3 rounded-3xl border-white border-8">
-            <h3 class="font-bold text-2xl pl-10 pt-6 text-white">Add a new gig</h3>
-            <a href="/uploadGigs">
-              <div class="w-full flex justify-center">
-                <button type="button" class="bg-[var(--color4)] text-6xl rounded-3xl m-2 w-10/12 h-28 p-2">
-                  +
-                </button>
-              </div>
-            </a>
           </div>
         </div>
 
-        <% } else { %>
-
-          <!-- USER -->
-          <div id="users" class="w-full">
-            <div
-              class="bg-[var(--color1)] flex flex-col lg:flex-row items-center justify-center space-y-12 rounded-3xl min-h-[42.5rem] box-border py-6 lg:py-0">
-              <div
-                class="bg-[var(--color4)] h-[30.5rem] lg:h-[42.5rem] w-5/6 lg:w-1/2 rounded-3xl lg:rounded-r-none p-12 flex items-center justify-center">
-                <div
-                  class="h-full w-full lg:h-5/6 lg:w-5/6 bg-[var(--color1)] rounded-3xl flex flex-col items-center py-10 space-y-8">
-                  <h1 class="text-white text-2xl font-bold">Profile</h1>
-                  <div class="flex flex-col items-center w-4/6">
-                    <p class="text-white">Name</p><br><br>
-                    <p
-                      class="font-bold text-lg lg:text-xl text-white bg-[var(--color2)] w-full lg:w-72 rounded-xl text-center py-4">
-                      <%= user.firstName %>
-                        <%= user.lastName %>
-                    </p>
-                  </div>
-
-                  <div class="flex flex-col items-center ">
-                    <p class="text-white">Email</p><br><br>
-                    <p
-                      class="font-bold text-lg lg:text-xl text-white bg-[var(--color2)] w-full p-3 rounded-xl text-center py-4 ">
-                      <%= user.email %>
-                    </p>
-                  </div>
+        <!-- Projects (sm) and (md) -->
+        <div class="bg-[var(--color1)] flex xl:hidden flex-col space-y-4 justify-center pb-4 rounded-3xl border-white border-8">
+          <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your Projects</h3>
+          <div class="w-full flex justify-center">
+            <div class="rounded-3xl w-10/12 h-60">
+              <% for(i=0;i<orders.length;i++) {%>
+              <% if (fgigs.length > 0) {%>
+              <div class="bg-[var(--color2)] w-full h-24 flex items-center justify-center space-x-8 rounded-t-3xl pt-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
+                <!--  -->
+                <div>
+                  <p class="font-bold text-white text-xl">
+                    <%= fgigs[i].name %>
+                  </p>
+                  <p class="text-white">
+                    <%= fgigs[i].subCategory %>
+                  </p>
+                  <p class="text-white">
+                    <%= fgigs[i].description %>
+                  </p>
                 </div>
               </div>
-              <div class="h-full flex flex-col items-center justify-center space-y-4 w-1/2">
-                <img src="/images/becomeSeller.png" alt="img" class="w-64">
-                <button class="bg-[var(--color4)] py-2 px-3 rounded-lg hover:font-semibold"><a
-                    href="/seller-overview">Become a Seller</a></button>
+              <% } %>
+              <% if(i=2){break;} %>
+              <% } %>
+
+              <div class="bg-[var(--color2)] w-full h-12 flex items-center justify-end pr-6 rounded-b-3xl">
+                <a id="YourMessages" class="text-white hover:font-semibold text-sm">see all projects</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Greeting, earnings, price, projects (xl)-->
+        <div class="w-full h-2/3 hidden xl:grid grid-cols-2 grid-rows-4 box-border">
+          <div class="bg-white col-span-2 flex items-center border-white border-8">
+            <p class="font-bold text-3xl text-[var(--color1)]">Hello, <%= user.firstName %>
+            </p>
+          </div>
+          <div class="row-span-3 flex box-border">
+            <div class="bg-[var(--color2)] w-1/2 h-full flex flex-col items-center justify-center rounded-3xl border-white border-8">
+              <img src="https://cdn-icons-png.flaticon.com/512/5198/5198491.png" alt="graph" class="w-32">
+              <p class="text-lg text-white">Earnings</p>
+              <p class="text-5xl font-bold pb-4 text-white">$
+
+                <%= price.reduce((sum, a)=> sum+a, 0); %>
+              </p>
+            </div>
+
+            <div class="bg-[var(--color2)] w-1/2 h-full box-border rounded-3xl border-white border-8">
+              <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
+                <div class="bg-[var(--color1)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
+                  <%= user.freelancerRating %>
+                </div>
+                <span class="font-bold text-2xl">Rating</span>
+              </div>
+
+              <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
+                <div class="bg-[var(--color1)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
+                  <%= fgigs.length %>
+                </div>
+                <span class="font-bold text-2xl">Projects</span>
               </div>
             </div>
           </div>
 
-          <% } %>
-
-            <!-- PROJECTS -->
-            <% if (orders) {%>
-              <div id="orders" class="w-full hidden overflow-y-scroll">
-                <div
-                  class="bg-[var(--color1)] flex flex-col space-y-4 rounded-3xl pb-4 max-h-[42.5rem] overflow-y-scroll">
-                  <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your Orders</h3>
-                  <div class="rounded-3xl w-11/12 h-full m-9">
-
-                    <% for(i=0; i<orders.length; i++) {%>
-                      <div class="bg-[var(--color2)] w-full flex items-center space-x-8 pl-8 rounded-3xl m-5 pt-5 pb-5">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
-                        <div>
-                          <span class="font-bold text-white text-xl">
-                            <%= gigs[i].name %>
-                          </span><br>
-                          <span class="text-white text-l">
-                            <%= gigs[i].subCategory %>
-                          </span>
-                          <p class="text-white">Price: $<%= gigs[i].price %> <br>
-                              Description: <%= gigs[i].description %><br>
-                                Project request sent: <%= orders[i].projectRequest %>
-                          </p>
-                        </div>
-                      </div>
-                      <% } %>
-
-                  </div>
+          <div class="bg-[var(--color1)] row-span-3 flex flex-col space-y-4 justify-center rounded-3xl border-white border-8 pb-4">
+            <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your Projects</h3>
+            <div class="rounded-3xl w-10/12 h-60 m-9">
+              <% for(i=0;i<orders.length;i++) {%>
+              <% if (fgigs.length > 0) {%>
+              <div class="bg-[var(--color2)] w-full h-24 flex items-center justify-center space-x-8 rounded-3xl pt-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
+                <div>
+                  <p class="font-bold text-white text-xl">
+                    <%= fgigs[i].name %>
+                  </p>
+                  <p class="text-white">
+                    <%= fgigs[i].subCategory %>
+                  </p>
+                  <p class="text-white">
+                    <%= fgigs[i].description %>
+                  </p>
                 </div>
               </div>
               <% } %>
+              <% if(i=2){break;} %>
+              <% } %>
 
-                <div id="projects" class="w-full hidden overflow-y-scroll">
-                  <div
-                    class="bg-[var(--color1)] flex flex-col space-y-4 rounded-3xl pb-4 max-h-[42.5rem] overflow-y-scroll">
-                    <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your Projects</h3>
-                    <div class="rounded-3xl w-11/12 h-full m-9">
-                      <% for(i=0; i<fgigs.length; i++) {%>
-                        <div
-                          class="bg-[var(--color2)] w-full flex items-center space-x-8 pl-8 rounded-3xl m-5 pt-5 pb-5">
-                          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
-                          <div>
-                            <span class="font-bold text-white text-xl">
-                              <%= fgigs[i].name %>
-                            </span><br>
-                            <span class="text-white text-l">
-                              <%= fgigs[i].subCategory %>
-                            </span>
-                            <p class="text-white">Price: $<%= fgigs[i].price %> <br>
-                                Description: <%= fgigs[i].description %><br>
-                            </p>
-                          </div>
-                        </div>
-                        <% } %>
-                    </div>
-                  </div>
-                </div>
+              <div class="bg-[var(--color2)] w-full h-12 flex items-center justify-end pr-6 rounded-3xl">
+                <a id="NewMessages" class="text-white hover:font-semibold">see all projects</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                <div id="invoices" class="w-full hidden overflow-y-scroll">
-                  <div
-                    class="bg-[var(--color1)] flex flex-col space-y-4 rounded-3xl pb-4 max-h-[42.5rem] overflow-y-scroll">
-                    <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your sales</h3>
-                    <div class="rounded-3xl w-11/12 h-full m-9">
+        <div class="w-full bg-[var(--color2)] flex flex-col space-y-6 pb-4 xl:h-1/3 rounded-3xl border-white border-8">
+          <h3 class="font-bold text-2xl pl-10 pt-6 text-white">Add a new gig</h3>
+          <a href="/uploadGigs">
+            <div class="w-full flex justify-center">
+              <button type="button" class="bg-[var(--color4)] text-6xl rounded-3xl m-2 w-10/12 h-28 p-2">
+                +
+              </button>
+            </div>
+          </a>
+        </div>
+      </div>
 
-                      <% for(i=0; i<sale_gig.length; i++) {%>
-                        <div
-                          class="bg-[var(--color2)] w-full flex items-center space-x-8 pl-8 rounded-3xl m-5 pt-5 pb-5">
-                          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
-                          <div>
-                            <span class="font-bold text-white text-xl">
-                              <%= sale_gig[i].name %>
-                            </span><br>
-                            <span class="text-white text-l">
-                              <%= sale_gig[i].subCategory %>
-                            </span>
-                            <p class="text-white">Price: $<%= sale_gig[i].price %> <br>
-                                Description: <%= sale_gig[i].description %><br>
-                                  Project request received: <%= sales[i].projectRequest %>
-                            </p>
-                          </div>
-                        </div>
-                        <% } %>
-                    </div>
-                  </div>
-                </div>
+      <!-- PROJECTS -->
+      <% if (orders) {%>
+      <div id="orders" class="w-full hidden overflow-y-scroll">
+        <div class="bg-[var(--color1)] flex flex-col space-y-4 rounded-3xl pb-4 max-h-[42.5rem] overflow-y-scroll">
+          <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your Orders</h3>
+          <div class="rounded-3xl w-11/12 h-full m-9">
+
+            <% for(i=0; i<orders.length; i++) {%>
+            <div class="bg-[var(--color2)] w-full flex items-center space-x-8 pl-8 rounded-3xl m-5 pt-5 pb-5">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
+              <div>
+                <span class="font-bold text-white text-xl">
+                  <%= gigs[i].name %>
+                </span><br>
+                <span class="text-white text-l">
+                  <%= gigs[i].subCategory %>
+                </span>
+                <p class="text-white">Price: $<%= gigs[i].price %> <br>
+                  Description: <%= gigs[i].description %><br>
+                  Project request sent: <%= orders[i].projectRequest %>
+                </p>
+              </div>
+            </div>
+            <% } %>
+
+          </div>
+        </div>
+      </div>
+      <% } %>
+
+      <% } else { %>
+
+      <!-- USER -->
+      <div id="users" class="w-full">
+        <div class="bg-[var(--color1)] flex flex-col lg:flex-row items-center justify-center space-y-12 rounded-3xl min-h-[42.5rem] box-border py-6 lg:py-0">
+          <div class="bg-[var(--color4)] h-[30.5rem] lg:h-[42.5rem] w-5/6 lg:w-1/2 rounded-3xl lg:rounded-r-none p-12 flex items-center justify-center">
+            <div class="h-full w-full lg:h-5/6 lg:w-5/6 bg-[var(--color1)] rounded-3xl flex flex-col items-center py-10 space-y-8">
+              <h1 class="text-white text-2xl font-bold">Profile</h1>
+              <div class="flex flex-col items-center w-4/6">
+                <p class="text-white">Name</p><br><br>
+                <p class="font-bold text-lg lg:text-xl text-white bg-[var(--color2)] w-full lg:w-72 rounded-xl text-center py-4">
+                  <%= user.firstName %>
+                  <%= user.lastName %>
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center ">
+                <p class="text-white">Email</p><br><br>
+                <p class="font-bold text-lg lg:text-xl text-white bg-[var(--color2)] w-full p-3 rounded-xl text-center py-4 ">
+                  <%= user.email %>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="h-full flex flex-col items-center justify-center space-y-4 w-1/2">
+            <img src="/images/becomeSeller.png" alt="img" class="w-64">
+            <button class="bg-[var(--color4)] py-2 px-3 rounded-lg hover:font-semibold"><a href="/seller-overview">Become a Seller</a></button>
+          </div>
+        </div>
+      </div>
+
+      <% } %>
+
+      <!-- PROJECTS -->
+      <% if (orders) {%>
+      <div id="orders" class="w-full hidden overflow-y-scroll">
+        <div class="bg-[var(--color1)] flex flex-col space-y-4 rounded-3xl pb-4 max-h-[42.5rem] overflow-y-scroll">
+          <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your Orders</h3>
+          <div class="rounded-3xl w-11/12 h-full m-9">
+
+            <% for(i=0; i<orders.length; i++) {%>
+            <div class="bg-[var(--color2)] w-full flex items-center space-x-8 pl-8 rounded-3xl m-5 pt-5 pb-5">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
+              <div>
+                <span class="font-bold text-white text-xl">
+                  <%= gigs[i].name %>
+                </span><br>
+                <span class="text-white text-l">
+                  <%= gigs[i].subCategory %>
+                </span>
+                <p class="text-white">Price: $<%= gigs[i].price %> <br>
+                  Description: <%= gigs[i].description %><br>
+                  Project request sent: <%= orders[i].projectRequest %>
+                </p>
+              </div>
+            </div>
+            <% } %>
+
+          </div>
+        </div>
+      </div>
+      <% } %>
+
+      <div id="projects" class="w-full hidden overflow-y-scroll">
+        <div class="bg-[var(--color1)] flex flex-col space-y-4 rounded-3xl pb-4 max-h-[42.5rem] overflow-y-scroll">
+          <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your Projects</h3>
+          <div class="rounded-3xl w-11/12 h-full m-9">
+            <% for(i=0; i<fgigs.length; i++) {%>
+            <div class="bg-[var(--color2)] w-full flex items-center space-x-8 pl-8 rounded-3xl m-5 pt-5 pb-5">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
+              <div>
+                <span class="font-bold text-white text-xl">
+                  <%= fgigs[i].name %>
+                </span><br>
+                <span class="text-white text-l">
+                  <%= fgigs[i].subCategory %>
+                </span>
+                <p class="text-white">Price: $<%= fgigs[i].price %> <br>
+                  Description: <%= fgigs[i].description %><br>
+                </p>
+              </div>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+
+      <div id="invoices" class="w-full hidden overflow-y-scroll">
+        <div class="bg-[var(--color1)] flex flex-col space-y-4 rounded-3xl pb-4 max-h-[42.5rem] overflow-y-scroll">
+          <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your sales</h3>
+          <div class="rounded-3xl w-11/12 h-full m-9">
+
+            <% for(i=0; i<sale_gig.length; i++) {%>
+            <div class="bg-[var(--color2)] w-full flex items-center space-x-8 pl-8 rounded-3xl m-5 pt-5 pb-5">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-16">
+              <div>
+                <span class="font-bold text-white text-xl">
+                  <%= sale_gig[i].name %>
+                </span><br>
+                <span class="text-white text-l">
+                  <%= sale_gig[i].subCategory %>
+                </span>
+                <p class="text-white">Price: $<%= sale_gig[i].price %> <br>
+                  Description: <%= sale_gig[i].description %><br>
+                  Project request received: <%= sales[i].projectRequest %>
+                </p>
+              </div>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
 
   </main>
 
@@ -342,7 +350,7 @@
   </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script>
-    $('#open').click(function () {
+    $('#open').click(function() {
       $('#modalOverlay').show().addClass('modal-open');
     });
 
@@ -413,7 +421,6 @@
       $("#orders").hide();
       $('#projects').hide();
     })
-
   </script>
 </body>
 
