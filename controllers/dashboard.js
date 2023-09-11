@@ -10,6 +10,8 @@ exports.getDashboard = (req, res, next) => {
 
   Gig.find({ freelancerEmail: req.session.user.email }).then((gig) => {
     fgigs = gig.map((orr) => orr);
+    console.log(fgigs);
+    
   });
 
   setTimeout(() => {
@@ -18,8 +20,10 @@ exports.getDashboard = (req, res, next) => {
         sale.forEach((s) => {
           sales.push(s);
         });
-
+        
         sale.forEach((i) => {
+          console.log(i);
+          
           Gig.findOne({ _id: i.gigId }).then((gig) => {
             sale_gig.push(gig);
           });
