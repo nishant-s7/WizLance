@@ -88,6 +88,9 @@ exports.displayMessages = (req, res) => {
   Messages.find({}).then((messages) => {
     return res.render("pages/display-messages", { messages });
   });
+exports.getDashboard = (req, res, next) => {
+  res.render("pages/admin-dashboard", { admin: req.session.user });
+
 };
 
 exports.contactAdmin = (req, res) => {
@@ -105,38 +108,40 @@ exports.contactAdmin = (req, res) => {
   return res.redirect("/contact");
 };
 
-const transport = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "wiz.project13@gmail.com",
-    pass: "cxtdpaqbbnacvtft",
-  },
-});
-
-exports.getDashboard = (req, res, next) => {
-  res.render("pages/admin-dashboard", { admin: req.session.user });
-};
-
 exports.postMail = (req, res, next) => {
   const subject = req.body.mailSubject;
   const message = req.body.mailMessage;
+  console.log(subject, message);
+
+  const transport = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "wiz.project13@gmail.com",
+      pass: "cxtdpaqbbnacvtft",
+    },
+  });
+
   User.find({}, { email: 1 })
     .then((emails) => {
-      res.redirect("/admin-dashboard");
       return emails.forEach((e) => {
-        console.log(`Mail sent to ${e}`);
-        transport.sendMail({
-          to: e,
-          from: "wiz.project13@gmail.com",
+     const   mailOptions = {
+         to: e.email,
+          form: "wiz.project13@gmail.com",
           subject: subject,
           html: message,
-        });
+        };
+
+        transport.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              return res.status(500).send(error.toString());
+            }
+            res.status(200).send("Email sent: " + info.response);
+          });
       });
     })
     .catch((err) => {
       console.log(err);
     });
-};
 
 exports.getMailPage = (req, res, next) => {
   res.render("pages/admin-sendMail");

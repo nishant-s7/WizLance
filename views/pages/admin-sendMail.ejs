@@ -11,13 +11,84 @@
     <%- include('../partials/header-admin') %>
   </header>
 
-  <div class="p-10">
-    <form action="/sendMail" method="post" class="flex flex-col items-center text-xs">
+  <!-- <div class="p-10">
+    <form id="mailForm" action="" method="" class="flex flex-col items-center text-xs">
       <input type="text" name="mailSubject" class="rounded-md p-2 m-1 mb-4 w-4/5 border-2 border-black" placeholder="Enter subject">
       <textarea name="mailMessage" id="mailMessage" placeholder="Enter message" rows="10" class="rounded-md p-2 m-1 mb-4 w-4/5  border-2 border-black focus:border-none" required></textarea>
-
-      <button type="submit" class="text-gray-200 hover:text-white hover:opacity-90  rounded-lg bg-[var(--color1)] w-4/5 py-3 focus:border-none">Send</button>
+  
+      <button type="submit" class="text-gray-200 hover:text-white hover:opacity-90  rounded-lg bg-[var(--color1)] w-4/5 py-3 focus:border-none">Submit </button>
     </form>
   </div>
+  
+  <script>
+    document.getElementById('mailForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+    
+      var mailSubject = document.querySelector('input[name="mailSubject"]').value;
+      var mailMessage = document.querySelector('textarea[name="mailMessage"]').value;
+    
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/sendMail', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 400) {
+          alert('Mail sent successfully!');
+          console.log("Mail is sented");
+          
+          console.log(xhr.responseText);
+        } else {
+          alert('Error sending email');
+          console.log('not mail is come');
+          
+          console.error(xhr.statusText);
+        }
+      };
+    
+      xhr.onerror = function () {
+        console.error('Request failed');
+      };
+    
+      xhr.send('mailSubject=' + encodeURIComponent(mailSubject) + '&mailMessage=' + encodeURIComponent(mailMessage));
+    });
+    
+     -->
+
+     <div class="p-10">
+      <form id="emailForm" class="flex flex-col items-center text-xs">
+        <input type="text" name="mailSubject" class="rounded-md p-2 m-1 mb-4 w-4/5 border-2 border-black" placeholder="Enter subject">
+        <textarea name="mailMessage" id="mailMessage" placeholder="Enter message" rows="10" class="rounded-md p-2 m-1 mb-4 w-4/5  border-2 border-black focus:border-none" required></textarea>
+    
+        <button type="submit" id="form-submit-button" class="text-gray-200 hover:text-white hover:opacity-90  rounded-lg bg-[var(--color1)] w-4/5 py-3 focus:border-none">Send</button>
+      </form>
+    </div>
+    
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#emailForm').submit(function(e) {
+                e.preventDefault();
+                $('#form-submit-button').prop('disabled', true);
+
+                var data = $(this).serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: '/sendMail',
+                    data: data,
+                    success: function(response) {
+                        alert('Email sent successfully!');
+                        $('#form-submit-button').prop('disabled', false);
+                        $('#emailForm input, #emailForm textarea').val('');
+                    },
+                    error: function(error) {
+                        alert('Error: ' + error.responseText);
+                        $('#emailForm input, #emailForm textarea').val('');
+                    }
+                });
+            });
+        });
+    </script>
+  
 
 </body>
