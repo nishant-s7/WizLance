@@ -1,10 +1,12 @@
 :root{
-    --color1:  #0B0C10;
-    --color2:  #1F2833;
-    --color3:  #C5C6C7; 
-    --color4:  #66FCF1;
-    --color5:  #45A29E;
-
+    --color1:  #fcf7f8;
+    --color2:  #211c4f;
+    --color3:  #bab0ba; 
+    --color4:  #eeaeb1;
+    --color5:  #7d7ebe;
+    --color6:  #e6561a;
+    --color7:  #f0ac39;
+    --color8:  #322645
     font-family: 'Raleway', 'sans-serif';
 }
 
