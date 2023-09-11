@@ -1,36 +1,36 @@
 <head>
   <%- include('../partials/head') %>
-    <script src="https://kit.fontawesome.com/f65ddbb7ce.js" crossorigin="anonymous"></script>
-    <style>
-      .input-symbol-euro {
-        position: relative;
-      }
+  <script src="https://kit.fontawesome.com/f65ddbb7ce.js" crossorigin="anonymous"></script>
+  <style>
+    .input-symbol-euro {
+      position: relative;
+    }
 
-      .input-symbol-euro input {
-        padding-left: 30px;
-      }
+    .input-symbol-euro input {
+      padding-left: 30px;
+    }
 
-      .input-symbol-euro:before {
-        position: absolute;
-        top: 36;
-        left: -20;
-        content: "$";
-        color: white;
-        margin-right: 30px
-      }
+    .input-symbol-euro:before {
+      position: absolute;
+      top: 36;
+      left: -20;
+      content: "$";
+      color: white;
+      margin-right: 30px
+    }
 
-      input[type=number]::-webkit-inner-spin-button,
-      input[type=number]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
 
-      canvas {
-        width: 200px;
-        height: 100px;
-        border: 2px solid;
-      }
-    </style>
+    canvas {
+      width: 200px;
+      height: 100px;
+      border: 2px solid;
+    }
+  </style>
 </head>
 
 <body>
@@ -48,19 +48,15 @@
         <img src="/images/signup.svg" class=" h-60">
       </div>
       <section class="max-w-lg max-h-[550px] p-6 mx-auto bg-indigo-600 rounded-md shadow-md my-10 dark:bg-gray-800 ">
-        <form action="/addGigs" method="post">
+        <form action="/addGigs" method="post" enctype="multipart/form-data">
           <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             <div>
               <label class="text-white dark:text-gray-200" for="username">Gig</label>
-              <input id="username" type="text"
-                class="block w-[200%] px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                name="GigName">
+              <input id="username" type="text" class="block w-[200%] px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" name="GigName">
             </div><br>
             <div>
               <label class="text-white dark:text-gray-200" for="main-dropdown">Select Category</label>
-              <select id="main-dropdown" onchange="updateSecondaryDropdown()"
-                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                name="Category">
+              <select id="main-dropdown" onchange="updateSecondaryDropdown()" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" name="Category">
                 <option value="">Select an option</option>
                 <option value="Graphic Design">Graphic & Design</option>
                 <option value="Music Audio">Music & Audio</option>
@@ -75,37 +71,30 @@
             <div>
               <label class="text-white dark:text-gray-200" for="secondary-dropdown">Select Sub-Category</label>
 
-              <select id="secondary-dropdown" required
-                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                name="subCategory">
+              <select id="secondary-dropdown" required class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" name="subCategory">
                 <option value="">Select an option</option>
               </select>
             </div>
             <div>
               <label class="text-white dark:text-gray-200">Description</label>
-              <textarea name="description" id="textarea" type="textarea"
-                class="block  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
+              <textarea name="description" id="textarea" type="textarea" class="block  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
             </div>
             <div>
               <label class="text-white dark:text-gray-200" for="username">Price</label>
               <span class="input-symbol-euro">
-                <input name="price" step=any id="username" type="number"
-                  class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                  autocomplete="off">
+                <input name="price" step=any id="username" type="number" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" autocomplete="off">
               </span>
             </div>
             <div class="">
-              <label for="" class="text-white">Image Url
-                <input type="text" class="text-black" name="imageValue">
+              <label for="image" class="text-white">
+                <input type="file" class="text-black" name="image" id="image">
               </label>
             </div>
 
           </div>
           <div>
             <div class="flex  flex-col justify-center mt-20">
-              <button
-                class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600"
-                type="submit">Save</button>
+              <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600" type="submit">Save</button>
             </div>
           </div>
     </div>
@@ -120,9 +109,7 @@
     <%- include('../partials/footer') %>
   </footer>
   <script async="" src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
-    integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/js/seller-form.js">
 
   </script>
