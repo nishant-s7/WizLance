@@ -29,9 +29,9 @@ exports.getCategories = (req, res, next) => {
 exports.getSubCategories = (req, res, next) => {
   const category = req.params.pages;
   const subCategory = req.params.categories;
-
   Gig.find({ subCategory })
     .then((gigs) => {
+      console.log(gigs);
       res.render("pages/result-template", {
         category,
         subCategory,
@@ -50,8 +50,9 @@ exports.getGigs = (req, res, next) => {
 
   Gig.findOne({ name: gig })
     .then((gig) => {
-      const userIsFreelancer = req.session.user.email === gig.freelancerEmail;
+      console.log(gig);
       const freelancerEmail = gig.freelancerEmail;
+      const userIsFreelancer = req.session.user.email === freelancerEmail;
       User.findOne({ isFreelancer: true, email: freelancerEmail }).then(
         (freelancer) => {
           res.render("pages/profile-templates", {
