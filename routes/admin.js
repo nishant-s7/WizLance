@@ -21,4 +21,6 @@ router.post("/sendMail", adminController.postMail);
 router.get("/admin-sendMail", adminController.getMailPage);
 
 router.get("/search-categories", ajaxController.searchCategories);
+router.get("/search-users", ajaxController.searchUsers);
+
 module.exports = router;

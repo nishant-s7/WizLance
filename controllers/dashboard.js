@@ -2,57 +2,53 @@ const User = require("../models/user");
 const Gig = require("../models/gig");
 const Orders = require("../models/orders");
 
-exports.getDashboard = (req, res, next) => {
-  let gigs = [];
-  let fgigs = [];
-  let sales = [];
-  let sale_gig = [];
-
-  Gig.find({ freelancerEmail: req.session.user.email }).then((gig) => {
-    fgigs = gig.map((orr) => orr);
+exports.getDashboard = async (req, res, next) => {
+  try {
+    const gig = await Gig.find({ freelancerEmail: req.session.user.email });
+    const fgigs = gig.map((orr) => orr);
     console.log(fgigs);
-    
-  });
 
-  setTimeout(() => {
-    for (i = 0; i < fgigs.length; i++) {
-      Orders.find({ gigId: fgigs[i]._id }).then((sale) => {
-        sale.forEach((s) => {
-          sales.push(s);
-        });
-        
-        sale.forEach((i) => {
-          console.log(i);
-          
-          Gig.findOne({ _id: i.gigId }).then((gig) => {
-            sale_gig.push(gig);
-          });
-        });
-      });
-    }
-  }, 500);
+    const salesPromises = fgigs.map((fgig) => {
+      return Orders.find({ gigId: fgig._id });
+    });
 
-  Orders.find({ userEmail: req.session.user.email }).then((orders) => {
-    orders.forEach((order) => {
-      Gig.findOne({ _id: order.gigId }).then((gig) => {
-        gigs.push(gig);
+    const salesResults = await Promise.all(salesPromises);
+
+    const sales = [];
+    const sale_gig = [];
+
+    salesResults.forEach((saleList) => {
+      saleList.forEach((s) => {
+        sales.push(s);
       });
     });
 
-    setTimeout(() => {
-      res.render("pages/dashboard", {
-        user: req.session.user,
-        orders,
-        gigs,
-        fgigs,
-        sales,
-        sale_gig,
-      });
-    }, 3000);
-  });
+    for (const sale of sales) {
+      const gig = await Gig.findOne({ _id: sale.gigId });
+      sale_gig.push(gig);
+    }
+
+    const orders = await Orders.find({ userEmail: req.session.user.email });
+
+    const gigPromises = orders.map((order) => {
+      return Gig.findOne({ _id: order.gigId });
+    });
+
+    const gigs = await Promise.all(gigPromises);
+
+    res.render("pages/dashboard", {
+      user: req.session.user,
+      orders,
+      gigs,
+      fgigs,
+      sales,
+      sale_gig,
+    });
+  } catch (error) {
+    console.log("Dashboard ERR");
+    console.log(error);
+  }
 };
-
-
 
 exports.getSellerForm = (req, res, next) => {
   res.render("pages/freelancer-form");
