@@ -88,6 +88,7 @@ exports.displayMessages = (req, res) => {
   Messages.find({}).then((messages) => {
     return res.render("pages/display-messages", { messages });
   });
+}
 exports.getDashboard = (req, res, next) => {
   res.render("pages/admin-dashboard", { admin: req.session.user });
 
@@ -124,25 +125,25 @@ exports.postMail = (req, res, next) => {
   User.find({}, { email: 1 })
     .then((emails) => {
       return emails.forEach((e) => {
-     const   mailOptions = {
-         to: e.email,
+        const mailOptions = {
+          to: e.email,
           form: "wiz.project13@gmail.com",
           subject: subject,
           html: message,
         };
 
         transport.sendMail(mailOptions, (error, info) => {
-            if (error) {
-              return res.status(500).send(error.toString());
-            }
-            res.status(200).send("Email sent: " + info.response);
-          });
+          if (error) {
+            return res.status(500).send(error.toString());
+          }
+          res.status(200).send("Email sent: " + info.response);
+        });
       });
     })
     .catch((err) => {
       console.log(err);
     });
-
+}
 exports.getMailPage = (req, res, next) => {
   res.render("pages/admin-sendMail");
 };
