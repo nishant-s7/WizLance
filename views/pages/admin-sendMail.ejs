@@ -11,13 +11,16 @@
     <%- include('../partials/header-admin') %>
   </header>
 
-  <div class="p-10">
-    <form action="/sendMail" method="post" class="flex flex-col items-center text-xs">
-      <input type="text" name="mailSubject" class="rounded-md p-2 m-1 mb-4 w-4/5 border-2 border-black" placeholder="Enter subject">
-      <textarea name="mailMessage" id="mailMessage" placeholder="Enter message" rows="10" class="rounded-md p-2 m-1 mb-4 w-4/5  border-2 border-black focus:border-none" required></textarea>
+  <div class="flex flex-col items-center rounded-xl">
 
-      <button type="submit" class="text-gray-200 hover:text-white hover:opacity-90  rounded-lg bg-[var(--color1)] w-4/5 py-3 focus:border-none">Send</button>
-    </form>
+    <div class="p-10 w-3/5 bg-[var(--color4)] rounded-xl">
+      <form action="/sendMail" method="post" class="flex flex-col items-center text-xs">
+        <input type="text" name="mailSubject" class="rounded-md p-2 m-1 mb-4 w-4/5 border-2 border-black" placeholder="Enter subject">
+        <textarea name="mailMessage" id="mailMessage" placeholder="Enter message" rows="10" class="rounded-md p-2 m-1 mb-4 w-4/5  border-2 border-black focus:border-none" required></textarea>
+        
+        <button type="submit" class="text-gray-200 hover:text-white hover:opacity-90  rounded-lg bg-[var(--color2)] w-4/5 py-3 focus:border-none">Send</button>
+      </form>
+    </div>
   </div>
 
 </body>
