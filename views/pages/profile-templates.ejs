@@ -61,16 +61,16 @@
     </div>
   </div>
 
-  <div class="content flex">
-    <div>
-      <h1 class="text-2xl ml-20  mt-11"><%= gig.name %></h1>
-      <p class="text-base ml-20 mt-10 w-2/4"><%= gig.description %></p>
+  <div class="content flex flex-row gap-[40%] max-md:flex-col max-md:gap-10  px-10">
+    <div class="">
+      <h1 class="text-2xl mt-11"><%= gig.name %></h1>
+      <p class="text-base  mt-10 "><%= gig.description %></p>
     </div>
 
-    <div class="">
-      <div class="w-max  h-auto mt-16 rounded overflow-hidden shadow-lg  border-blue-400 border-2 flex-col">
-        <div class="font-bold text-xl mb-2 m-7">Price : $<%= gig.price %> <span class="text-sm">/hr</span></div>
-        <div class="px-5 py-10 pt-4">
+    <div class="flex max-md:justify-center ">
+      <div class=" h-auto mt-10 rounded overflow-hidden shadow-lg  p-10  border-blue-400 border-2 flex-col ">
+        <div class="font-bold text-xl">Price : $<%= gig.price %> <span class="text-sm">/hr</span></div>
+        <div class="px-2 py-10 pt-4">
 
           <p class="text-gray-700 text-base">
             <%= gig.subCategory %> </p>
