@@ -2,46 +2,93 @@
 <html lang="en">
 
 <head>
-    <%- include('../partials/head') %>
+  <%- include('../partials/head') %>
 </head>
+
 <body>
-    <header>
-        <%- include('../partials/header-admin') %>
-      </header>
+  <header>
+    <%- include('../partials/header-admin') %>
+  </header>
+  <div>
     <div>
-        <table class="table-auto w-full">
-            <thead class="bg-[var(--color2)]">
+      <input type="text" id="search" name="search" placeholder="search">
+    </div>
+    <table class="table-auto w-full">
+      <thead class="bg-[var(--color2)]">
+        <tr>
+          <th class="text-white py-2">First Name</th>
+          <th class="text-white py-2">Last Name</th>
+          <th class="text-white py-2">Email</th>
+
+        </tr>
+      </thead>
+      <tbody id="tabBody">
+        <% users.forEach(user => {%>
+        <tr>
+          <td class="text-black py-2 text-center"><%= user.firstName %></td>
+          <td class="text-black py-2 text-center"><%= user.lastName %></td>
+          <td class="text-black py-2 text-center"><%= user.email %></td>
+        </tr>
+        <%}) %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="my-4 text-center text-3xl font-extrabold">Delete details</div>
+  <div class="flex flex-col text-center">
+    <form action="/admin-delete" method="post">
+      <select name="deleteFromEmail">
+        <% users.forEach(user => {%>
+        <option value="<%= user.email %>"><%= user.email %></td>
+          <%}) %>
+
+      </select>
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#search').on('input', function() {
+        const query = $(this).val();
+        $.ajax({
+          url: '/search-users',
+          type: 'GET',
+          data: {
+            query: query
+          },
+          dataType: 'JSON',
+          success: function(data) {
+            users = data;
+            console.log(users);
+
+            const tabBody = document.getElementById('tabBody');
+            let html = '';
+
+            data.users.forEach(user => {
+              html += `
+            <tr>
               <tr>
-                <th class="text-white py-2">First Name</th>
-                <th class="text-white py-2">Last Name</th>
-                <th class="text-white py-2">Email</th>
-                
+                <td class="text-black py-2 text-center"> ${user.firstName}</td>
+                <td class="text-black py-2 text-center"> ${user.lastName}</td>
+                <td class="text-black py-2 text-center"> ${user.email}</td>
               </tr>
-            </thead>
-            <tbody>
-                <% users.forEach(user => {%> 
-                    <tr>
-                        <td class="text-black py-2 text-center"><%= user.firstName %></td>
-                        <td class="text-black py-2 text-center"><%= user.lastName %></td>
-                        <td class="text-black py-2 text-center"><%= user.email %></td>
-                    </tr>
-                <%}) %>
-            </tbody>
-        </table>
-    </div>
+            </tr>
+            `;
+            });
 
-
-    <div class="my-4 text-center text-3xl font-extrabold">Delete details</div>
-    <div class="flex flex-col text-center">
-        <form action="/admin-delete" method="post">
-            <select name="deleteFromEmail">
-                <% users.forEach(user => {%> 
-                        <option value="<%= user.email %>"><%= user.email %></td>
-                <%}) %>
-
-            </select>
-            <button type="submit">Delete</button>
-          </form>
-    </div>
+            tabBody.innerHTML = html;
+          },
+          error: function(err) {
+            console.log("ERRRRRR");
+            console.log(err);
+          }
+        });
+      });
+    });
+  </script>
 </body>
+
 </html>
