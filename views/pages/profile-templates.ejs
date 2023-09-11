@@ -68,7 +68,7 @@
     </div>
 
     <div class="flex max-md:justify-center ">
-      <div class=" h-auto mt-10 rounded overflow-hidden shadow-lg  p-10  border-blue-400 border-2 flex-col ">
+      <div class=" h-auto mt-10 rounded overflow-hidden shadow-lg  p-10  border-[var(--color5)] border-2 flex-col ">
         <div class="font-bold text-xl">Price : $<%= gig.price %> <span class="text-sm">/hr</span></div>
         <div class="px-2 py-10 pt-4">
 
@@ -81,7 +81,7 @@
           <% if (userIsFreelancer ) { %>
 
           <% } else { %>
-          <a href="/<%= category %>/<%= subCategory %>/<%= gig.name %>/payment"><button type="button" id="open" class="w-52  bg-blue-500 font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+          <a href="/<%= category %>/<%= subCategory %>/<%= gig.name %>/payment"><button type="button" id="open" class="w-52  bg-[var(--color2)] font-semibold text-white py-2 px-4 border border-[var(--color5)] hover:border-transparent rounded">
               Hire
             </button></a>
           <% } %>

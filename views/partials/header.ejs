@@ -1,18 +1,18 @@
-<div class="bg-[var(--color1)] text-base text-gray-100 flex flex-col flex-wrap items-center sm:flex-row sm:justify-between p-2">
+<div class="bg-[var(--color2)] text-lg text-[var(--color5)] flex flex-col flex-wrap items-center sm:flex-row sm:justify-between p-2">
 
 
   <span class='font-extrabold ml-3'><a href="/mainpage"><img src="/images/WizlanceLogo.png" width="180px"></a></span>
   <nav class="flex items-center text-base">
     <% if (user.isAdmin) { %>
-    <a href="/admin-dashboard" class="pr-6 text-cyan-300">Admin</a>
+    <a href="/admin-dashboard" class="pr-6 text-purple-700">Admin</a>
     <% } %>
     <p class="m-1 hidden sm:block">Search</p>
     <form action="/search" method="post">
-      <input type="text" class="hidden sm:block text-black search-inp rounded-lg m-4 p-1" name="query" placeholder="search here">
+      <input type="text" class="hidden sm:block text-[var(--color2)] search-inp rounded-lg m-4 p-1" name="query" placeholder="search here">
     </form>
     <div class="max-w-lg mx-auto">
 
-      <button class="h-11 w-11  bg-[var(--color5)] font-bold rounded-full border-2 border-[var(--color1)]" type="button" data-dropdown-toggle="dropdown"><%= profileLogo %></button>
+      <button class="h-11 w-11  bg-[var(--color2)] font-bold rounded-full border-2 border-[var(--color1)]" type="button" data-dropdown-toggle="dropdown"><%= profileLogo %></button>
 
       <div class="hidden bg-white text-base z-50 list-none divide-x divide-gray-100 rounded shadow my-4" id="dropdown">
 
