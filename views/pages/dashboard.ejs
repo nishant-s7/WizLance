@@ -115,11 +115,11 @@
                 </div>
               </div>
               <% } %>
-              <% if(i=2){break;} %>
+              <% if(i==2){break;} %>
               <% } %>
 
-              <div class="bg-[var(--color2)] w-full h-12 flex items-center justify-end pr-6  rounded-b-3xl">
-                <a id="YourMessages" class="text-white hover:font-semibold text-sm" >see all projects</a>
+              <div class="bg-[var(--color2)] w-full mt-6  h-12 flex items-center justify-end pr-6  rounded-b-3xl">
+                <a id="YourMessages" class="text-white hover:font-semibold text-sm">see all projects</a>
               </div>
             </div>
           </div>
@@ -158,7 +158,7 @@
             </div>
           </div>
 
-          <div class="bg-[var(--color5] row-span-3 flex flex-col space-y-4 justify-center rounded-3xl border-white border-8 pb-4">
+          <div class="bg-[var(--color5)] row-span-3 flex flex-col space-y-4 justify-center rounded-3xl border-white border-8 pb-4">
             <h3 class="font-bold text-2xl pl-9 pt-4 text-white">Your Projects</h3>
             <div class="rounded-3xl w-10/12 h-60 m-9">
               <% for(i=0;i<orders.length;i++) {%>
@@ -178,10 +178,10 @@
                 </div>
               </div>
               <% } %>
-              <% if(i=2){break;} %>
+              <% if(i==2){break;} %>
               <% } %>
 
-              <div class="bg-[var(--color2)] w-full h-12 flex items-center justify-end pr-6 rounded-3xl">
+              <div class="bg-[var(--color2)] w-full h-12 mt-5 flex items-center justify-end pr-6 rounded-3xl">
                 <a id="NewMessages" class="text-white hover:font-semibold pt-2">see all projects</a>
               </div>
             </div>
