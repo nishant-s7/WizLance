@@ -23,7 +23,10 @@ const userSchema = new Schema({
   isFreelancer: Boolean,
   isAdmin: Boolean,
   freelancerSkills: [String],
-  freelancerRating: Number,
+  freelancerRating: {
+    type: Number,
+    default: 0,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);

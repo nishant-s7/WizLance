@@ -36,6 +36,8 @@ exports.getDashboard = async (req, res, next) => {
 
     const gigs = await Promise.all(gigPromises);
 
+    console.log("USER");
+    console.log(req.session.user);
     res.render("pages/dashboard", {
       user: req.session.user,
       orders,
