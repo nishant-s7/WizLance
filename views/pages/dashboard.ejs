@@ -18,10 +18,10 @@
 
         <div class="h-2/6 w-full flex flex-col items-center">
           <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" class="h-36 pt-14">
-          <h1 class="text-center font-bold text-lg text-white">
+          <h1 class="text-center font-bold text-lg text-[var(--color8)]">
             <%= user.firstName %>
           </h1>
-          <div class="text-center bg-[var(--color4)] text-[var(--color5)] font-semibold rounded-2xl p-2">
+          <div class="text-center bg-[var(--color2)] text-[var(--color5)] font-semibold rounded-2xl p-2">
             <% if(user.isFreelancer){%>Freelancer<%} else {%>User<% } %>
           </div>
         </div>
@@ -76,14 +76,14 @@
 
             <div class="bg-[var(--color2)] w-1/2 box-border rounded-3xl border-white border-8">
               <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
-                <div class="bg-[var(--color5)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
+                <div class="bg-[var(--color2)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
                   <%= user.freelancerRating %>
                 </div>
                 <p class="font-bold text-2xl">Rating</p>
               </div>
 
               <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
-                <div class="bg-[var(--color5)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
+                <div class="bg-[var(--color2)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
                   <%= fgigs.length %>
                 </div>
                 <p class="font-bold text-2xl">Projects</p>
@@ -143,14 +143,14 @@
 
             <div class="bg-[var(--color2)] w-1/2 h-full box-border rounded-3xl border-white border-8">
               <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
-                <div class="bg-[var(--color5)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
+                <div class="bg-[var(--color2)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
                   <%= user.freelancerRating %>
                 </div>
                 <span class="font-bold text-2xl">Rating</span>
               </div>
 
               <div class="bg-[var(--color4)] w-full h-1/2 border-[var(--color2)] border-[1rem] rounded-[2.5rem] flex items-center pl-4 space-x-4">
-                <div class="bg-[var(--color5)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
+                <div class="bg-[var(--color2)] h-20 w-20 rounded-2xl text-white flex items-center justify-center text-2xl">
                   <%= fgigs.length %>
                 </div>
                 <span class="font-bold text-2xl">Projects</span>
