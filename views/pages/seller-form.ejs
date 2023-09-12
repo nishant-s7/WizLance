@@ -80,9 +80,9 @@
               <textarea name="description" id="textarea" type="textarea" class="block  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
             </div>
             <div>
-              <label class="text-white dark:text-gray-200" for="username">Price</label>
+              <label class="text-white dark:text-gray-200" for="price">Price</label>
               <span class="input-symbol-euro">
-                <input name="price" step=any id="username" type="number" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" autocomplete="off">
+                <input name="price" step=any id="price" type="number" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" autocomplete="off">
               </span>
             </div>
             <div class="">
@@ -112,6 +112,28 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/js/seller-form.js">
 
+  </script>
+  <script>
+    const gigName = document.getElementById('username')
+    const desc = document.getElementById('textarea')
+
+    const alphanumericRegex = /^[a-zA-Z0-9\s]+$/;
+    gigName.addEventListener("blur", () => {
+      if (!alphanumericRegex.test(gigName.value)) {
+        gigName.setCustomValidity("Please enter only alphabets and numbers!");
+        gigName.reportValidity();
+      } else {
+        gigName.setCustomValidity("");
+      }
+    });
+    desc.addEventListener("blur", () => {
+      if (!alphanumericRegex.test(desc.value)) {
+        desc.setCustomValidity("Please enter only alphabets and numbers!");
+        desc.reportValidity();
+      } else {
+        desc.setCustomValidity("");
+      }
+    });
   </script>
 
 </body>

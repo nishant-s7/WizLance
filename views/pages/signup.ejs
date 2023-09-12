@@ -13,7 +13,7 @@
         <h1 class="text-3xl text-[var(--color2)] font-bold md:text-5xl">Outsourcing work has<br> never been easier.</h1>
         <p class="my-3 text-center">Join the community</p>
         <hr>
-        
+
         <div class="flex justify-around">
           <p class="my-3 mb-6">Already a member?
             <button class="border-2 m-1 ml-12 p-1 rounded-lg text-white bg-[var(--color2)]"><a href="/login">Login</a></button>
@@ -58,10 +58,6 @@
     const passwordInput = document.getElementById("password");
 
     const firstNameRegex = /^[a-zA-Z]+$/;
-    const lastNameRegex = /^[a-zA-Z]+$/;
-    const emailRegex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z\-\.])+\.([A-Za-z]{2,4})$/;
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$ /;
-
     firstNameInput.addEventListener("blur", () => {
       if (!firstNameRegex.test(firstNameInput.value)) {
         firstNameInput.setCustomValidity("Please enter only alphabets!");
@@ -71,6 +67,7 @@
       }
     });
 
+    const lastNameRegex = /^[a-zA-Z]+$/;
     lastNameInput.addEventListener("blur", () => {
       if (!lastNameRegex.test(lastNameInput.value)) {
         lastNameInput.setCustomValidity("Please enter only alphabets!");
@@ -80,6 +77,7 @@
       }
     });
 
+    const emailRegex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z\-\.])+\.([A-Za-z]{2,4})$/;
     emailInput.addEventListener("blur", () => {
       if (!emailRegex.test(emailInput.value)) {
         emailInput.setCustomValidity("Please enter a valid email address!");
@@ -89,6 +87,7 @@
       }
     });
 
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     passwordInput.addEventListener("blur", () => {
       if (!passwordRegex.test(passwordInput.value)) {
         passwordInput.setCustomValidity("Password should be at least 8 characters long, and contain at least one digit, one lowercase and one uppercase letter.");
